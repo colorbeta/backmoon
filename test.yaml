@@ -81,10 +81,6 @@ proxy-groups:
     type: select
     proxies: [DIRECT, PROXY, AUTO]
 
-  - name: FINAL
-    type: select
-    proxies: [PROXY, AUTO, DIRECT]
-
   - name: AUTO
     type: url-test
     use: [Airport]
@@ -129,7 +125,9 @@ proxy-groups:
     use: [Airport]
 
 rules:
+  - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
   - RULE-SET,private,DIRECT
+  - RULE-SET,adblock,REJECT
   - RULE-SET,ai,AI
   - RULE-SET,telegram,TELEGRAM
   - RULE-SET,youtube,STREAMING
@@ -146,7 +144,7 @@ rules:
   - RULE-SET,china,DIRECT
   - RULE-SET,china_ip,DIRECT
   - GEOIP,CN,DIRECT
-  - MATCH,FINAL
+  - MATCH,PROXY
 
 rule-providers:
   private: &rule
@@ -155,6 +153,12 @@ rule-providers:
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/private.yaml
     path: ./rule/private.yaml
     interval: 86400
+  adblock:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/adblock.yaml
+    path: ./rule/adblock.yaml
+    interval: 28800
   ai:
     <<: *rule
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ai.yaml

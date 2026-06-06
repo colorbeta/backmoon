@@ -3,6 +3,12 @@
 These files are mirrored locally so the shared configuration depends only on
 the `colorbeta/backmoon` repository at runtime.
 
+## 217heidai/adblockfilters
+
+- `adblock.yaml`: `rules/adblockmihomo.yaml` full advertising-domain list
+
+Source repository: https://github.com/217heidai/adblockfilters
+
 ## dler-io/Rules
 
 - `private.yaml`: `Clash/Provider/LAN.yaml`

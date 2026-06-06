@@ -16,4 +16,7 @@
 - Uses `classical` YAML rule providers hosted in this repository instead of `.mrs`.
 - Provides an independent `AI` policy group.
 - Provides global and regional `url-test` groups for large node collections.
+- Blocks advertising domains using the locally mirrored 217heidai list.
+- Sends `192.168.50.0/24` directly for home and office LAN access.
+- Sends every unmatched connection through `PROXY`.
 - Keeps client-specific TUN/sniffer settings out of the shared file; configure those in each client UI.
