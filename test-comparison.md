@@ -15,6 +15,7 @@
 - Uses conservative Clash-compatible fields shared by OpenClash/Mihomo, FlClash, and Stash.
 - Uses `classical` YAML rule providers hosted in this repository instead of `.mrs`.
 - Provides an independent `AI` policy group.
+- Provides an independent `GOOGLE-FCM` policy group for Android push reliability.
 - Provides global and regional `url-test` groups for large node collections.
 - Blocks advertising domains using the locally mirrored 217heidai list.
 - Sends `192.168.50.0/24` directly for home and office LAN access.

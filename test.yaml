@@ -69,6 +69,10 @@ proxy-groups:
     type: select
     proxies: [AUTO, HK-AUTO, JP-AUTO, SG-AUTO, US-AUTO, MANUAL]
 
+  - name: GOOGLE-FCM
+    type: select
+    proxies: [SG-AUTO, HK-AUTO, JP-AUTO, AUTO, MANUAL]
+
   - name: GITHUB
     type: select
     proxies: [AUTO, HK-AUTO, JP-AUTO, SG-AUTO, US-AUTO, MANUAL]
@@ -133,6 +137,7 @@ rules:
   - RULE-SET,youtube,STREAMING
   - RULE-SET,netflix,STREAMING
   - RULE-SET,spotify,STREAMING
+  - RULE-SET,google_fcm,GOOGLE-FCM
   - RULE-SET,google,GOOGLE
   - RULE-SET,github,GITHUB
   - RULE-SET,onedrive,MICROSOFT
@@ -183,6 +188,10 @@ rule-providers:
     <<: *rule
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
     path: ./rule/google.yaml
+  google_fcm:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_fcm.yaml
+    path: ./rule/google_fcm.yaml
   github:
     <<: *rule
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/github.yaml

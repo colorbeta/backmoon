@@ -30,6 +30,7 @@ Source repository: https://github.com/dler-io/Rules
 ## blackmatrix7/ios_rule_script
 
 - `google.yaml`: `rule/Clash/Google/Google.yaml`
+- `google_fcm.yaml`: `rule/Clash/GoogleFCM/GoogleFCM.yaml`
 - `github.yaml`: `rule/Clash/GitHub/GitHub.yaml`
 - `onedrive.yaml`: `rule/Clash/OneDrive/OneDrive.yaml`
 
