@@ -1,0 +1,230 @@
+# Cross-client proxy configuration
+# Targets: OpenClash/Mihomo, FlClash (Windows/Android), Stash (iOS)
+# Replace the subscription URL before use.
+
+mixed-port: 7890
+allow-lan: true
+bind-address: "*"
+mode: rule
+log-level: warning
+ipv6: false
+external-controller: 127.0.0.1:9090
+secret: ""
+unified-delay: true
+
+profile:
+  store-selected: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - localhost.ptlogin2.qq.com
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - time.*.com
+    - "+.pool.ntp.org"
+
+proxy-providers:
+  Airport:
+    type: http
+    url: "https://example.com/replace-with-your-subscription"
+    interval: 3600
+    path: ./providers/airport.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: https://www.gstatic.com/generate_204
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies: [AUTO, HK-AUTO, JP-AUTO, SG-AUTO, US-AUTO, MANUAL, DIRECT]
+
+  - name: AI
+    type: select
+    proxies: [US-AUTO, SG-AUTO, JP-AUTO, AUTO, MANUAL]
+
+  - name: TELEGRAM
+    type: select
+    proxies: [SG-AUTO, HK-AUTO, AUTO, MANUAL]
+
+  - name: STREAMING
+    type: select
+    proxies: [AUTO, HK-AUTO, JP-AUTO, SG-AUTO, US-AUTO, MANUAL]
+
+  - name: GOOGLE
+    type: select
+    proxies: [AUTO, HK-AUTO, JP-AUTO, SG-AUTO, US-AUTO, MANUAL]
+
+  - name: GOOGLE-FCM
+    type: select
+    proxies: [SG-AUTO, HK-AUTO, JP-AUTO, AUTO, MANUAL]
+
+  - name: GITHUB
+    type: select
+    proxies: [AUTO, HK-AUTO, JP-AUTO, SG-AUTO, US-AUTO, MANUAL]
+
+  - name: MICROSOFT
+    type: select
+    proxies: [DIRECT, PROXY, AUTO]
+
+  - name: APPLE
+    type: select
+    proxies: [DIRECT, PROXY, AUTO]
+
+  - name: AUTO
+    type: url-test
+    use: [Airport]
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+
+  - name: HK-AUTO
+    type: url-test
+    use: [Airport]
+    filter: "(?i)港|香港|HK|Hong Kong"
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+
+  - name: JP-AUTO
+    type: url-test
+    use: [Airport]
+    filter: "(?i)日|日本|JP|Japan|Tokyo"
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+
+  - name: SG-AUTO
+    type: url-test
+    use: [Airport]
+    filter: "(?i)新|新加坡|SG|Singapore"
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+
+  - name: US-AUTO
+    type: url-test
+    use: [Airport]
+    filter: "(?i)美|美国|US|United States|America"
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 80
+
+  - name: MANUAL
+    type: select
+    use: [Airport]
+
+rules:
+  - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
+  - RULE-SET,private,DIRECT
+  - RULE-SET,adblock,REJECT
+  - RULE-SET,ai,AI
+  - RULE-SET,telegram,TELEGRAM
+  - RULE-SET,youtube,STREAMING
+  - RULE-SET,netflix,STREAMING
+  - RULE-SET,spotify,STREAMING
+  - RULE-SET,google_fcm,GOOGLE-FCM
+  - RULE-SET,google,GOOGLE
+  - RULE-SET,github,GITHUB
+  - RULE-SET,onedrive,MICROSOFT
+  - RULE-SET,microsoft,MICROSOFT
+  - RULE-SET,apple,APPLE
+  - RULE-SET,tiktok,STREAMING
+  - RULE-SET,paypal,PROXY
+  - RULE-SET,proxy,PROXY
+  - RULE-SET,china,DIRECT
+  - RULE-SET,china_ip,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,PROXY
+
+rule-providers:
+  private: &rule
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/private.yaml
+    path: ./rule/private.yaml
+    interval: 86400
+  adblock:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/adblock.yaml
+    path: ./rule/adblock.yaml
+    interval: 28800
+  ai:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ai.yaml
+    path: ./rule/ai.yaml
+  telegram:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram.yaml
+    path: ./rule/telegram.yaml
+  youtube:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/youtube.yaml
+    path: ./rule/youtube.yaml
+  netflix:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/netflix.yaml
+    path: ./rule/netflix.yaml
+  spotify:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/spotify.yaml
+    path: ./rule/spotify.yaml
+  google:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
+    path: ./rule/google.yaml
+  google_fcm:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_fcm.yaml
+    path: ./rule/google_fcm.yaml
+  github:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/github.yaml
+    path: ./rule/github.yaml
+  onedrive:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/onedrive.yaml
+    path: ./rule/onedrive.yaml
+  microsoft:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/microsoft.yaml
+    path: ./rule/microsoft.yaml
+  apple:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/apple.yaml
+    path: ./rule/apple.yaml
+  tiktok:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/tiktok.yaml
+    path: ./rule/tiktok.yaml
+  paypal:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/paypal.yaml
+    path: ./rule/paypal.yaml
+  proxy:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/proxy.yaml
+    path: ./rule/proxy.yaml
+  china:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/china.yaml
+    path: ./rule/china.yaml
+  china_ip:
+    <<: *rule
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/china_ip.yaml
+    path: ./rule/china_ip.yaml
