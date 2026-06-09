@@ -1,46 +1,28 @@
 # Rule sources
 
-These files are mirrored locally so the shared configuration depends only on
-the `colorbeta/backmoon` repository at runtime.
+## Organized rules
 
-## Local rules
+- `Special.yaml`: locally maintained direct-first domains, including system
+  and application-store update services.
+- `Applications.yaml`: Loyalsoldier `applications.txt`; common download
+  clients, proxy clients, and network tools that should connect directly.
+- `Private.yaml` and `LanCIDR.yaml`: Loyalsoldier private-network rules.
+- `ForeignMedia.yaml`: merged YouTube, Netflix, and Spotify rules.
+- `DomesticMedia.yaml`: merged Bilibili, iQIYI, NetEase Music, Tencent Video,
+  and Youku rules.
+- `Technology.yaml`: merged Google, GitHub, Microsoft, OneDrive, Telegram,
+  and PayPal rules.
+- `Domestic.yaml` and `DomesticIP.yaml`: mainland China domain and IP rules.
+- `ai.yaml`, `google_fcm.yaml`, `apple.yaml`, and `tiktok.yaml`: services that
+  retain independent routing policies.
+- `adblock.yaml`: 217heidai full advertising-domain list.
 
-- `Local.yaml`: Direct-first domain rules maintained in this repository,
-  including endpoints documented by Apple Support and Microsoft Learn for
-  operating-system, App Store, Microsoft Store, Defender, Edge, and Office
-  updates.
+Compatible binary versions are stored under `mrs/`.
 
-Mihomo-compatible binary versions are stored under `mrs/`.
+## Upstream repositories
 
-## 217heidai/adblockfilters
-
-- `adblock.yaml`: `rules/adblockmihomo.yaml` full advertising-domain list
-
-Source repository: https://github.com/217heidai/adblockfilters
-
-## dler-io/Rules
-
-- `private.yaml`: `Clash/Provider/LAN.yaml`
-- `ai.yaml`: `Clash/Provider/AI Suite.yaml`
-- `telegram.yaml`: `Clash/Provider/Telegram.yaml`
-- `youtube.yaml`: `Clash/Provider/Media/YouTube.yaml`
-- `netflix.yaml`: `Clash/Provider/Media/Netflix.yaml`
-- `spotify.yaml`: `Clash/Provider/Media/Spotify.yaml`
-- `microsoft.yaml`: `Clash/Provider/Microsoft.yaml`
-- `apple.yaml`: `Clash/Provider/Apple.yaml`
-- `tiktok.yaml`: `Clash/Provider/TikTok.yaml`
-- `paypal.yaml`: `Clash/Provider/PayPal.yaml`
-- `proxy.yaml`: `Clash/Provider/Proxy.yaml`
-- `china.yaml`: `Clash/Provider/Domestic.yaml`
-- `china_ip.yaml`: `Clash/Provider/Domestic IPs.yaml`
-
-Source repository: https://github.com/dler-io/Rules
-
-## blackmatrix7/ios_rule_script
-
-- `google.yaml`: `rule/Clash/Google/Google.yaml`
-- `google_fcm.yaml`: `rule/Clash/GoogleFCM/GoogleFCM.yaml`
-- `github.yaml`: `rule/Clash/GitHub/GitHub.yaml`
-- `onedrive.yaml`: `rule/Clash/OneDrive/OneDrive.yaml`
-
-Source repository: https://github.com/blackmatrix7/ios_rule_script
+- https://github.com/ClashConnectRules/Self-Configuration
+- https://github.com/Loyalsoldier/clash-rules
+- https://github.com/dler-io/Rules
+- https://github.com/blackmatrix7/ios_rule_script
+- https://github.com/217heidai/adblockfilters

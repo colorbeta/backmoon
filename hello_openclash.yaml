@@ -59,6 +59,16 @@ proxy-groups:
   - US-AUTO
   - MANUAL
   - DIRECT
+- name: SPECIAL
+  type: select
+  proxies:
+  - DIRECT
+  - PROXY
+- name: ADBLOCK
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
 - name: AI
   type: select
   proxies:
@@ -66,31 +76,6 @@ proxy-groups:
   - SG-AUTO
   - JP-AUTO
   - AUTO
-  - MANUAL
-- name: TELEGRAM
-  type: select
-  proxies:
-  - SG-AUTO
-  - HK-AUTO
-  - AUTO
-  - MANUAL
-- name: STREAMING
-  type: select
-  proxies:
-  - AUTO
-  - HK-AUTO
-  - JP-AUTO
-  - SG-AUTO
-  - US-AUTO
-  - MANUAL
-- name: GOOGLE
-  type: select
-  proxies:
-  - AUTO
-  - HK-AUTO
-  - JP-AUTO
-  - SG-AUTO
-  - US-AUTO
   - MANUAL
 - name: GOOGLE-FCM
   type: select
@@ -100,7 +85,7 @@ proxy-groups:
   - JP-AUTO
   - AUTO
   - MANUAL
-- name: GITHUB
+- name: FOREIGN-MEDIA
   type: select
   proxies:
   - AUTO
@@ -109,12 +94,21 @@ proxy-groups:
   - SG-AUTO
   - US-AUTO
   - MANUAL
-- name: MICROSOFT
+- name: DOMESTIC-MEDIA
   type: select
   proxies:
   - DIRECT
   - PROXY
+- name: TECHNOLOGY
+  type: select
+  proxies:
   - AUTO
+  - HK-AUTO
+  - JP-AUTO
+  - SG-AUTO
+  - US-AUTO
+  - MANUAL
+  - DIRECT
 - name: APPLE
   type: fallback
   proxies:
@@ -125,6 +119,24 @@ proxy-groups:
   - AUTO
   url: https://www.gstatic.com/generate_204
   interval: 600
+- name: TIKTOK
+  type: select
+  proxies:
+  - SG-AUTO
+  - JP-AUTO
+  - US-AUTO
+  - AUTO
+  - MANUAL
+- name: DOMESTIC
+  type: select
+  proxies:
+  - DIRECT
+  - PROXY
+- name: FINAL
+  type: select
+  proxies:
+  - PROXY
+  - AUTO
 - name: AUTO
   type: url-test
   use:
@@ -169,41 +181,50 @@ proxy-groups:
   use:
   - Airport
 rules:
-- RULE-SET,Local,DIRECT
-- IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
-- RULE-SET,private,DIRECT
-- RULE-SET,adblock,REJECT
+- RULE-SET,Special,SPECIAL
+- RULE-SET,Applications,SPECIAL
+- IP-CIDR,192.168.50.0/24,SPECIAL,no-resolve
+- RULE-SET,Private,SPECIAL
+- RULE-SET,LanCIDR,SPECIAL,no-resolve
+- RULE-SET,adblock,ADBLOCK
 - RULE-SET,ai,AI
-- RULE-SET,telegram,TELEGRAM
-- RULE-SET,youtube,STREAMING
-- RULE-SET,netflix,STREAMING
-- RULE-SET,spotify,STREAMING
 - RULE-SET,google_fcm,GOOGLE-FCM
-- RULE-SET,google,GOOGLE
-- RULE-SET,github,GITHUB
-- RULE-SET,onedrive,MICROSOFT
-- RULE-SET,microsoft,MICROSOFT
+- RULE-SET,ForeignMedia,FOREIGN-MEDIA
+- RULE-SET,DomesticMedia,DOMESTIC-MEDIA
+- RULE-SET,Technology,TECHNOLOGY
 - RULE-SET,apple,APPLE
-- RULE-SET,tiktok,STREAMING
-- RULE-SET,paypal,PROXY
-- RULE-SET,proxy,PROXY
-- RULE-SET,china,DIRECT
-- RULE-SET,china_ip,DIRECT
-- GEOIP,CN,DIRECT
-- MATCH,PROXY
+- RULE-SET,tiktok,TIKTOK
+- RULE-SET,Domestic,DOMESTIC
+- RULE-SET,DomesticIP,DOMESTIC,no-resolve
+- GEOIP,CN,DOMESTIC,no-resolve
+- MATCH,FINAL
 rule-providers:
-  Local:
+  Special:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Local.mrs
-    path: ./mrs/Local.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Special.mrs
+    path: ./mrs/Special.mrs
     interval: 86400
-  private:
+  Applications:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/private.yaml
-    path: ./rule/private.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Applications.yaml
+    path: ./rule/Applications.yaml
+    interval: 86400
+  Private:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Private.mrs
+    path: ./mrs/Private.mrs
+    interval: 86400
+  LanCIDR:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/LanCIDR.mrs
+    path: ./mrs/LanCIDR.mrs
     interval: 86400
   adblock:
     type: http
@@ -218,59 +239,29 @@ rule-providers:
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ai.yaml
     path: ./rule/ai.yaml
     interval: 86400
-  telegram:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram.yaml
-    path: ./rule/telegram.yaml
-    interval: 86400
-  youtube:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/youtube.yaml
-    path: ./rule/youtube.yaml
-    interval: 86400
-  netflix:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/netflix.yaml
-    path: ./rule/netflix.yaml
-    interval: 86400
-  spotify:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/spotify.yaml
-    path: ./rule/spotify.yaml
-    interval: 86400
-  google:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
-    path: ./rule/google.yaml
-    interval: 86400
   google_fcm:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_fcm.yaml
     path: ./rule/google_fcm.yaml
     interval: 86400
-  github:
+  ForeignMedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/github.yaml
-    path: ./rule/github.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ForeignMedia.yaml
+    path: ./rule/ForeignMedia.yaml
     interval: 86400
-  onedrive:
+  DomesticMedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/onedrive.yaml
-    path: ./rule/onedrive.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/DomesticMedia.yaml
+    path: ./rule/DomesticMedia.yaml
     interval: 86400
-  microsoft:
+  Technology:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/microsoft.yaml
-    path: ./rule/microsoft.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Technology.yaml
+    path: ./rule/Technology.yaml
     interval: 86400
   apple:
     type: http
@@ -284,27 +275,17 @@ rule-providers:
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/tiktok.yaml
     path: ./rule/tiktok.yaml
     interval: 86400
-  paypal:
+  Domestic:
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/paypal.yaml
-    path: ./rule/paypal.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Domestic.mrs
+    path: ./mrs/Domestic.mrs
     interval: 86400
-  proxy:
+  DomesticIP:
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/proxy.yaml
-    path: ./rule/proxy.yaml
-    interval: 86400
-  china:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/china.yaml
-    path: ./rule/china.yaml
-    interval: 86400
-  china_ip:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/china_ip.yaml
-    path: ./rule/china_ip.yaml
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/DomesticIP.mrs
+    path: ./mrs/DomesticIP.mrs
     interval: 86400

@@ -13,6 +13,8 @@
 ## Platform configurations
 
 - Uses separate platform files so DNS interception and TUN behavior match each client.
+- Organizes routing into Special, ad blocking, AI, media, technology, domestic,
+  TikTok, GeoIP CN, and Final categories.
 - Uses `classical` YAML rule providers hosted in this repository instead of `.mrs`.
 - Provides an independent `AI` policy group.
 - Provides an independent `GOOGLE-FCM` policy group for Android push reliability.

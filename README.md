@@ -16,5 +16,13 @@ uses `PROXY`.
 
 See `PLATFORMS.md` for DNS-hijack and client setup notes.
 
-Direct-first domains are maintained in `rule/Local.yaml`. Mihomo-compatible
-binary versions of supported rules are available under `mrs/`.
+Rules are organized by purpose:
+
+- `Special`: direct-first domains, private networks, LAN CIDRs, and common
+  applications/download clients.
+- `adblock`: advertising domains, blocked with `REJECT` by default.
+- `AI`, `ForeignMedia`, `DomesticMedia`, `Technology`, and `tiktok`.
+- `Domestic`, `GEOIP,CN`, and proxy-only `FINAL`.
+
+Mihomo-compatible binary versions of supported domain/IP rules are available
+under `mrs/`.

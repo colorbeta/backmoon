@@ -37,3 +37,10 @@
 
 Public templates contain only placeholder subscription URLs. Generate or edit
 private variants under `local/`; that directory is ignored by Git.
+
+## Direct applications
+
+The `Applications` provider comes from Loyalsoldier and sends common download
+clients, proxy clients, and network tools through `SPECIAL`, which defaults to
+`DIRECT`. This reduces proxy traffic but exposes the direct public IP for those
+applications.
