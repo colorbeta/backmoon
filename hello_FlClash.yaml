@@ -176,6 +176,7 @@ proxy-groups:
   use:
   - Airport
 rules:
+- DOMAIN,updates.cdn-apple.com,DIRECT
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,private,DIRECT
 - RULE-SET,adblock,REJECT
