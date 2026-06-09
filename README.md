@@ -15,3 +15,6 @@ All automatic node health checks run every 600 seconds. Unmatched traffic
 uses `PROXY`.
 
 See `PLATFORMS.md` for DNS-hijack and client setup notes.
+
+Direct-first domains are maintained in `rule/Local.yaml`. Mihomo-compatible
+binary versions of supported rules are available under `mrs/`.

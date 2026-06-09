@@ -5,9 +5,12 @@ the `colorbeta/backmoon` repository at runtime.
 
 ## Local rules
 
-- `system_updates.yaml`: Direct-download endpoints documented by Apple Support
-  and Microsoft Learn for operating-system, App Store, Microsoft Store,
-  Defender, Edge, and Office updates.
+- `Local.yaml`: Direct-first domain rules maintained in this repository,
+  including endpoints documented by Apple Support and Microsoft Learn for
+  operating-system, App Store, Microsoft Store, Defender, Edge, and Office
+  updates.
+
+Mihomo-compatible binary versions are stored under `mrs/`.
 
 ## 217heidai/adblockfilters
 

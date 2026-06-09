@@ -176,7 +176,7 @@ proxy-groups:
   use:
   - Airport
 rules:
-- RULE-SET,system_updates,DIRECT
+- RULE-SET,Local,DIRECT
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,private,DIRECT
 - RULE-SET,adblock,REJECT
@@ -199,11 +199,12 @@ rules:
 - GEOIP,CN,DIRECT
 - MATCH,PROXY
 rule-providers:
-  system_updates:
+  Local:
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/system_updates.yaml
-    path: ./rule/system_updates.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Local.mrs
+    path: ./mrs/Local.mrs
     interval: 86400
   private:
     type: http
@@ -214,8 +215,9 @@ rule-providers:
   adblock:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/adblock.yaml
-    path: ./rule/adblock.yaml
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/adblock.mrs
+    path: ./mrs/adblock.mrs
     interval: 28800
   ai:
     type: http

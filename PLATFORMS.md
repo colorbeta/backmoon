@@ -3,6 +3,7 @@
 ## OpenClash
 
 - Use `hello_openclash.yaml`.
+- Uses binary MRS versions of compatible domain rules for faster loading.
 - Enable OpenClash local DNS hijack.
 - Ensure Dnsmasq uses OpenClash as its only upstream DNS service.
 - Disable conflicting DNS hijack features in other OpenWrt plugins.
@@ -11,6 +12,7 @@
 ## FlClash
 
 - Use `hello_FlClash.yaml` on Windows and Android.
+- Uses binary MRS versions of compatible domain rules for faster loading.
 - Grant VPN/TUN permission.
 - Disable browser Secure DNS and Android Private DNS when checking for leaks.
 - The template hijacks TCP and UDP port 53 through Mihomo TUN.
@@ -18,6 +20,7 @@
 ## Stash
 
 - Use `hello_Stash.yaml`.
+- Uses YAML rule providers because MRS is a Mihomo-specific format.
 - The template enables `follow-rule` so DNS queries follow routing rules.
 - Stash manages the iOS VPN interface itself, so Mihomo TUN fields are omitted.
 - Very large rule sets consume iOS Network Extension memory.
@@ -25,6 +28,7 @@
 ## Ubuntu Mihomo
 
 - Use `hello_mihomo.yaml`.
+- Uses binary MRS versions of compatible domain rules for faster loading.
 - Run Mihomo with permission to create TUN routes.
 - Ensure no other local service is already listening on DNS port 53.
 - The template hijacks TCP and UDP port 53 and sends foreign DoH through `PROXY`.
