@@ -3,6 +3,12 @@
 These files are mirrored locally so the shared configuration depends only on
 the `colorbeta/backmoon` repository at runtime.
 
+## Local rules
+
+- `system_updates.yaml`: Direct-download endpoints documented by Apple Support
+  and Microsoft Learn for operating-system, App Store, Microsoft Store,
+  Defender, Edge, and Office updates.
+
 ## 217heidai/adblockfilters
 
 - `adblock.yaml`: `rules/adblockmihomo.yaml` full advertising-domain list

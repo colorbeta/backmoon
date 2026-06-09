@@ -1,0 +1,40 @@
+payload:
+  # Apple operating system updates and App Store content
+  - DOMAIN,appldnld.apple.com
+  - DOMAIN,configuration.apple.com
+  - DOMAIN,gdmf.apple.com
+  - DOMAIN,gdmf-ados.apple.com
+  - DOMAIN,gg.apple.com
+  - DOMAIN,gs.apple.com
+  - DOMAIN,gsra.apple.com
+  - DOMAIN,ig.apple.com
+  - DOMAIN,mesu.apple.com
+  - DOMAIN,oscdn.apple.com
+  - DOMAIN,osrecovery.apple.com
+  - DOMAIN,skl.apple.com
+  - DOMAIN,swcdn.apple.com
+  - DOMAIN,swdist.apple.com
+  - DOMAIN,swdownload.apple.com
+  - DOMAIN,swscan.apple.com
+  - DOMAIN,updates-http.cdn-apple.com
+  - DOMAIN,updates.cdn-apple.com
+  - DOMAIN,wkms-public.apple.com
+  - DOMAIN-SUFFIX,itunes.apple.com
+  - DOMAIN-SUFFIX,mzstatic.com
+
+  # Windows Update, Microsoft Store, Defender, Edge, and Office update content
+  - DOMAIN,adl.windows.com
+  - DOMAIN,ctldl.windowsupdate.com
+  - DOMAIN,download.windowsupdate.com
+  - DOMAIN,emdl.ws.microsoft.com
+  - DOMAIN,tsfe.trafficshaping.dsp.mp.microsoft.com
+  - DOMAIN-SUFFIX,b1.download.windowsupdate.com
+  - DOMAIN-SUFFIX,cdn.office.net
+  - DOMAIN-SUFFIX,delivery.mp.microsoft.com
+  - DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com
+  - DOMAIN-SUFFIX,download.microsoft.com
+  - DOMAIN-SUFFIX,download.windowsupdate.com
+  - DOMAIN-SUFFIX,officecdn.microsoft.com
+  - DOMAIN-SUFFIX,prod.do.dsp.mp.microsoft.com
+  - DOMAIN-SUFFIX,update.microsoft.com
+  - DOMAIN-SUFFIX,windowsupdate.com
