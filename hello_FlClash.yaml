@@ -242,9 +242,10 @@ rule-providers:
     interval: 28800
   ai:
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ai.yaml
-    path: ./rule/ai.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/ai.mrs
+    path: ./mrs/ai.mrs
     interval: 86400
   google_fcm:
     type: http

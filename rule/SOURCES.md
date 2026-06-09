@@ -9,12 +9,13 @@
 - `Private.yaml` and `LanCIDR.yaml`: Loyalsoldier private-network rules.
 - `ForeignMedia.yaml`: merged YouTube, Netflix, and Spotify rules.
 - `DomesticMedia.yaml`: merged Bilibili, iQIYI, NetEase Music, Tencent Video,
-  and Youku rules.
+  Youku, Quark, and AliPan rules.
 - `Technology.yaml`: merged Google, GitHub, Microsoft, OneDrive, Telegram,
   and PayPal rules.
 - `Domestic.yaml` and `DomesticIP.yaml`: mainland China domain and IP rules.
-- `ai.yaml`, `google_fcm.yaml`, `apple.yaml`, and `tiktok.yaml`: services that
-  retain independent routing policies.
+- `ai.yaml`: merged locally maintained AI rules and MetaCubeX
+  `category-ai-!cn`; `google_fcm.yaml`, `apple.yaml`, and `tiktok.yaml` retain
+  independent routing policies.
 - `adblock.yaml`: 217heidai full advertising-domain list.
 
 Compatible binary versions are stored under `mrs/`.
