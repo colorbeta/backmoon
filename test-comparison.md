@@ -10,9 +10,9 @@
 - Strengths: broad traditional Clash/Stash compatibility, many service groups, provider-based automatic selection.
 - Weaknesses: very large configuration, many remote dependencies, public fake-IP range, several legacy/client-specific fields, and no locally controlled rule mirror.
 
-## Combined test configuration
+## Platform configurations
 
-- Uses conservative Clash-compatible fields shared by OpenClash/Mihomo, FlClash, and Stash.
+- Uses separate platform files so DNS interception and TUN behavior match each client.
 - Uses `classical` YAML rule providers hosted in this repository instead of `.mrs`.
 - Provides an independent `AI` policy group.
 - Provides an independent `GOOGLE-FCM` policy group for Android push reliability.
@@ -20,4 +20,4 @@
 - Blocks advertising domains using the locally mirrored 217heidai list.
 - Sends `192.168.50.0/24` directly for home and office LAN access.
 - Sends every unmatched connection through `PROXY`.
-- Keeps client-specific TUN/sniffer settings out of the shared file; configure those in each client UI.
+- Uses 600-second automatic health checks and Apple failover.
