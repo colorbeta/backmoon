@@ -24,6 +24,33 @@ dns:
   nameserver:
   - https://223.5.5.5/dns-query
   - https://1.1.1.1/dns-query
+  nameserver-policy:
+    "+.cn": &domestic_dns
+    - https://223.5.5.5/dns-query
+    - https://119.29.29.29/dns-query
+    "+.lan": *domestic_dns
+    "+.local": *domestic_dns
+    "+.openai.com": &foreign_dns
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    "+.chatgpt.com": *foreign_dns
+    "+.anthropic.com": *foreign_dns
+    "+.claude.ai": *foreign_dns
+    "+.google.com": *foreign_dns
+    "+.googleapis.com": *foreign_dns
+    "+.gstatic.com": *foreign_dns
+    "+.googleusercontent.com": *foreign_dns
+    "+.youtube.com": *foreign_dns
+    "+.ytimg.com": *foreign_dns
+    "+.github.com": *foreign_dns
+    "+.githubusercontent.com": *foreign_dns
+    "+.githubassets.com": *foreign_dns
+    "+.telegram.org": *foreign_dns
+    "+.t.me": *foreign_dns
+    "+.telegra.ph": *foreign_dns
+    "+.steampowered.com": *foreign_dns
+    "+.steamcommunity.com": *foreign_dns
+    "+.steamstatic.com": *foreign_dns
   fake-ip-filter:
   - '*.lan'
   - '*.local'
@@ -48,6 +75,10 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
+  - HK-FALLBACK
+  - JP-FALLBACK
+  - SG-FALLBACK
+  - US-FALLBACK
   - HK-AUTO
   - JP-AUTO
   - SG-AUTO
@@ -67,27 +98,39 @@ proxy-groups:
 - name: AI
   type: select
   proxies:
-  - US-AUTO
-  - SG-AUTO
-  - JP-AUTO
+  - US-FALLBACK
+  - SG-FALLBACK
+  - JP-FALLBACK
   - AUTO
   - MANUAL
 - name: GOOGLE-FCM
   type: select
   proxies:
-  - SG-AUTO
-  - HK-AUTO
-  - JP-AUTO
+  - SG-FALLBACK
+  - HK-FALLBACK
+  - JP-FALLBACK
   - AUTO
   - MANUAL
+- name: GOOGLE
+  type: select
+  proxies: [HK-FALLBACK, SG-FALLBACK, JP-FALLBACK, AUTO, MANUAL]
+- name: GITHUB
+  type: select
+  proxies: [JP-FALLBACK, HK-FALLBACK, SG-FALLBACK, AUTO, MANUAL]
+- name: TELEGRAM
+  type: select
+  proxies: [SG-FALLBACK, HK-FALLBACK, JP-FALLBACK, AUTO, MANUAL]
+- name: STEAM
+  type: select
+  proxies: [HK-FALLBACK, JP-FALLBACK, SG-FALLBACK, AUTO, MANUAL, DIRECT]
 - name: FOREIGN-MEDIA
   type: select
   proxies:
   - AUTO
-  - HK-AUTO
-  - JP-AUTO
-  - SG-AUTO
-  - US-AUTO
+  - HK-FALLBACK
+  - JP-FALLBACK
+  - SG-FALLBACK
+  - US-FALLBACK
   - MANUAL
 - name: DOMESTIC-MEDIA
   type: select
@@ -98,28 +141,28 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
-  - HK-AUTO
-  - JP-AUTO
-  - SG-AUTO
-  - US-AUTO
+  - HK-FALLBACK
+  - JP-FALLBACK
+  - SG-FALLBACK
+  - US-FALLBACK
   - MANUAL
   - DIRECT
 - name: APPLE
   type: fallback
   proxies:
-  - HK-AUTO
-  - JP-AUTO
-  - SG-AUTO
-  - US-AUTO
+  - HK-FALLBACK
+  - JP-FALLBACK
+  - SG-FALLBACK
+  - US-FALLBACK
   - AUTO
   url: https://www.gstatic.com/generate_204
   interval: 600
 - name: TIKTOK
   type: select
   proxies:
-  - SG-AUTO
-  - JP-AUTO
-  - US-AUTO
+  - SG-FALLBACK
+  - JP-FALLBACK
+  - US-FALLBACK
   - AUTO
   - MANUAL
 - name: DOMESTIC
@@ -132,6 +175,34 @@ proxy-groups:
   proxies:
   - PROXY
   - AUTO
+- name: HK-FALLBACK
+  type: fallback
+  use: [Airport]
+  filter: (?i)港|香港|HK|Hong Kong
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  lazy: true
+- name: JP-FALLBACK
+  type: fallback
+  use: [Airport]
+  filter: (?i)日|日本|JP|Japan|Tokyo
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  lazy: true
+- name: SG-FALLBACK
+  type: fallback
+  use: [Airport]
+  filter: (?i)新|新加坡|SG|Singapore
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  lazy: true
+- name: US-FALLBACK
+  type: fallback
+  use: [Airport]
+  filter: (?i)美|美国|US|United States|America
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  lazy: true
 - name: AUTO
   type: url-test
   use:
@@ -185,6 +256,13 @@ rules:
 - RULE-SET,ai,AI
 - RULE-SET,google_fcm,GOOGLE-FCM
 - RULE-SET,ForeignMedia,FOREIGN-MEDIA
+- RULE-SET,Google,GOOGLE
+- RULE-SET,GoogleIP,GOOGLE,no-resolve
+- RULE-SET,GitHub,GITHUB
+- RULE-SET,Telegram,TELEGRAM
+- RULE-SET,TelegramIP,TELEGRAM,no-resolve
+- RULE-SET,SteamCN,SPECIAL
+- RULE-SET,Steam,STEAM
 - RULE-SET,DomesticMedia,DOMESTIC-MEDIA
 - RULE-SET,Technology,TECHNOLOGY
 - RULE-SET,apple,APPLE
@@ -241,6 +319,48 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ForeignMedia.yaml
     path: ./rule/ForeignMedia.yaml
+    interval: 86400
+  Google:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
+    path: ./rule/google.yaml
+    interval: 86400
+  GoogleIP:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_ip.yaml
+    path: ./rule/google_ip.yaml
+    interval: 86400
+  GitHub:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/github.yaml
+    path: ./rule/github.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram.yaml
+    path: ./rule/telegram.yaml
+    interval: 86400
+  TelegramIP:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram_ip.yaml
+    path: ./rule/telegram_ip.yaml
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/steam_cn.yaml
+    path: ./rule/steam_cn.yaml
+    interval: 86400
+  Steam:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/steam.yaml
+    path: ./rule/steam.yaml
     interval: 86400
   DomesticMedia:
     type: http

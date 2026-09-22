@@ -11,8 +11,9 @@ Public templates contain only subscription placeholders. Private nodes,
 subscription tokens, UUIDs, and keys belong under the ignored `local/`
 directory and must never be uploaded.
 
-All automatic node health checks run every 600 seconds. Unmatched traffic
-uses `PROXY`.
+All automatic node health checks run every 600 seconds. Regional fallback
+groups keep services on a working node in the selected region. Unmatched
+traffic uses `PROXY`.
 
 See `PLATFORMS.md` for DNS-hijack and client setup notes.
 
@@ -21,7 +22,8 @@ Rules are organized by purpose:
 - `Special`: direct-first domains, private networks, LAN CIDRs, and common
   applications/download clients.
 - `adblock`: advertising domains, blocked with `REJECT` by default.
-- `AI`, `ForeignMedia`, `DomesticMedia`, `Technology`, and `tiktok`.
+- `AI`, `Google FCM`, `Google`, `GitHub`, `Telegram`, `Steam`, media,
+  `Technology`, and `tiktok`.
 - `Domestic`, `GEOIP,CN`, and proxy-only `FINAL`.
 
 Mihomo-compatible binary versions of supported domain/IP rules are available
