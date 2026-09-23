@@ -22,8 +22,8 @@ Rules are organized by purpose:
 - `Special`: direct-first domains, private networks, LAN CIDRs, and common
   applications/download clients.
 - `adblock`: advertising domains, blocked with `REJECT` by default.
-- `AI`, `Google FCM`, `Google`, `GitHub`, `Telegram`, `Steam`, media,
-  `Technology`, and `tiktok`.
+- `CNBank`, `AI`, `Google FCM`, `Google`, `GitHub`, `Telegram`, `Steam`,
+  media, `Technology`, and `tiktok`.
 - `Domestic`, `GEOIP,CN`, and proxy-only `FINAL`.
 
 Mihomo-compatible binary versions of supported domain/IP rules are available

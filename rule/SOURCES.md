@@ -13,6 +13,8 @@
 - `google.yaml`, `google_ip.yaml`, `github.yaml`, `telegram.yaml`,
   `telegram_ip.yaml`, `steam.yaml`, and `steam_cn.yaml`: MetaCubeX service
   rules used by dedicated policy groups.
+- `cnbank.yaml`: MetaCubeX `category-bank-cn` domains, routed through the
+  direct-first `CNBANK` policy.
 - `Technology.yaml`: merged technology rules retained as a fallback for
   Microsoft, OneDrive, PayPal, and dependencies not caught earlier.
 - `Domestic.yaml` and `DomesticIP.yaml`: mainland China domain and IP rules.

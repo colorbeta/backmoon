@@ -12,6 +12,7 @@ Binary Mihomo rule sets generated from compatible YAML sources:
 - `google.mrs`, `google_ip.mrs`, `github.mrs`, `telegram.mrs`,
   `telegram_ip.mrs`, `steam.mrs`, and `steam_cn.mrs` mirror MetaCubeX
   service rules.
+- `cnbank.mrs` mirrors MetaCubeX `category-bank-cn`.
 
 MRS generally loads faster and uses less storage and memory than YAML,
 especially for large domain lists. Mihomo currently supports MRS only for

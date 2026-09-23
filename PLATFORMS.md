@@ -1,5 +1,9 @@
 # Platform notes
 
+All templates use encrypted bootstrap DNS. Mihomo TUN templates keep
+`strict-route` enabled and do not bypass mainland IP ranges outside the rule
+engine, so DNS and routing decisions remain enforceable.
+
 ## OpenClash
 
 - Use `hello_openclash.yaml`.
