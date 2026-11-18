@@ -3,6 +3,7 @@
 Binary Mihomo rule sets generated from compatible YAML sources:
 
 - `Special.mrs` from `rule/Special.yaml`
+- `CNDirect.mrs` from `rule/CNDirect.yaml`
 - `Private.mrs` from `rule/Private.yaml`
 - `LanCIDR.mrs` from `rule/LanCIDR.yaml`
 - `Domestic.mrs` from the domain entries in `rule/Domestic.yaml`

@@ -2,6 +2,9 @@
 
 ## Organized rules
 
+- `CNDirect.yaml`: MetaCubeX `category-ai-cn` plus local exceptions for
+  Gamersky, Maycur, and MiniMax. These domains use `DIRECT`.
+
 - `Special.yaml`: locally maintained direct-first domains, including system
   and application-store update services.
 - `Applications.yaml`: Loyalsoldier `applications.txt`; common download

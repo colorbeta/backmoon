@@ -51,6 +51,9 @@ dns:
   - https://dns.alidns.com/dns-query
   - https://doh.pub/dns-query
   nameserver-policy:
+    "rule-set:CNDirect":
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
     "rule-set:Special,Private,CNBank,DomesticMedia,SteamCN,Domestic":
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
@@ -99,23 +102,18 @@ proxy-groups:
   - PROXY
 - name: AI
   type: select
-  proxies:
-  - US-FALLBACK
-  - SG-FALLBACK
-  - JP-FALLBACK
-  - AUTO
-  - MANUAL
+  proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
 - name: GOOGLE-FCM
   type: select
-  proxies:
-  - SG-FALLBACK
-  - HK-FALLBACK
-  - JP-FALLBACK
-  - AUTO
-  - MANUAL
+  proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
 - name: GOOGLE
   type: select
-  proxies: [HK-FALLBACK, SG-FALLBACK, JP-FALLBACK, AUTO, MANUAL]
+  proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
+- name: SG-JP-US
+  type: fallback
+  proxies: [SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
+  url: https://www.gstatic.com/generate_204
+  interval: 600
 - name: GITHUB
   type: select
   proxies: [JP-FALLBACK, HK-FALLBACK, SG-FALLBACK, AUTO, MANUAL]
@@ -186,22 +184,25 @@ proxy-groups:
   lazy: true
 - name: JP-FALLBACK
   type: fallback
+  empty-fallback: REJECT
   use: [Airport]
-  filter: (?i)日|日本|JP|Japan|Tokyo
+  filter: '(?i)日本|东京|東京|大阪|🇯🇵|\b(?:JP|JPN|Japan|Tokyo|Osaka)\b'
   url: https://www.gstatic.com/generate_204
   interval: 600
   lazy: true
 - name: SG-FALLBACK
   type: fallback
+  empty-fallback: REJECT
   use: [Airport]
-  filter: (?i)新|新加坡|SG|Singapore
+  filter: '(?i)新加坡|狮城|獅城|🇸🇬|\b(?:SG|SGP|Singapore)\b'
   url: https://www.gstatic.com/generate_204
   interval: 600
   lazy: true
 - name: US-FALLBACK
   type: fallback
+  empty-fallback: REJECT
   use: [Airport]
-  filter: (?i)美|美国|US|United States|America
+  filter: '(?i)美国|美國|🇺🇸|\b(?:US|USA|United States|America)\b'
   url: https://www.gstatic.com/generate_204
   interval: 600
   lazy: true
@@ -249,6 +250,7 @@ proxy-groups:
   use:
   - Airport
 rules:
+- RULE-SET,CNDirect,DIRECT
 - RULE-SET,Special,SPECIAL
 - RULE-SET,Applications,SPECIAL
 - IP-CIDR,192.168.50.0/24,SPECIAL,no-resolve
@@ -275,6 +277,13 @@ rules:
 - GEOIP,CN,DOMESTIC,no-resolve
 - MATCH,FINAL
 rule-providers:
+  CNDirect:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/CNDirect.mrs
+    path: ./mrs/CNDirect.mrs
+    interval: 86400
   Special:
     type: http
     behavior: domain
