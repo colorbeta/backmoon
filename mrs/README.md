@@ -31,7 +31,9 @@ MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
 need not equal source entry counts.
 
 规则出口统一为 `REJECT`、`DIRECT`、`LocalFly`、`ForeignFly`。
-两个 Fly 组均使用 url-test，每 600 秒自动择优，切换容差为 80 毫秒。
+两个 Fly 组使用 select，可选自动模式或手动指定地区。香港、台湾、日本、
+新加坡、美国五个地区组可查看节点状态，每 600 秒测速，切换容差为 80 毫秒。
+默认自动模式由隐藏的 LocalFly-AUTO / ForeignFly-AUTO 汇总相应地区组。
 进程规则适用于能识别该进程的设备，在旁路由上无法按 Windows 进程名识别转发流量。
 
 Regenerate from the repository directory with PowerShell:

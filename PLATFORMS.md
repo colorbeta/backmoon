@@ -18,6 +18,15 @@ DNS preserves the domestic MiniMax exception before the AI policy, puts
 specific overseas services before Domestic, and evaluates Technology last.
 Stash uses explicit Google Play China-domain and domestic AI DNS policies.
 
+## Regional groups
+
+LocalFly and ForeignFly are manual selectors with an automatic option first.
+Five visible groups (Hong Kong, Taiwan, Japan, Singapore, US) expose regional
+node status. Regional url-test checks run every 600 seconds even when the
+region is not currently selected. Hidden Fly-AUTO groups provide automatic
+selection across the allowed regions. Users can pin a region in either Fly
+selector; the chosen region then selects its lowest-latency node.
+
 ## OpenClash
 
 - Use `hello_openclash.yaml`.

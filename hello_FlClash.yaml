@@ -87,27 +87,85 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
 proxy-groups:
 - name: LocalFly
-  type: url-test
-  empty-fallback: REJECT
-  proxies:
-  - REJECT
-  use:
-  - Airport
-  filter: '(?i)台湾|台灣|臺灣|台北|臺北|香港|日本|东京|東京|大阪|新加坡|狮城|獅城|🇹🇼|🇭🇰|🇯🇵|🇸🇬|\b(?:TW|TWN|Taiwan|Taipei|HK|HKG|Hong\s*Kong|JP|JPN|Japan|Tokyo|Osaka|SG|SGP|Singapore)\b'
-  url: https://www.gstatic.com/generate_204
-  interval: 600
-  tolerance: 80
+  type: select
+  proxies: [LocalFly-AUTO, 台湾, 香港, 日本, 新加坡]
 - name: ForeignFly
+  type: select
+  proxies: [ForeignFly-AUTO, 新加坡, 日本, 美国]
+- name: LocalFly-AUTO
+  type: url-test
+  hidden: true
+  proxies: [台湾, 香港, 日本, 新加坡]
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 80
+- name: ForeignFly-AUTO
+  type: url-test
+  hidden: true
+  proxies: [新加坡, 日本, 美国]
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 80
+- name: 香港
   type: url-test
   empty-fallback: REJECT
   proxies:
   - REJECT
   use:
   - Airport
-  filter: '(?i)新加坡|狮城|獅城|日本|东京|東京|大阪|美国|美國|🇸🇬|🇯🇵|🇺🇸|\b(?:SG|SGP|Singapore|JP|JPN|Japan|Tokyo|Osaka|US|USA|United States|America)\b'
+  filter: '(?i)香港|🇭🇰|\b(?:HK|HKG|Hong\s*Kong)\b'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
+  lazy: false
+- name: 台湾
+  type: url-test
+  empty-fallback: REJECT
+  proxies:
+  - REJECT
+  use:
+  - Airport
+  filter: '(?i)台湾|台灣|臺灣|台北|臺北|🇹🇼|\b(?:TW|TWN|Taiwan|Taipei)\b'
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 80
+  lazy: false
+- name: 日本
+  type: url-test
+  empty-fallback: REJECT
+  proxies:
+  - REJECT
+  use:
+  - Airport
+  filter: '(?i)日本|东京|東京|大阪|🇯🇵|\b(?:JP|JPN|Japan|Tokyo|Osaka)\b'
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 80
+  lazy: false
+- name: 新加坡
+  type: url-test
+  empty-fallback: REJECT
+  proxies:
+  - REJECT
+  use:
+  - Airport
+  filter: '(?i)新加坡|狮城|獅城|🇸🇬|\b(?:SG|SGP|Singapore)\b'
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 80
+  lazy: false
+- name: 美国
+  type: url-test
+  empty-fallback: REJECT
+  proxies:
+  - REJECT
+  use:
+  - Airport
+  filter: '(?i)美国|美國|🇺🇸|\b(?:US|USA|United States|America)\b'
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  tolerance: 80
+  lazy: false
 rules:
 # LAN and explicit local application/update exceptions.
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve

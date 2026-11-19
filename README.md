@@ -19,11 +19,15 @@ All routing uses four destinations:
 | `LocalFly` | Overseas media, technology, GitHub, Telegram, Steam, TikTok, Apple, unmatched traffic |
 | `ForeignFly` | Overseas AI and Google, including FCM |
 
-`LocalFly` selects among Taiwan, Hong Kong, Japan, and Singapore nodes.
-`ForeignFly` selects among Singapore, Japan, and US nodes.
-Both groups use latency-based automatic selection every 600 seconds with an
-80 ms switching tolerance. Subscription nodes are filtered by their names;
-private Oracle Japan and Singapore nodes are included explicitly.
+`LocalFly` offers automatic selection or manual choice of Taiwan, Hong Kong,
+Japan, and Singapore groups. `ForeignFly` offers automatic selection or
+manual choice of Singapore, Japan, and US groups. Both default to automatic.
+
+Five visible regional groups expose node status and latency. They test every
+600 seconds with an 80 ms switching tolerance, including inactive regions.
+Hidden `LocalFly-AUTO` and `ForeignFly-AUTO` groups select the best regional
+group. Subscription nodes are filtered by name; Oracle Japan and Singapore
+nodes are included explicitly in the private variants.
 
 See `PLATFORMS.md` for client setup and `mrs/README.md` for the rule mapping.
 Supported binary domain/IP rule sets are stored under `mrs/`.
