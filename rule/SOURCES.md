@@ -15,10 +15,10 @@
 - `DomesticMedia.yaml`: merged Bilibili, iQIYI, NetEase Music, Tencent Video,
   Youku, Quark, and AliPan rules.
 - `google.yaml`: merged MetaCubeX Google domains/IPs and blackmatrix7 FCM
-  rules. One classical YAML provider and the `GOOGLE` policy handle them all.
+  rules. One classical YAML provider sends them through `ForeignFly`.
 - `github.yaml`, `steam.yaml`, and `steam_cn.yaml`: MetaCubeX service rules.
 - `telegram.yaml`: merged Telegram domains and IP ranges, using one YAML
-  provider and the `TELEGRAM` policy.
+  provider and the `LocalFly` policy.
 - `cnbank.yaml`: MetaCubeX `category-bank-cn` domains routed directly.
 - Repeated country suffixes in the Google, GitHub, Telegram, bank, domestic
   media, and technology lists use anchored regexes with explicit suffixes.

@@ -7,28 +7,23 @@ Platform-specific Mihomo/Clash configuration templates:
 - `hello_Stash.yaml`: Stash on iOS, using Stash-compatible encrypted DNS.
 - `hello_mihomo.yaml`: Mihomo on Ubuntu, with TUN DNS hijack.
 
-Public templates contain only subscription placeholders. Private nodes,
-subscription tokens, UUIDs, and keys belong under the ignored `local/`
-directory and must never be uploaded.
+Public templates contain subscription placeholders. Private nodes and tokens
+belong in the ignored `mylocal/` directory.
 
-All automatic node health checks run every 600 seconds. Regional fallback
-groups keep services on a working node in the selected region. Unmatched
-traffic uses `PROXY`.
+All routing uses four destinations:
 
-See `PLATFORMS.md` for DNS-hijack and client setup notes.
+| Destination | Traffic |
+| --- | --- |
+| `REJECT` | Lite advertising rules |
+| `DIRECT` | Mainland services, banks, domestic AI/media, LAN, updates, download apps, Steam CN |
+| `LocalFly` | Overseas media, technology, GitHub, Telegram, Steam, TikTok, Apple, unmatched traffic |
+| `ForeignFly` | Overseas AI and Google, including FCM |
 
-Rules are organized by purpose:
+`LocalFly` selects among Taiwan, Hong Kong, Japan, and Singapore nodes.
+`ForeignFly` selects among Singapore, Japan, and US nodes.
+Both groups use latency-based automatic selection every 600 seconds with an
+80 ms switching tolerance. Subscription nodes are filtered by their names;
+private Oracle Japan and Singapore nodes are included explicitly.
 
-- `Special`: direct domains, private networks, LAN CIDRs, and common
-  applications/download clients.
-- `adblock`: advertising domains, blocked with `REJECT` by default.
-- `CNBank`, `AI`, `Google` (including FCM), `GitHub`, `Telegram`, `Steam`,
-  media, `Technology`, and `tiktok`.
-- `Domestic`, `GEOIP,CN`, and proxy-only `FINAL`.
-
-CNBank and Special-related rules use `DIRECT` without selectable groups.
-GitHub, Telegram, Steam, and TikTok default to Taiwan, Hong Kong, Japan, then
-Singapore failover. Telegram domains and IPs share a single YAML provider.
-
-Mihomo-compatible binary versions of supported domain/IP rules are available
-under `mrs/`.
+See `PLATFORMS.md` for client setup and `mrs/README.md` for the rule mapping.
+Supported binary domain/IP rule sets are stored under `mrs/`.

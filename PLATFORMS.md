@@ -8,7 +8,7 @@ engine, so DNS and routing decisions remain enforceable.
 
 - Use `hello_openclash.yaml`.
 - Uses binary MRS versions of compatible domain rules for faster loading.
-- Enables concurrent TCP dialing, connection keepalive, regional fallback,
+- Enables concurrent TCP dialing, connection keepalive, regional auto-selection,
   and rule-set-based split DNS.
 - Enable OpenClash local DNS hijack.
 - Ensure Dnsmasq uses OpenClash as its only upstream DNS service.
@@ -19,7 +19,7 @@ engine, so DNS and routing decisions remain enforceable.
 
 - Use `hello_FlClash.yaml` on Windows and Android.
 - Uses binary MRS versions of compatible domain rules for faster loading.
-- Enables concurrent TCP dialing, connection keepalive, regional fallback,
+- Enables concurrent TCP dialing, connection keepalive, regional auto-selection,
   and rule-set-based split DNS.
 - Grant VPN/TUN permission.
 - Disable browser Secure DNS and Android Private DNS when checking for leaks.
@@ -42,16 +42,17 @@ engine, so DNS and routing decisions remain enforceable.
 
 - Use `hello_mihomo.yaml`.
 - Uses binary MRS versions of compatible domain rules for faster loading.
-- Enables concurrent TCP dialing, connection keepalive, regional fallback,
+- Enables concurrent TCP dialing, connection keepalive, regional auto-selection,
   and rule-set-based split DNS.
 - Run Mihomo with permission to create TUN routes.
 - Ensure no other local service is already listening on DNS port 53.
-- The template hijacks TCP and UDP port 53 and sends foreign DoH through `PROXY`.
+- The template hijacks TCP and UDP port 53. AI/Google DoH uses `ForeignFly`;
+  other overseas DoH uses `LocalFly`.
 
 ## Private nodes
 
 Public templates contain only placeholder subscription URLs. Generate or edit
-private variants under `local/`; that directory is ignored by Git.
+private variants under `mylocal/`; that directory is ignored by Git.
 
 ## Direct applications
 

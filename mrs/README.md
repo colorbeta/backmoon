@@ -5,27 +5,27 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
 | YAML source in `rule/` | Binary files in `mrs/` | Notes | 策略 |
 | --- | --- | --- | --- |
-| `adblock.yaml` | `adblock.mrs` | Lite snapshot; clients fetch upstream directly | ADBLOCK → REJECT（默认，可选 DIRECT），上游 Lite 每 8 小时更新 |
-| `ai.yaml` | `ai.mrs` | Exact domains and suffixes | AI → 新加坡 / 日本 / 美国 |
+| `adblock.yaml` | `adblock.mrs` | Lite snapshot; clients fetch upstream directly | REJECT，Lite 每 8 小时更新 |
+| `ai.yaml` | `ai.mrs` | Exact domains and suffixes | ForeignFly（新加坡 / 日本 / 美国） |
 | `cnbank.yaml` | YAML only | Domains and anchored suffix regex | DIRECT |
 | `CNDirect.yaml` | `CNDirect.mrs` | Domain list | DIRECT |
-| `Domestic.yaml` | `Domestic.mrs` | Domain entries, followed by `rule/DomesticExtra.yaml` | DOMESTIC → DIRECT（默认） |
-| `DomesticExtra.yaml` | YAML only | Generated keyword/IP remainder of `Domestic.yaml` | DOMESTIC → DIRECT（默认） |
-| `DomesticIP.yaml` | `DomesticIP.mrs` | Classical IP prefixes normalized before conversion | DOMESTIC → DIRECT（默认） |
-| `github.yaml` | YAML only | Domains and anchored suffix regex | GITHUB → 台湾 → 香港 → 日本 → 新加坡 |
-| `google.yaml` | YAML only | Merged Google domains, IPs, and FCM, using `GOOGLE` | GOOGLE → 新加坡 / 日本 / 美国，包含 FCM |
+| `Domestic.yaml` | `Domestic.mrs` | Domain entries, followed by `rule/DomesticExtra.yaml` | DIRECT |
+| `DomesticExtra.yaml` | YAML only | Generated keyword/IP remainder of `Domestic.yaml` | DIRECT |
+| `DomesticIP.yaml` | `DomesticIP.mrs` | Classical IP prefixes normalized before conversion | DIRECT |
+| `github.yaml` | YAML only | Domains and anchored suffix regex | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
+| `google.yaml` | YAML only | Merged Google domains, IPs, and FCM, using `ForeignFly` | ForeignFly（新加坡 / 日本 / 美国） |
 | `LanCIDR.yaml` | `LanCIDR.mrs` | IP list | DIRECT |
 | `Private.yaml` | `Private.mrs` | Domain list | DIRECT |
 | `Special.yaml` | `Special.mrs` | Domain list | DIRECT |
-| `steam.yaml` | `steam.mrs` | Domain list | STEAM → 台湾 → 香港 → 日本 → 新加坡 |
+| `steam.yaml` | `steam.mrs` | Domain list | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
 | `steam_cn.yaml` | `steam_cn.mrs` | Domain list | DIRECT |
-| `telegram.yaml` | YAML only | Merged domains, regex, and IP ranges | TELEGRAM → 台湾 → 香港 → 日本 → 新加坡 |
-| `tiktok.yaml` | `tiktok.mrs` | Domain suffixes | TIKTOK → 台湾 → 香港 → 日本 → 新加坡 |
+| `telegram.yaml` | YAML only | Merged domains, regex, and IP ranges | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
+| `tiktok.yaml` | `tiktok.mrs` | Domain suffixes | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
 | `Applications.yaml` | YAML only | Process names | DIRECT |
-| `apple.yaml` | YAML only | Domains, keywords, IPs, and process names | APPLE → 香港 → 日本 → 新加坡 → 美国 |
-| `DomesticMedia.yaml` | YAML only | Domains and process names | DOMESTIC-MEDIA → DIRECT（默认） |
-| `ForeignMedia.yaml` | YAML only | Domains, keywords, and process names | FOREIGN-MEDIA → AUTO（默认） |
-| `Technology.yaml` | YAML only | Domains, keywords, IPs, and process names | TECHNOLOGY → AUTO（默认，可选 DIRECT） |
+| `apple.yaml` | YAML only | Domains, keywords, IPs, and process names | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
+| `DomesticMedia.yaml` | YAML only | Domains and process names | DIRECT |
+| `ForeignMedia.yaml` | YAML only | Domains, keywords, and process names | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
+| `Technology.yaml` | YAML only | Domains, keywords, IPs, and process names | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
 
 OpenClash, FlClash, and Ubuntu templates use supported MRS files.
 Stash templates keep YAML providers for older-client compatibility.
@@ -33,7 +33,8 @@ Stash templates keep YAML providers for older-client compatibility.
 MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
 need not equal source entry counts.
 
-策略列表示当前模板的初始选项。客户端保存的手动选择优先于初始选项。
+规则出口统一为 `REJECT`、`DIRECT`、`LocalFly`、`ForeignFly`。
+两个 Fly 组均使用 url-test，每 600 秒自动择优，切换容差为 80 毫秒。
 进程规则适用于能识别该进程的设备，在旁路由上无法按 Windows 进程名识别转发流量。
 
 Regenerate from the repository directory with PowerShell:
