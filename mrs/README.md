@@ -13,9 +13,7 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 | `DomesticExtra.yaml` | YAML only | Generated keyword/IP remainder of `Domestic.yaml` |
 | `DomesticIP.yaml` | `DomesticIP.mrs` | Classical IP prefixes normalized before conversion |
 | `github.yaml` | `github.mrs` | Domain list |
-| `google.yaml` | `google.mrs` | Domain list |
-| `google_fcm.yaml` | `google_fcm.mrs`, `google_fcm_ip.mrs` | Both use `GOOGLE-FCM` |
-| `google_ip.yaml` | `google_ip.mrs` | IP list |
+| `google.yaml` | YAML only | Merged Google domains, IPs, and FCM, using `GOOGLE` |
 | `LanCIDR.yaml` | `LanCIDR.mrs` | IP list |
 | `Private.yaml` | `Private.mrs` | Domain list |
 | `Special.yaml` | `Special.mrs` | Domain list |
@@ -32,7 +30,7 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
 OpenClash, FlClash, and Ubuntu templates use supported MRS files.
 Stash templates keep YAML providers for older-client compatibility.
-`mylocal/config.yaml` uses MRS for AI, TikTok, and split FCM.
+`mylocal/config.yaml` uses MRS for AI and TikTok.
 MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
 need not equal source entry counts.
 

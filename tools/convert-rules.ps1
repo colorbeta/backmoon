@@ -42,7 +42,7 @@ function Convert-Payload([string]$Name, [string]$Behavior, [string[]]$Payload) {
 }
 
 try {
-    $domainSources = @('adblock', 'ai', 'cnbank', 'CNDirect', 'github', 'google', 'Private', 'Special', 'steam_cn', 'steam', 'telegram', 'tiktok')
+    $domainSources = @('adblock', 'ai', 'cnbank', 'CNDirect', 'github', 'Private', 'Special', 'steam_cn', 'steam', 'telegram', 'tiktok')
     foreach ($name in $domainSources) {
         $payload = @(Read-Payload $name | ForEach-Object {
             if ($_ -match '^DOMAIN-SUFFIX,(.+)$') { '+.' + $Matches[1] }
@@ -53,7 +53,7 @@ try {
         Convert-Payload $name 'domain' $payload
     }
 
-    foreach ($name in @('DomesticIP', 'google_ip', 'LanCIDR', 'telegram_ip')) {
+    foreach ($name in @('DomesticIP', 'LanCIDR', 'telegram_ip')) {
         $payload = @(Read-Payload $name | ForEach-Object {
             if ($_ -match '^IP-CIDR6?,([^,]+)(?:,no-resolve)?$') { $Matches[1] }
             elseif ($_ -match ',') { throw "Non-IP rule: $name" }
@@ -71,12 +71,6 @@ try {
     $extra = @($domestic | Where-Object { $_ -notmatch '^DOMAIN(?:-SUFFIX)?,' })
     [IO.File]::WriteAllLines((Join-Path $repository 'rule/DomesticExtra.yaml'), @('payload:') + @($extra | ForEach-Object { '  - ' + $_ }), $utf8)
 
-    $fcm = @(Read-Payload 'google_fcm')
-    $domains = @($fcm | ForEach-Object { if ($_ -match '^DOMAIN,(.+)$') { $Matches[1] } })
-    $ips = @($fcm | ForEach-Object { if ($_ -match '^IP-CIDR6?,([^,]+)$') { $Matches[1] } })
-    if ($domains.Count + $ips.Count -ne $fcm.Count) { throw 'Unexpected FCM rule type' }
-    Convert-Payload 'google_fcm' 'domain' $domains
-    Convert-Payload 'google_fcm_ip' 'ipcidr' $ips
 } finally {
     # Only files created by this invocation exist in this unique directory.
     if (Test-Path -LiteralPath $temporaryDirectory) {

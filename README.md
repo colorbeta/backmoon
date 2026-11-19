@@ -22,7 +22,7 @@ Rules are organized by purpose:
 - `Special`: direct-first domains, private networks, LAN CIDRs, and common
   applications/download clients.
 - `adblock`: advertising domains, blocked with `REJECT` by default.
-- `CNBank`, `AI`, `Google FCM`, `Google`, `GitHub`, `Telegram`, `Steam`,
+- `CNBank`, `AI`, `Google` (including FCM), `GitHub`, `Telegram`, `Steam`,
   media, `Technology`, and `tiktok`.
 - `Domestic`, `GEOIP,CN`, and proxy-only `FINAL`.
 

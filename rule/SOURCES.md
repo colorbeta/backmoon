@@ -13,7 +13,9 @@
 - `ForeignMedia.yaml`: merged YouTube, Netflix, and Spotify rules.
 - `DomesticMedia.yaml`: merged Bilibili, iQIYI, NetEase Music, Tencent Video,
   Youku, Quark, and AliPan rules.
-- `google.yaml`, `google_ip.yaml`, `github.yaml`, `telegram.yaml`,
+- `google.yaml`: merged MetaCubeX Google domains/IPs and blackmatrix7 FCM
+  rules. One classical YAML provider and the `GOOGLE` policy handle them all.
+- `github.yaml`, `telegram.yaml`,
   `telegram_ip.yaml`, `steam.yaml`, and `steam_cn.yaml`: MetaCubeX service
   rules used by dedicated policy groups.
 - `cnbank.yaml`: MetaCubeX `category-bank-cn` domains, routed through the
@@ -22,7 +24,7 @@
   Microsoft, OneDrive, PayPal, and dependencies not caught earlier.
 - `Domestic.yaml` and `DomesticIP.yaml`: mainland China domain and IP rules.
 - `ai.yaml`: merged locally maintained AI rules and MetaCubeX
-  `category-ai-!cn`; `google_fcm.yaml`, `apple.yaml`, and `tiktok.yaml` retain
+  `category-ai-!cn`; `apple.yaml` and `tiktok.yaml` retain
   independent routing policies.
 - `adblock.yaml`: 217heidai full advertising-domain list.
 

@@ -17,7 +17,7 @@
   TikTok, GeoIP CN, and Final categories.
 - Uses `classical` YAML rule providers hosted in this repository instead of `.mrs`.
 - Provides an independent `AI` policy group.
-- Provides an independent `GOOGLE-FCM` policy group for Android push reliability.
+- Combines Google domains, Google IPs, and FCM under the `GOOGLE` policy.
 - Provides global and regional `url-test` groups for large node collections.
 - Blocks advertising domains using the locally mirrored 217heidai list.
 - Sends `192.168.50.0/24` directly for home and office LAN access.

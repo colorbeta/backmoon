@@ -102,9 +102,6 @@ proxy-groups:
 - name: AI
   type: select
   proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
-- name: GOOGLE-FCM
-  type: select
-  proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
 - name: GOOGLE
   type: select
   proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
@@ -258,10 +255,8 @@ rules:
 - RULE-SET,CNBank,CNBANK
 - RULE-SET,adblock,ADBLOCK
 - RULE-SET,ai,AI
-- RULE-SET,google_fcm,GOOGLE-FCM
 - RULE-SET,ForeignMedia,FOREIGN-MEDIA
 - RULE-SET,Google,GOOGLE
-- RULE-SET,GoogleIP,GOOGLE,no-resolve
 - RULE-SET,GitHub,GITHUB
 - RULE-SET,Telegram,TELEGRAM
 - RULE-SET,TelegramIP,TELEGRAM,no-resolve
@@ -324,12 +319,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ai.yaml
     path: ./rule/ai.yaml
     interval: 86400
-  google_fcm:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_fcm.yaml
-    path: ./rule/google_fcm.yaml
-    interval: 86400
   ForeignMedia:
     type: http
     behavior: classical
@@ -338,15 +327,9 @@ rule-providers:
     interval: 86400
   Google:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
     path: ./rule/google.yaml
-    interval: 86400
-  GoogleIP:
-    type: http
-    behavior: ipcidr
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_ip.yaml
-    path: ./rule/google_ip.yaml
     interval: 86400
   GitHub:
     type: http

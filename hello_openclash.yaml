@@ -50,7 +50,7 @@ dns:
     "rule-set:Special,Private,CNBank,DomesticMedia,SteamCN,Domestic":
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    "rule-set:ai,google_fcm,ForeignMedia,Google,GitHub,Telegram,Steam,Technology,apple,tiktok":
+    "rule-set:ai,ForeignMedia,Google,GitHub,Telegram,Steam,Technology,apple,tiktok":
     - https://1.1.1.1/dns-query#PROXY
     - https://8.8.8.8/dns-query#PROXY
 proxy-providers:
@@ -94,9 +94,6 @@ proxy-groups:
   - DIRECT
   - PROXY
 - name: AI
-  type: select
-  proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
-- name: GOOGLE-FCM
   type: select
   proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
 - name: GOOGLE
@@ -252,11 +249,8 @@ rules:
 - RULE-SET,CNBank,CNBANK
 - RULE-SET,adblock,ADBLOCK
 - RULE-SET,ai,AI
-- RULE-SET,google_fcm,GOOGLE-FCM
-- RULE-SET,google_fcm_ip,GOOGLE-FCM
 - RULE-SET,ForeignMedia,FOREIGN-MEDIA
 - RULE-SET,Google,GOOGLE
-- RULE-SET,GoogleIP,GOOGLE,no-resolve
 - RULE-SET,GitHub,GITHUB
 - RULE-SET,Telegram,TELEGRAM
 - RULE-SET,TelegramIP,TELEGRAM,no-resolve
@@ -327,20 +321,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/ai.mrs
     path: ./mrs/ai.mrs
     interval: 86400
-  google_fcm:
-    type: http
-    behavior: domain
-    format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/google_fcm.mrs
-    path: ./mrs/google_fcm.mrs
-    interval: 86400
-  google_fcm_ip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/google_fcm_ip.mrs
-    path: ./mrs/google_fcm_ip.mrs
-    interval: 86400
   ForeignMedia:
     type: http
     behavior: classical
@@ -349,17 +329,9 @@ rule-providers:
     interval: 86400
   Google:
     type: http
-    behavior: domain
-    format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/google.mrs
-    path: ./mrs/google.mrs
-    interval: 86400
-  GoogleIP:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/google_ip.mrs
-    path: ./mrs/google_ip.mrs
+    behavior: classical
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
+    path: ./rule/google.yaml
     interval: 86400
   GitHub:
     type: http
