@@ -1,0 +1,35 @@
+# Generated from telegram.yaml. Policy is assigned by the profile.
+# iOS exports omit process-name matching.
+host-suffix,cdn-telegram.org,LocalFly
+host-suffix,comments.app,LocalFly
+host-suffix,contest.com,LocalFly
+host-suffix,fragment.com,LocalFly
+host-suffix,graph.org,LocalFly
+host-suffix,quiz.directory,LocalFly
+host-suffix,t.me,LocalFly
+host-suffix,tdesktop.com,LocalFly
+host-suffix,telega.one,LocalFly
+host-suffix,telegra.ph,LocalFly
+host-suffix,telegram-cdn.org,LocalFly
+host-suffix,telegram.dog,LocalFly
+host-suffix,telegram.me,LocalFly
+host-suffix,telegram.org,LocalFly
+host-suffix,telegram.space,LocalFly
+host-suffix,telesco.pe,LocalFly
+host-suffix,tg.dev,LocalFly
+host-suffix,ton.org,LocalFly
+host-suffix,toncenter.com,LocalFly
+host-suffix,tx.me,LocalFly
+host-suffix,usercontent.dev,LocalFly
+ip-cidr,91.105.192.0/23,LocalFly
+ip-cidr,91.108.4.0/22,LocalFly
+ip-cidr,91.108.8.0/21,LocalFly
+ip-cidr,91.108.16.0/21,LocalFly
+ip-cidr,91.108.56.0/22,LocalFly
+ip-cidr,95.161.64.0/20,LocalFly
+ip-cidr,149.154.160.0/20,LocalFly
+ip-cidr,185.76.151.0/24,LocalFly
+ip6-cidr,2001:67c:4e8::/48,LocalFly
+ip6-cidr,2001:b28:f23c::/47,LocalFly
+ip6-cidr,2001:b28:f23f::/48,LocalFly
+ip6-cidr,2a0a:f280::/32,LocalFly

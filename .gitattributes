@@ -1,2 +1,4 @@
 *.yaml text eol=lf
 *.md text eol=lf
+*.conf text eol=lf
+*.list text eol=lf

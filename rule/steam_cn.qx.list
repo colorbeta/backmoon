@@ -1,0 +1,21 @@
+# Generated from steam_cn.yaml. Policy is assigned by the profile.
+# iOS exports omit process-name matching.
+host-suffix,client-update.queniuqe.com,direct
+host-suffix,csgo.com.cn,direct
+host-suffix,csgo.wmsj.cn,direct
+host-suffix,dl.steam.clngaa.com,direct
+host-suffix,dota2.com.cn,direct
+host-suffix,dota2.wmsj.cn,direct
+host-suffix,gstore.val.manlaxy.com,direct
+host-suffix,st.dl.bscstorage.net,direct
+host-suffix,st.dl.eccdnx.com,direct
+host-suffix,st.dl.pinyuncloud.com,direct
+host-suffix,steamchina.com,direct
+host-suffix,steampowered.com.8686c.com,direct
+host-suffix,steamserver.net,direct
+host-suffix,steamstatic.com.8686c.com,direct
+host-suffix,steamusercontent.com,direct
+host-suffix,wmsjsteam.com,direct
+host,alibaba.cdn.steampipe.steamcontent.com,direct
+host,lv.queniujq.cn,direct
+host,xz.pphimalayanrt.com,direct

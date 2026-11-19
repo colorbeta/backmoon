@@ -1,0 +1,36 @@
+# Generated from ForeignMedia.yaml. Policy is assigned by the profile.
+# iOS exports omit process-name matching.
+host-suffix,googlevideo.com,LocalFly
+host-suffix,gvt1.com,LocalFly
+host-suffix,video.google.com,LocalFly
+host-suffix,youtu.be,LocalFly
+host-wildcard,youtube.??,LocalFly
+host-wildcard,*.youtube.??,LocalFly
+host-wildcard,youtube.???,LocalFly
+host-wildcard,*.youtube.???,LocalFly
+host-wildcard,youtube.co.??,LocalFly
+host-wildcard,*.youtube.co.??,LocalFly
+host-wildcard,youtube.com.??,LocalFly
+host-wildcard,*.youtube.com.??,LocalFly
+host-suffix,youtube.googleapis.com,LocalFly
+host-suffix,youtubeeducation.com,LocalFly
+host-suffix,youtubeembeddedplayer.googleapis.com,LocalFly
+host-suffix,youtubei.googleapis.com,LocalFly
+host-suffix,youtubekids.com,LocalFly
+host-suffix,youtube-nocookie.com,LocalFly
+host-suffix,youtube-ui.l.google.com,LocalFly
+host-suffix,yt.be,LocalFly
+host-suffix,yt3.ggpht.com,LocalFly
+host-suffix,ytimg.com,LocalFly
+host-suffix,netflix.com,LocalFly
+host-suffix,netflix.net,LocalFly
+host-suffix,nflxext.com,LocalFly
+host-suffix,nflximg.com,LocalFly
+host-suffix,nflximg.net,LocalFly
+host-suffix,nflxso.net,LocalFly
+host-suffix,nflxvideo.net,LocalFly
+host-keyword,spotify,LocalFly
+host-suffix,pscdn.co,LocalFly
+host-suffix,scdn.co,LocalFly
+host-suffix,spoti.fi,LocalFly
+host-suffix,spotilocal.com,LocalFly

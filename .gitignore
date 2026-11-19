@@ -6,12 +6,16 @@
 !/hello_FlClash.yaml
 !/hello_Stash.yaml
 !/hello_mihomo.yaml
+!/hello_Loon.conf
+!/hello_QuantumultX.conf
 !/rule/
 !/mrs/
 !/icon/
 
 /rule/*
 !/rule/*.yaml
+!/rule/*.loon.list
+!/rule/*.qx.list
 !/rule/SOURCES.md
 /mrs/*
 !/mrs/*.mrs
@@ -29,3 +33,7 @@
 **/.env*
 **/*private*
 **/*subscription*
+
+# Public private-network rules contain no node credentials.
+!/rule/Private.loon.list
+!/rule/Private.qx.list

@@ -1,0 +1,28 @@
+# Generated from apple.yaml. Policy is assigned by the profile.
+# iOS exports omit process-name matching.
+host-keyword,apple.com.akadns.net,LocalFly
+host-keyword,icloud.com.akadns.net,LocalFly
+host-suffix,aaplimg.com,LocalFly
+host-suffix,apple.co,LocalFly
+host-suffix,apple.com,LocalFly
+host-suffix,apple-cloudkit.com,LocalFly
+host-suffix,apple-mapkit.com,LocalFly
+host-suffix,appsto.re,LocalFly
+host-suffix,cdn-apple.com,LocalFly
+host-suffix,icloud.com,LocalFly
+host-suffix,icloud-content.com,LocalFly
+host-suffix,itunes.com,LocalFly
+host-suffix,me.com,LocalFly
+host-suffix,mzstatic.com,LocalFly
+ip-cidr,17.0.0.0/8,LocalFly
+ip-cidr,63.92.224.0/19,LocalFly
+ip-cidr,65.199.22.0/23,LocalFly
+ip-cidr,139.178.128.0/18,LocalFly
+ip-cidr,144.178.0.0/19,LocalFly
+ip-cidr,144.178.36.0/22,LocalFly
+ip-cidr,144.178.48.0/20,LocalFly
+ip-cidr,192.35.50.0/24,LocalFly
+ip-cidr,198.183.17.0/24,LocalFly
+ip-cidr,205.180.175.0/24,LocalFly
+host-suffix,apple.comscoreresearch.com,LocalFly
+host-suffix,apple.news,LocalFly

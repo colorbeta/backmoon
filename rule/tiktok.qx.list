@@ -1,0 +1,14 @@
+# Generated from tiktok.yaml. Policy is assigned by the profile.
+# iOS exports omit process-name matching.
+host-suffix,byteoversea.com,LocalFly
+host-suffix,ibytedtos.com,LocalFly
+host-suffix,ibyteimg.com,LocalFly
+host-suffix,ipstatp.com,LocalFly
+host-suffix,muscdn.com,LocalFly
+host-suffix,musical.ly,LocalFly
+host-suffix,sgpstatp.com,LocalFly
+host-suffix,snssdk.com,LocalFly
+host-suffix,tik-tokapi.com,LocalFly
+host-suffix,tiktok.com,LocalFly
+host-suffix,tiktokcdn.com,LocalFly
+host-suffix,tiktokv.com,LocalFly

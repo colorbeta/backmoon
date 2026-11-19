@@ -26,6 +26,8 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
 OpenClash, FlClash, and Ubuntu templates use supported MRS files.
 Stash templates keep YAML providers for older-client compatibility.
+Loon and Quantumult X templates use native `.loon.list` / `.qx.list` text
+exports rather than MRS; see `rule/SOURCES.md` for usage and platform limits.
 Private variants use MRS for AI and TikTok where supported.
 MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
 need not equal source entry counts.

@@ -38,7 +38,53 @@ Compatible binary versions are stored under `mrs/`.
 See `mrs/README.md` for the complete YAML/MRS mapping and conversion command.
 Mixed domain/IP/keyword collections remain YAML.
 
-## Upstream repositories
+## Loon and Quantumult X
+
+- `hello_Loon.conf` uses Loon's native `Remote Proxy`, `Remote Filter`,
+  `Proxy Group`, and `Remote Rule` sections. Use Loon 3.5.3 build 1008+.
+- `hello_QuantumultX.conf` uses native `server_remote`, `server_local`,
+  `policy`, and `filter_remote` sections. Reality/Vision syntax follows the
+  current official sample (1.5.5+); verify support in the installed build.
+- `*.loon.list` and `*.qx.list` are generated from the YAML sources. Finite
+  domain regexes expand into explicit suffixes. The YouTube country pattern
+  uses native domain wildcards. Process-name rules are omitted from these
+  mobile exports. QX uses its native IP-filter semantics rather than
+  copying Mihomo's no-resolve option.
+- Node resources must use the selected client's native node-list format.
+  Replace the example URLs and enable the resources before connecting.
+  For an existing Airport/edgetunnel resource, retain its tag to preserve
+  group references. With a third Loon resource, also add its alias to the
+  Remote Filter definitions. QX regional groups filter all node tags.
+- Region names must contain recognizable HK/TW/JP/SG/US or country names.
+  Regional checks use 600 seconds and an 80 ms latency tolerance.
+- Loon ForeignFly-AUTO uses a flattened SG, JP, US node/filter list. It
+  chooses the first available node within each priority region. Selecting
+  Auto_SG/Auto_JP/Auto_US manually uses latency selection inside that region.
+- QX ForeignFly defaults to Auto_SG with Auto_JP/Auto_US available manually.
+  Cross-region priority automation is not implemented by this native
+  template. This avoids assuming nested automatic-policy behavior.
+- Both clients configure native encrypted DNS and their VPN interfaces.
+  Loon uses IPv4-only mode; QX disables AAAA answers with no-ipv6 and uses
+  no-system and remote resolution for proxy traffic.
+  Loon can fall back to ordinary DNS by default: disable that fallback in
+  the app's DNS server settings (https://nsloon.app/docs/DNS/).
+  Neither profile claims Mihomo's DNS proxy-fragment behavior. Validate DNS
+  on the device. Optional STUN blocking is disabled for voice/video use.
+- Lite adblocking references 217heidai's native Loon/QX rules directly.
+- Private copies in mylocal contain the existing Oracle nodes and private
+  URLs. Native Reality syntax has no copied Mihomo-specific
+  support-x25519mlkem768 setting; key-exchange behavior requires client and
+  server verification. Never publish these private copies.
+- Only structural, conversion, and rule-coverage tests are available here.
+  iOS import, DNS packet paths, and node handshakes require device testing.
+
+### Native documentation
+
+- https://github.com/Loon0x00/LoonExampleConfig/blob/master/example2.lcf
+- https://github.com/Loon0x00/LoonExampleConfig/blob/master/Nodes/ExampleNodes.list
+- https://github.com/crossutility/Quantumult-X/blob/master/sample.conf
+
+### Upstream repositories
 
 - https://github.com/ClashConnectRules/Self-Configuration
 - https://github.com/Loyalsoldier/clash-rules
