@@ -27,6 +27,9 @@
 - `adblock.yaml`: 217heidai full advertising-domain list.
 
 Compatible binary versions are stored under `mrs/`.
+See `mrs/README.md` for the complete YAML/MRS mapping and conversion command.
+`DomesticExtra.yaml` preserves the keyword and IP entries omitted from the
+domain-only `Domestic.mrs`. Mixed process/keyword rule sets remain YAML.
 
 ## Upstream repositories
 

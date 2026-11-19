@@ -1,31 +1,48 @@
-# MRS rules
+# MRS rule mapping
 
-Binary Mihomo rule sets generated from compatible YAML sources:
+`rule/` contains editable YAML sources. `mrs/` contains supported binary
+domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
-- `Special.mrs` from `rule/Special.yaml`
-- `CNDirect.mrs` from `rule/CNDirect.yaml`
-- `Private.mrs` from `rule/Private.yaml`
-- `LanCIDR.mrs` from `rule/LanCIDR.yaml`
-- `Domestic.mrs` from the domain entries in `rule/Domestic.yaml`
-- `DomesticIP.mrs` from the IP entries in `rule/DomesticIP.yaml`
-- `adblock.mrs` from `rule/adblock.yaml`
-- `ai.mrs` from the merged `rule/ai.yaml`
-- `google.mrs`, `google_ip.mrs`, `github.mrs`, `telegram.mrs`,
-  `telegram_ip.mrs`, `steam.mrs`, and `steam_cn.mrs` mirror MetaCubeX
-  service rules.
-- `cnbank.mrs` mirrors MetaCubeX `category-bank-cn`.
+| YAML source in `rule/` | Binary files in `mrs/` | Notes |
+| --- | --- | --- |
+| `adblock.yaml` | `adblock.mrs` | Domain list |
+| `ai.yaml` | `ai.mrs` | Exact domains and suffixes |
+| `cnbank.yaml` | `cnbank.mrs` | Domain list |
+| `CNDirect.yaml` | `CNDirect.mrs` | Domain list |
+| `Domestic.yaml` | `Domestic.mrs` | Domain entries, followed by `rule/DomesticExtra.yaml` |
+| `DomesticExtra.yaml` | YAML only | Generated keyword/IP remainder of `Domestic.yaml` |
+| `DomesticIP.yaml` | `DomesticIP.mrs` | Classical IP prefixes normalized before conversion |
+| `github.yaml` | `github.mrs` | Domain list |
+| `google.yaml` | `google.mrs` | Domain list |
+| `google_fcm.yaml` | `google_fcm.mrs`, `google_fcm_ip.mrs` | Both use `GOOGLE-FCM` |
+| `google_ip.yaml` | `google_ip.mrs` | IP list |
+| `LanCIDR.yaml` | `LanCIDR.mrs` | IP list |
+| `Private.yaml` | `Private.mrs` | Domain list |
+| `Special.yaml` | `Special.mrs` | Domain list |
+| `steam.yaml` | `steam.mrs` | Domain list |
+| `steam_cn.yaml` | `steam_cn.mrs` | Domain list |
+| `telegram.yaml` | `telegram.mrs` | Domain list |
+| `telegram_ip.yaml` | `telegram_ip.mrs` | IP list |
+| `tiktok.yaml` | `tiktok.mrs` | Domain suffixes |
+| `Applications.yaml` | YAML only | Process names |
+| `apple.yaml` | YAML only | Domains, keywords, IPs, and process names |
+| `DomesticMedia.yaml` | YAML only | Domains and process names |
+| `ForeignMedia.yaml` | YAML only | Domains, keywords, and process names |
+| `Technology.yaml` | YAML only | Domains, keywords, IPs, and process names |
 
-MRS generally loads faster and uses less storage and memory than YAML,
-especially for large domain lists. Mihomo currently supports MRS only for
-`domain` and `ipcidr` rule-provider behavior. Stash configurations therefore
-continue to use YAML rules.
+OpenClash, FlClash, and Ubuntu templates use supported MRS files.
+Stash templates keep YAML providers for older-client compatibility.
+`mylocal/config.yaml` uses MRS for AI, TikTok, and split FCM.
+MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
+need not equal source entry counts.
 
-Regenerate with Mihomo:
+Regenerate from the repository directory with PowerShell:
 
-```text
-mihomo convert-ruleset domain yaml rule/Special.yaml mrs/Special.mrs
-mihomo convert-ruleset domain yaml rule/Private.yaml mrs/Private.mrs
-mihomo convert-ruleset ipcidr yaml rule/LanCIDR.yaml mrs/LanCIDR.mrs
-mihomo convert-ruleset domain yaml rule/adblock.yaml mrs/adblock.mrs
-mihomo convert-ruleset domain yaml rule/ai.yaml mrs/ai.mrs
+```powershell
+./tools/convert-rules.ps1 -Mihomo ./local/mihomo-test-bin/mihomo-windows-amd64-compatible.exe
 ```
+
+The script validates the repository's flat YAML payload format, normalizes
+classical domain/IP rule syntax, and checks converter errors before publishing
+each binary. Edit `Domestic.yaml` to maintain its generated
+`DomesticExtra.yaml` remainder.

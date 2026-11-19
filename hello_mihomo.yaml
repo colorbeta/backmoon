@@ -280,6 +280,7 @@ rules:
 - RULE-SET,adblock,ADBLOCK
 - RULE-SET,ai,AI
 - RULE-SET,google_fcm,GOOGLE-FCM
+- RULE-SET,google_fcm_ip,GOOGLE-FCM
 - RULE-SET,ForeignMedia,FOREIGN-MEDIA
 - RULE-SET,Google,GOOGLE
 - RULE-SET,GoogleIP,GOOGLE,no-resolve
@@ -293,6 +294,7 @@ rules:
 - RULE-SET,apple,APPLE
 - RULE-SET,tiktok,TIKTOK
 - RULE-SET,Domestic,DOMESTIC
+- RULE-SET,DomesticExtra,DOMESTIC
 - RULE-SET,DomesticIP,DOMESTIC,no-resolve
 - GEOIP,CN,DOMESTIC,no-resolve
 - MATCH,FINAL
@@ -354,9 +356,17 @@ rule-providers:
     interval: 86400
   google_fcm:
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google_fcm.yaml
-    path: ./rule/google_fcm.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/google_fcm.mrs
+    path: ./mrs/google_fcm.mrs
+    interval: 86400
+  google_fcm_ip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/google_fcm_ip.mrs
+    path: ./mrs/google_fcm_ip.mrs
     interval: 86400
   ForeignMedia:
     type: http
@@ -433,9 +443,10 @@ rule-providers:
     interval: 86400
   tiktok:
     type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/tiktok.yaml
-    path: ./rule/tiktok.yaml
+    behavior: domain
+    format: mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/tiktok.mrs
+    path: ./mrs/tiktok.mrs
     interval: 86400
   Domestic:
     type: http
@@ -443,6 +454,12 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Domestic.mrs
     path: ./mrs/Domestic.mrs
+    interval: 86400
+  DomesticExtra:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/DomesticExtra.yaml
+    path: ./rule/DomesticExtra.yaml
     interval: 86400
   DomesticIP:
     type: http
