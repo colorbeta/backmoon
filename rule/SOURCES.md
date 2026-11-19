@@ -66,6 +66,17 @@ Mixed domain/IP/keyword collections remain YAML.
 - QX server_check_url uses HTTP, matching the official sample and avoiding
   the malformed-server-check-URL import error seen with HTTPS probes.
   This probe setting does not change HTTPS DNS or application traffic.
+- QX retains all 12 section headers from the official sample, including
+  rewrite_remote, rewrite_local, task_local, http_backend, and mitm even
+  when unused. The local validator compares the complete section schema
+  with a downloaded official sample and checks each missing-header case.
+- Reviewed https://ddgksf2013.top/Profile/QuantumultX.conf for native
+  resource layout, the profile icon, and domestic login DNS exclusions.
+  Existing LocalFly/ForeignFly routing, 600-second checks, 217heidai Lite,
+  and encrypted DNS remain in place. No reference nodes, paid-feature
+  rewrites, TLS interception, blanket UDP 443 blocking, CDN DNS aliases,
+  or plaintext DNS servers were imported. Certificate validation is not
+  skipped; rewrite/task/backend sections are intentionally empty.
 - Both clients configure native encrypted DNS and their VPN interfaces.
   Loon uses IPv4-only mode; QX disables AAAA answers with no-ipv6 and uses
   no-system and remote resolution for proxy traffic.
