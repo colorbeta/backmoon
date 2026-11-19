@@ -29,6 +29,13 @@ dns:
     - https://doh.pub/dns-query
     "+.lan": *domestic_dns
     "+.local": *domestic_dns
+    "+.minimax.io": *domestic_dns
+    "+.deepseek.com": *domestic_dns
+    "+.doubao.com": *domestic_dns
+    "+.qwen.ai": *domestic_dns
+    "+.qwenlm.ai": *domestic_dns
+    "+.gamersky.com": *domestic_dns
+    "+.maycur.com": *domestic_dns
     "+.openai.com": &foreign_dns
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
@@ -93,20 +100,18 @@ proxy-groups:
   interval: 600
   tolerance: 80
 rules:
-# LAN matches do not trigger public DNS resolution.
+# LAN and explicit local application/update exceptions.
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,Private,DIRECT
 - RULE-SET,LanCIDR,DIRECT,no-resolve
-# Explicit direct exceptions take precedence over blocking and broad rules.
-- RULE-SET,CNDirect,DIRECT
 - RULE-SET,Special,DIRECT
 - RULE-SET,Applications,DIRECT
-- RULE-SET,CNBank,DIRECT
 - RULE-SET,adblock,REJECT
-# Service-specific decisions precede Google and technology-wide matches.
 - RULE-SET,SteamCN,DIRECT
 - RULE-SET,DomesticMedia,DIRECT
-- RULE-SET,ai,ForeignFly
+# Domestic AI has priority over the overlapping overseas AI collection.
+- AND,((RULE-SET,ai),(NOT,((RULE-SET,Domestic)))),ForeignFly
+# Specific overseas services precede broad mainland suffixes such as .cn.
 - RULE-SET,ForeignMedia,LocalFly
 - RULE-SET,GitHub,LocalFly
 - RULE-SET,Telegram,LocalFly
@@ -114,19 +119,12 @@ rules:
 - RULE-SET,apple,LocalFly
 - RULE-SET,tiktok,LocalFly
 - RULE-SET,Google,ForeignFly
-- RULE-SET,Technology,LocalFly
-# Broad mainland domains and IPs are evaluated after explicit overseas services.
 - RULE-SET,Domestic,DIRECT
+- RULE-SET,Technology,LocalFly
 - RULE-SET,DomesticIP,DIRECT,no-resolve
 - GEOIP,CN,DIRECT,no-resolve
 - MATCH,LocalFly
 rule-providers:
-  CNDirect:
-    type: http
-    behavior: domain
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/CNDirect.yaml
-    path: ./rule/CNDirect.yaml
-    interval: 86400
   Special:
     type: http
     behavior: domain
@@ -150,12 +148,6 @@ rule-providers:
     behavior: ipcidr
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/LanCIDR.yaml
     path: ./rule/LanCIDR.yaml
-    interval: 86400
-  CNBank:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/cnbank.yaml
-    path: ./rule/cnbank.yaml
     interval: 86400
   adblock:
     type: http
@@ -231,7 +223,7 @@ rule-providers:
     interval: 86400
   Domestic:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Domestic.yaml
     path: ./rule/Domestic.yaml
     interval: 86400

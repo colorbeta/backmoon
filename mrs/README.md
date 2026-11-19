@@ -7,10 +7,7 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 | --- | --- | --- | --- |
 | `adblock.yaml` | `adblock.mrs` | Lite snapshot; clients fetch upstream directly | REJECT，Lite 每 8 小时更新 |
 | `ai.yaml` | `ai.mrs` | Exact domains and suffixes | ForeignFly（新加坡 / 日本 / 美国） |
-| `cnbank.yaml` | YAML only | Domains and anchored suffix regex | DIRECT |
-| `CNDirect.yaml` | `CNDirect.mrs` | Domain list | DIRECT |
-| `Domestic.yaml` | `Domestic.mrs` | Domain entries, followed by `rule/DomesticExtra.yaml` | DIRECT |
-| `DomesticExtra.yaml` | YAML only | Generated keyword/IP remainder of `Domestic.yaml` | DIRECT |
+| `Domestic.yaml` | YAML only | Unified domestic AI, banks, domains, keywords, and direct IP exceptions | DIRECT |
 | `DomesticIP.yaml` | `DomesticIP.mrs` | Classical IP prefixes normalized before conversion | DIRECT |
 | `github.yaml` | YAML only | Domains and anchored suffix regex | LocalFly（台湾 / 香港 / 日本 / 新加坡） |
 | `google.yaml` | YAML only | Merged Google domains, IPs, and FCM, using `ForeignFly` | ForeignFly（新加坡 / 日本 / 美国） |
@@ -45,8 +42,8 @@ Regenerate from the repository directory with PowerShell:
 
 The script validates the repository's flat YAML payload format, normalizes
 classical domain/IP rule syntax, and checks converter errors before publishing
-each binary. Edit `Domestic.yaml` to maintain its generated
-`DomesticExtra.yaml` remainder.
+each binary. `Domestic.yaml` is a mixed classical provider and is maintained
+as YAML.
 
 ## Rule types and policies
 
@@ -64,4 +61,4 @@ each binary. Edit `Domestic.yaml` to maintain its generated
 MRS 的一个文件只能声明一种 behavior。域名和 IP 混合时可拆成两份 MRS，
 也可合为一份 classical YAML。包含 `DOMAIN-REGEX`、`PROCESS-NAME` 等
 条件的集合使用 classical YAML。当前 Google、Telegram 采用合并 YAML。
-`Domestic.mrs` 与 `DomesticExtra.yaml` 共同保留原始国内规则的全部条件。
+`Domestic.yaml` 统一维护国内 AI、银行和综合国内规则；`DomesticIP` 保留为独立 IP 库。

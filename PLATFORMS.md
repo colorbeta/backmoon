@@ -6,16 +6,17 @@ engine, so DNS and routing decisions remain enforceable.
 
 ## Rule order
 
-LAN rules run first, followed by explicit direct exceptions and advertising
-rules. Domestic media and Steam CN precede overseas service rules. AI keeps
-priority over shared dependencies, and dedicated overseas media, GitHub,
-Telegram, Steam, Apple, and TikTok precede broad Google and technology rules.
-Mainland domain/IP rules and the LocalFly catch-all run last.
+LAN rules run first, followed by explicit local application/update exceptions
+and advertising rules. Steam CN and domestic media use DIRECT. Overseas AI
+matches only destinations outside Domestic. Specific overseas services
+precede the unified Domestic list, and the broad Technology list follows it.
+Mainland IP rules and the LocalFly catch-all run last.
 
-Mihomo DNS rule-set policies follow the same service precedence. Broad
-mainland DNS matching runs last so it cannot capture Google Play's
-`googleapis.cn`. Stash uses explicit foreign DNS policies for the Google Play
-China-domain exceptions.
+Domestic includes banks, mainland AI, local direct domains, and the original
+dler direct exceptions. Its mixed rule types use one classical YAML provider.
+DNS preserves the domestic MiniMax exception before the AI policy, puts
+specific overseas services before Domestic, and evaluates Technology last.
+Stash uses explicit Google Play China-domain and domestic AI DNS policies.
 
 ## OpenClash
 

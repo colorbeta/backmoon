@@ -42,7 +42,7 @@ function Convert-Payload([string]$Name, [string]$Behavior, [string[]]$Payload) {
 }
 
 try {
-    $domainSources = @('adblock', 'ai', 'CNDirect', 'Private', 'Special', 'steam_cn', 'steam', 'tiktok')
+    $domainSources = @('adblock', 'ai', 'Private', 'Special', 'steam_cn', 'steam', 'tiktok')
     foreach ($name in $domainSources) {
         $payload = @(Read-Payload $name | ForEach-Object {
             if ($_ -match '^DOMAIN-SUFFIX,(.+)$') { '+.' + $Matches[1] }
@@ -61,15 +61,6 @@ try {
         })
         Convert-Payload $name 'ipcidr' $payload
     }
-
-    $domestic = @(Read-Payload 'Domestic')
-    $domains = @($domestic | ForEach-Object {
-        if ($_ -match '^DOMAIN-SUFFIX,(.+)$') { '+.' + $Matches[1] }
-        elseif ($_ -match '^DOMAIN,(.+)$') { $Matches[1] }
-    })
-    Convert-Payload 'Domestic' 'domain' $domains
-    $extra = @($domestic | Where-Object { $_ -notmatch '^DOMAIN(?:-SUFFIX)?,' })
-    [IO.File]::WriteAllLines((Join-Path $repository 'rule/DomesticExtra.yaml'), @('payload:') + @($extra | ForEach-Object { '  - ' + $_ }), $utf8)
 
 } finally {
     # Only files created by this invocation exist in this unique directory.

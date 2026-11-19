@@ -44,10 +44,13 @@ dns:
   - https://dns.alidns.com/dns-query
   - https://doh.pub/dns-query
   nameserver-policy:
-    "rule-set:CNDirect,Special,Private,CNBank":
+    "rule-set:Special,Private":
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
     "rule-set:SteamCN,DomesticMedia":
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    "+.minimax.io":
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
     "rule-set:ai":
@@ -59,12 +62,12 @@ dns:
     "rule-set:Google":
     - https://1.1.1.1/dns-query#ForeignFly
     - https://8.8.8.8/dns-query#ForeignFly
-    "rule-set:Technology":
-    - https://1.1.1.1/dns-query#LocalFly
-    - https://8.8.8.8/dns-query#LocalFly
     "rule-set:Domestic":
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    "rule-set:Technology":
+    - https://1.1.1.1/dns-query#LocalFly
+    - https://8.8.8.8/dns-query#LocalFly
 proxy-providers:
   Airport:
     type: http
@@ -99,20 +102,18 @@ proxy-groups:
   interval: 600
   tolerance: 80
 rules:
-# LAN matches do not trigger public DNS resolution.
+# LAN and explicit local application/update exceptions.
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,Private,DIRECT
 - RULE-SET,LanCIDR,DIRECT,no-resolve
-# Explicit direct exceptions take precedence over blocking and broad rules.
-- RULE-SET,CNDirect,DIRECT
 - RULE-SET,Special,DIRECT
 - RULE-SET,Applications,DIRECT
-- RULE-SET,CNBank,DIRECT
 - RULE-SET,adblock,REJECT
-# Service-specific decisions precede Google and technology-wide matches.
 - RULE-SET,SteamCN,DIRECT
 - RULE-SET,DomesticMedia,DIRECT
-- RULE-SET,ai,ForeignFly
+# Domestic AI has priority over the overlapping overseas AI collection.
+- AND,((RULE-SET,ai),(NOT,((RULE-SET,Domestic)))),ForeignFly
+# Specific overseas services precede broad mainland suffixes such as .cn.
 - RULE-SET,ForeignMedia,LocalFly
 - RULE-SET,GitHub,LocalFly
 - RULE-SET,Telegram,LocalFly
@@ -120,21 +121,12 @@ rules:
 - RULE-SET,apple,LocalFly
 - RULE-SET,tiktok,LocalFly
 - RULE-SET,Google,ForeignFly
-- RULE-SET,Technology,LocalFly
-# Broad mainland domains and IPs are evaluated after explicit overseas services.
 - RULE-SET,Domestic,DIRECT
-- RULE-SET,DomesticExtra,DIRECT
+- RULE-SET,Technology,LocalFly
 - RULE-SET,DomesticIP,DIRECT,no-resolve
 - GEOIP,CN,DIRECT,no-resolve
 - MATCH,LocalFly
 rule-providers:
-  CNDirect:
-    type: http
-    behavior: domain
-    format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/CNDirect.mrs
-    path: ./mrs/CNDirect.mrs
-    interval: 86400
   Special:
     type: http
     behavior: domain
@@ -161,12 +153,6 @@ rule-providers:
     format: mrs
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/LanCIDR.mrs
     path: ./mrs/LanCIDR.mrs
-    interval: 86400
-  CNBank:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/cnbank.yaml
-    path: ./rule/cnbank.yaml
     interval: 86400
   adblock:
     type: http
@@ -247,16 +233,9 @@ rule-providers:
     interval: 86400
   Domestic:
     type: http
-    behavior: domain
-    format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Domestic.mrs
-    path: ./mrs/Domestic.mrs
-    interval: 86400
-  DomesticExtra:
-    type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/DomesticExtra.yaml
-    path: ./rule/DomesticExtra.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Domestic.yaml
+    path: ./rule/Domestic.yaml
     interval: 86400
   DomesticIP:
     type: http

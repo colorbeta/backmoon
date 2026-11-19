@@ -1,59 +1,221 @@
 payload:
-  # China Banks
-  # > Agricultural Bank of China
+  # Merged domestic AI, banks, direct exceptions, and dler Domestic rules.
+  - DOMAIN-SUFFIX,ai-indeed.com
+  - DOMAIN-SUFFIX,aispeech.com
+  - DOMAIN-SUFFIX,antafu.com
+  - DOMAIN-SUFFIX,antaq.com
+  - DOMAIN-SUFFIX,aorizon.cn
+  - DOMAIN-SUFFIX,api-building.fun
+  - DOMAIN-SUFFIX,askdiandian.com
+  - DOMAIN-SUFFIX,baichuan-ai.com
+  - DOMAIN-SUFFIX,bigmodel.cn
+  - DOMAIN-SUFFIX,building.fun
+  - DOMAIN-SUFFIX,butterfly-static.cn
+  - DOMAIN-SUFFIX,butterflyai.cn
+  - DOMAIN-SUFFIX,chatglm.cn
+  - DOMAIN-SUFFIX,clawhub-mirror.com
+  - DOMAIN-SUFFIX,codebuddy.cn
+  - DOMAIN-SUFFIX,coze-dns-01.com
+  - DOMAIN-SUFFIX,coze.cn
+  - DOMAIN-SUFFIX,coze.email
+  - DOMAIN-SUFFIX,coze.site
+  - DOMAIN-SUFFIX,cozeapp.net
+  - DOMAIN-SUFFIX,cozebaas.cn
+  - DOMAIN-SUFFIX,cozebuild.com
+  - DOMAIN-SUFFIX,cozecdn.com
+  - DOMAIN-SUFFIX,cozedeploy.com
+  - DOMAIN-SUFFIX,cozefn.cn
+  - DOMAIN-SUFFIX,cozeide.cn
+  - DOMAIN-SUFFIX,cozesdk.com
+  - DOMAIN-SUFFIX,cozetest.cn
+  - DOMAIN-SUFFIX,cozetest2.cn
+  - DOMAIN-SUFFIX,cozetest3.cn
+  - DOMAIN-SUFFIX,cueme.cn
+  - DOMAIN-SUFFIX,dbbuilding.fun
+  - DOMAIN-SUFFIX,deepseek.com
+  - DOMAIN-SUFFIX,deepseeksvc.com
+  - DOMAIN-SUFFIX,diandianlife.top
+  - DOMAIN-SUFFIX,doubao-dev.com
+  - DOMAIN-SUFFIX,doubao.com
+  - DOMAIN-SUFFIX,doubaoapps.com
+  - DOMAIN-SUFFIX,doubaocdn.com
+  - DOMAIN-SUFFIX,doudou.com
+  - DOMAIN-SUFFIX,dui.ai
+  - DOMAIN-SUFFIX,duiopen.com
+  - DOMAIN-SUFFIX,dumate.cn
+  - DOMAIN-SUFFIX,favonis.cloud
+  - DOMAIN-SUFFIX,favonis.com
+  - DOMAIN-SUFFIX,favonis.space
+  - DOMAIN-SUFFIX,faxingbao.com
+  - DOMAIN-SUFFIX,gamersky.com
+  - DOMAIN-SUFFIX,hailuoai.com
+  - DOMAIN-SUFFIX,happyhorse.cn
+  - DOMAIN-SUFFIX,happyshrimp.cn
+  - DOMAIN-SUFFIX,hi-butterfly.cn
+  - DOMAIN-SUFFIX,hunyuan.tencent.com
+  - DOMAIN-SUFFIX,instreet.com
+  - DOMAIN-SUFFIX,kakaxing.com
+  - DOMAIN-SUFFIX,kechuangai.com
+  - DOMAIN-SUFFIX,kimi.com
+  - DOMAIN-SUFFIX,kling-ai.com
+  - DOMAIN-SUFFIX,klingai.com
+  - DOMAIN-SUFFIX,liblib.art
+  - DOMAIN-SUFFIX,liblib.cloud
+  - DOMAIN-SUFFIX,liblib.tv
+  - DOMAIN-SUFFIX,linka2a.net
+  - DOMAIN-SUFFIX,maoxiangai.com
+  - DOMAIN-SUFFIX,marscode.cn
+  - DOMAIN-SUFFIX,marscode.com.cn
+  - DOMAIN-SUFFIX,maycur.com
+  - DOMAIN-SUFFIX,mcbaas.work
+  - DOMAIN-SUFFIX,mcdemo.show
+  - DOMAIN-SUFFIX,mchost.guru
+  - DOMAIN-SUFFIX,mcprev.cn
+  - DOMAIN-SUFFIX,mcpworld.com
+  - DOMAIN-SUFFIX,meta.law
+  - DOMAIN-SUFFIX,metaso.cn
+  - DOMAIN-SUFFIX,miaibox.com
+  - DOMAIN-SUFFIX,miaoda.cn
+  - DOMAIN-SUFFIX,miaoyanai.com
+  - DOMAIN-SUFFIX,minimax.io
+  - DOMAIN-SUFFIX,minimaxi.com
+  - DOMAIN-SUFFIX,moonshot.cn
+  - DOMAIN-SUFFIX,myparallelstory.com
+  - DOMAIN-SUFFIX,n.cn
+  - DOMAIN-SUFFIX,namiso.com
+  - DOMAIN-SUFFIX,nia-teams.com
+  - DOMAIN-SUFFIX,obriccloud.com
+  - DOMAIN-SUFFIX,obricclouddw.com
+  - DOMAIN-SUFFIX,oceancloudapi.com
+  - DOMAIN-SUFFIX,picpic-ai.cn
+  - DOMAIN-SUFFIX,pixeldance.com
+  - DOMAIN-SUFFIX,qianwen.aliyun.com
+  - DOMAIN-SUFFIX,qianwen.com
+  - DOMAIN-SUFFIX,qianwenai.com
+  - DOMAIN-SUFFIX,qwen.ai
+  - DOMAIN-SUFFIX,qwenlm.ai
+  - DOMAIN-SUFFIX,rwkv.cn
+  - DOMAIN-SUFFIX,rwkv.com
+  - DOMAIN-SUFFIX,safeskill.cn
+  - DOMAIN-SUFFIX,senseaudio.cn
+  - DOMAIN-SUFFIX,senseavatar.com
+  - DOMAIN-SUFFIX,sensecore.cn
+  - DOMAIN-SUFFIX,sensefoundry.cn
+  - DOMAIN-SUFFIX,sensenova.cn
+  - DOMAIN-SUFFIX,sensetime.com
+  - DOMAIN-SUFFIX,shunjing.xin
+  - DOMAIN-SUFFIX,skillhub.cn
+  - DOMAIN-SUFFIX,sleeplesshorizon.cn
+  - DOMAIN-SUFFIX,tapnow.top
+  - DOMAIN-SUFFIX,tcwqqdy.guru
+  - DOMAIN-SUFFIX,tiangong.cn
+  - DOMAIN-SUFFIX,tongyi.aliyun.com
+  - DOMAIN-SUFFIX,tongyi.com
+  - DOMAIN-SUFFIX,trae.cn
+  - DOMAIN-SUFFIX,trae.com.cn
+  - DOMAIN-SUFFIX,trae.guru
+  - DOMAIN-SUFFIX,workbuddy.cn
+  - DOMAIN-SUFFIX,xiaoaiassist.com
+  - DOMAIN-SUFFIX,xiaohuanxiong.com
+  - DOMAIN-SUFFIX,xiaomimimo.com
+  - DOMAIN-SUFFIX,xiezuocat.com
+  - DOMAIN-SUFFIX,xinghuo.xfyun.cn
+  - DOMAIN-SUFFIX,xingyeai.com
+  - DOMAIN-SUFFIX,yiyan.baidu.com
+  - DOMAIN-SUFFIX,yoma.cn
+  - DOMAIN-SUFFIX,yuanbao.tencent.com
+  - DOMAIN-SUFFIX,yuanqi.tencent.com
+  - DOMAIN-SUFFIX,yzsgo.com
+  - DOMAIN-SUFFIX,z.ai
+  - DOMAIN-SUFFIX,zhiexa.com
+  - DOMAIN-SUFFIX,zhipuai.cn
+  - DOMAIN-SUFFIX,zhipucn.com
+  - DOMAIN,ai.zhaomi.cn
+  - DOMAIN,cueme-api.quark.cn
+  - DOMAIN-SUFFIX,95516.com
+  - DOMAIN-SUFFIX,95516.net
   - DOMAIN-SUFFIX,abchina.com
+  - DOMAIN-SUFFIX,bankcomm.cn
+  - DOMAIN-SUFFIX,bankcomm.com
+  - DOMAIN-SUFFIX,bankofbeijing.com.cn
+  - DOMAIN-SUFFIX,bosc.cn
+  - DOMAIN-SUFFIX,bsb.com.cn
+  - DOMAIN-SUFFIX,cebbank.com
+  - DOMAIN-SUFFIX,cgbchina.com.cn
+  - DOMAIN-SUFFIX,chinapay.com
+  - DOMAIN-SUFFIX,chinaums.com
+  - DOMAIN-REGEX,(^|\.)chinaunionpay\.(?:com|net|com\.(?:cn))$
+  - DOMAIN-SUFFIX,cib.com.cn
+  - DOMAIN-SUFFIX,citibank.com.cn
+  - DOMAIN-SUFFIX,cmbc.com.cn
+  - DOMAIN-SUFFIX,csxbank.com
+  - DOMAIN-SUFFIX,cup.com.cn
+  - DOMAIN-SUFFIX,cup62.cn
+  - DOMAIN-SUFFIX,fbank.com
+  - DOMAIN-SUFFIX,hsbc.com.cn
+  - DOMAIN-SUFFIX,hsbcinsurance.com.cn
+  - DOMAIN-SUFFIX,hsbcqh.com.cn
+  - DOMAIN-SUFFIX,hxb.com.cn
+  - DOMAIN-SUFFIX,kcbebank.com
+  - DOMAIN-SUFFIX,kshbank.cn
+  - DOMAIN-SUFFIX,ms-bank.cn
+  - DOMAIN-SUFFIX,mybank.cn
+  - DOMAIN-SUFFIX,newupbank.com
+  - DOMAIN-SUFFIX,njcb.com.cn
+  - DOMAIN-SUFFIX,onebank.com.cn
+  - DOMAIN-SUFFIX,psbc.com
+  - DOMAIN-SUFFIX,shrbank.com
+  - DOMAIN-SUFFIX,spdb.com.cn
+  - DOMAIN-SUFFIX,suningbank.com
+  - DOMAIN-SUFFIX,tctpwebankcdn.net
+  - DOMAIN-SUFFIX,unionpay.com
+  - DOMAIN-SUFFIX,unionpay.net
+  - DOMAIN-SUFFIX,unionpayintl.cn
+  - DOMAIN-SUFFIX,unionpayintl.com
+  - DOMAIN-SUFFIX,unionpaysecure.com
+  - DOMAIN-SUFFIX,wbweilicai.com
+  - DOMAIN-SUFFIX,webank.com
+  - DOMAIN-SUFFIX,webankcdn.net
+  - DOMAIN-SUFFIX,wegobank.cn
+  - DOMAIN-SUFFIX,whccb.com
+  - DOMAIN-SUFFIX,wxsbank.com
+  - DOMAIN-SUFFIX,xa-bank.com
+  - DOMAIN-SUFFIX,xwbank.com
+  - DOMAIN-SUFFIX,yillionbank.com
+  - DOMAIN-SUFFIX,ymbank.com
+  - DOMAIN-SUFFIX,z-bank.com
+  - DOMAIN-SUFFIX,zgcbank.com
+  - DOMAIN-SUFFIX,cdrcb.com
+  - DOMAIN-SUFFIX,cdrcbank.com
+  - DOMAIN-SUFFIX,95508.com
+  - DOMAIN-SUFFIX,ibangbank.com
+  - DOMAIN-SUFFIX,chinaunionpay.com
+  - DOMAIN-SUFFIX,chinaunionpay.net
+  - DOMAIN-SUFFIX,bocd.com.cn
+  - DOMAIN-SUFFIX,chinaunionpay.com.cn
   - DOMAIN-SUFFIX,abchina.com.cn
-
-  # > Bank of China
   - DOMAIN-SUFFIX,boc.cn
-
-  # > China Citic Bank
   - DOMAIN-SUFFIX,citicbank.com
   - DOMAIN-SUFFIX,ecitic.com
   - DOMAIN-SUFFIX,ecitic.net
-
-  # > China Construction Bank
   - DOMAIN-SUFFIX,ccb.com
   - DOMAIN-SUFFIX,ccb.com.cn
-
-  # > China Everbright Bank
-  - DOMAIN-SUFFIX,cebbank.com
-
-  # > China Merchants Bank
-  # - USER-AGENT,cmb*
   - DOMAIN-SUFFIX,cmbchina.com
   - DOMAIN-SUFFIX,cmbimg.com
   - DOMAIN-SUFFIX,cmbt.cn
   - DOMAIN-SUFFIX,mbcloud.com
-
-  # > Industrial and Commercial Bank of China
-  # - USER-AGENT,%E4%B8%AD%E5%9B%BD%E5%B7%A5%E5%95%86%E9%93%B6%E8%A1%8C*
   - DOMAIN-SUFFIX,icbc.com.cn
-
-  # > Ping An Bank
   - DOMAIN-SUFFIX,pingan.com
   - DOMAIN-SUFFIX,pingan.com.cn
-
-  # Type
-  # > Beplay
   - DOMAIN-KEYWORD,beplay
-
-  # > Prior
   - DOMAIN,client.amplifi.com
   - DOMAIN,ip.bjango.com
   - DOMAIN-SUFFIX,alphassl.com
   - DOMAIN-SUFFIX,edu.cn
-
-  # > RRYS
   - DOMAIN-SUFFIX,p4pfile.com
   - DOMAIN-SUFFIX,zmzfile.com
-
-  # > Sony
-  # - USER-AGENT,RemotePlay*
   - DOMAIN-SUFFIX,sony.com
   - DOMAIN-SUFFIX,sonyentertainmentnetwork.com
-
-  # > TeamViewer
   - IP-CIDR,185.188.32.0/24,no-resolve
   - IP-CIDR,185.188.33.0/24,no-resolve
   - IP-CIDR,185.188.34.0/24,no-resolve
@@ -62,10 +224,7 @@ payload:
   - IP-CIDR6,2a0b:b581::/48,no-resolve
   - IP-CIDR6,2a0b:b582::/48,no-resolve
   - IP-CIDR6,2a0b:b583::/48,no-resolve
-
-  # > Tencent
   - IP-CIDR,182.254.116.0/24,no-resolve
-
   - DOMAIN-SUFFIX,10010.com
   - DOMAIN-SUFFIX,10086.cn
   - DOMAIN-SUFFIX,12306.cn
@@ -81,7 +240,6 @@ payload:
   - DOMAIN-SUFFIX,51ym.me
   - DOMAIN-SUFFIX,58.com
   - DOMAIN-SUFFIX,8686c.com
-  - DOMAIN-SUFFIX,95516.com
   - DOMAIN-SUFFIX,abercrombie.com
   - DOMAIN-SUFFIX,acfun.tv
   - DOMAIN-SUFFIX,adobesc.com
@@ -257,7 +415,6 @@ payload:
   - DOMAIN-SUFFIX,tencent-cloud.net
   - DOMAIN-SUFFIX,tencent.com
   - DOMAIN-SUFFIX,tenpay.com
-  - DOMAIN-SUFFIX,tenpay.com
   - DOMAIN-SUFFIX,tietuku.com
   - DOMAIN-SUFFIX,tmall.com
   - DOMAIN-SUFFIX,tmzvps.com
@@ -274,7 +431,6 @@ payload:
   - DOMAIN-SUFFIX,wandoujia.com
   - DOMAIN-SUFFIX,weather.bjango.com
   - DOMAIN-SUFFIX,webqxs.com
-  - DOMAIN-SUFFIX,wechat.com
   - DOMAIN-SUFFIX,wechat.com
   - DOMAIN-SUFFIX,weibo.cn
   - DOMAIN-SUFFIX,weibo.com
@@ -312,9 +468,88 @@ payload:
   - DOMAIN-SUFFIX,zhimg.com
   - DOMAIN-SUFFIX,zimuzu.tv
   - DOMAIN-SUFFIX,zmz002.com
-
   - IP-CIDR,1.255.62.0/24,no-resolve
-
-  # > CN
   - DOMAIN-SUFFIX,gov.cn
   - DOMAIN-SUFFIX,cn
+  - DOMAIN,p-aweme-im-img-sign.bytedance.net
+  - DOMAIN,v5-dy-o-abtest.zjcdn.com
+  - DOMAIN-SUFFIX,amemv.com
+  - DOMAIN-SUFFIX,byted-static.com
+  - DOMAIN-SUFFIX,bytednsdoc.com
+  - DOMAIN-SUFFIX,bytegecko.com
+  - DOMAIN-SUFFIX,bytegoofy.com
+  - DOMAIN-SUFFIX,bytehwm.com
+  - DOMAIN-SUFFIX,byteimg.com
+  - DOMAIN-SUFFIX,bytescm.com
+  - DOMAIN-SUFFIX,bytetcc.com
+  - DOMAIN-SUFFIX,bytetos.com
+  - DOMAIN-SUFFIX,douyincdn.com
+  - DOMAIN-SUFFIX,douyinfe.com
+  - DOMAIN-SUFFIX,douyinliving.com
+  - DOMAIN-SUFFIX,douyinpic.com
+  - DOMAIN-SUFFIX,douyinstatic.com
+  - DOMAIN-SUFFIX,douyinvod.com
+  - DOMAIN-SUFFIX,huoshancdn.com
+  - DOMAIN-SUFFIX,huoshanimg.com
+  - DOMAIN-SUFFIX,huoshanlive.com
+  - DOMAIN-SUFFIX,huoshanstatic.com
+  - DOMAIN-SUFFIX,huoshanvod.com
+  - DOMAIN-SUFFIX,hypercachenode.com
+  - DOMAIN-SUFFIX,ibytedapm.com
+  - DOMAIN-SUFFIX,idouyinliving.com
+  - DOMAIN-SUFFIX,idouyinpic.com
+  - DOMAIN-SUFFIX,idouyinstatic.com
+  - DOMAIN-SUFFIX,idouyinvod.com
+  - DOMAIN-SUFFIX,iesdouyin.com
+  - DOMAIN-SUFFIX,iesdouyin.net
+  - DOMAIN-SUFFIX,ihuoshanimg.com
+  - DOMAIN-SUFFIX,ihuoshanlive.com
+  - DOMAIN-SUFFIX,ihuoshanstatic.com
+  - DOMAIN-SUFFIX,ihuoshanvod.com
+  - DOMAIN-SUFFIX,ixigua.com
+  - DOMAIN-SUFFIX,ixiguavideo.com
+  - DOMAIN-SUFFIX,pstatp.com
+  - DOMAIN-SUFFIX,snssdk.com
+  - DOMAIN-SUFFIX,supercachenet.com
+  - DOMAIN-SUFFIX,supercachenode.com
+  - DOMAIN-SUFFIX,toutiao.com
+  - DOMAIN-SUFFIX,ultracachenode.com
+  - DOMAIN-SUFFIX,yhgfb-cn-static.com
+  - DOMAIN-SUFFIX,zijieapi.com
+  - DOMAIN-SUFFIX,aweray.com
+  - DOMAIN-SUFFIX,oray.com
+  - DOMAIN-SUFFIX,oray.net
+  - DOMAIN-SUFFIX,sunlogin.net
+  - DOMAIN-SUFFIX,volcengine.com
+  - DOMAIN-SUFFIX,volcengineapi.com
+  - DOMAIN-SUFFIX,volces.com
+  - DOMAIN-SUFFIX,123pan.com
+  - DOMAIN-SUFFIX,aiqicha.com
+  - DOMAIN-SUFFIX,broadcasthe.net
+  - DOMAIN-SUFFIX,dingtalk.com
+  - DOMAIN-SUFFIX,dingtalk.net
+  - DOMAIN-SUFFIX,dingtalkapps.com
+  - DOMAIN-SUFFIX,dingtalkcloud.com
+  - DOMAIN-SUFFIX,feishuapp.com
+  - DOMAIN-SUFFIX,feishucdn.com
+  - DOMAIN-SUFFIX,feishudoc.com
+  - DOMAIN-SUFFIX,feishuimg.com
+  - DOMAIN-SUFFIX,jianguoyun.com
+  - DOMAIN-SUFFIX,nlark.com
+  - DOMAIN-SUFFIX,pddcdn.com
+  - DOMAIN-SUFFIX,pddpic.com
+  - DOMAIN-SUFFIX,pinduoduo.com
+  - DOMAIN-SUFFIX,qcc.com
+  - DOMAIN-SUFFIX,qichacha.com
+  - DOMAIN-SUFFIX,rednotecdn.com
+  - DOMAIN-SUFFIX,rnote.com
+  - DOMAIN-SUFFIX,sdo.com
+  - DOMAIN-SUFFIX,shimo.im
+  - DOMAIN-SUFFIX,shimonote.com
+  - DOMAIN-SUFFIX,weiyun.com
+  - DOMAIN-SUFFIX,wps.com
+  - DOMAIN-SUFFIX,wpscdn.com
+  - DOMAIN-SUFFIX,yangkeduo.com
+  - DOMAIN-SUFFIX,yuque.com
+  - DOMAIN-SUFFIX,raylink.live
+  - DOMAIN-SUFFIX,todesk.com
