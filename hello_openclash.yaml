@@ -99,12 +99,11 @@ proxy-groups:
   tolerance: 80
 - name: ForeignFly-AUTO
   icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Auto.png
-  type: url-test
+  type: fallback
   hidden: true
   proxies: [Auto_SG, Auto_JP, Auto_US]
   url: https://www.gstatic.com/generate_204
   interval: 600
-  tolerance: 80
 - name: Auto_HK
   icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/HongKong.png
   type: url-test

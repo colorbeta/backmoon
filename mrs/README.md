@@ -34,6 +34,8 @@ need not equal source entry counts.
 两个 Fly 组使用 select，可选自动模式或手动指定地区。香港、台湾、日本、
 新加坡、美国五个地区组可查看节点状态，每 600 秒测速，切换容差为 80 毫秒。
 默认自动模式由隐藏的 LocalFly-AUTO / ForeignFly-AUTO 汇总相应地区组。
+ForeignFly-AUTO 使用 fallback，按新加坡 → 日本 → 美国故障转移。
+每个地区内部继续使用 url-test 选择低延迟节点。
 自动地区组命名为 Auto_HK、Auto_TW、Auto_JP、Auto_SG、Auto_US。
 进程规则适用于能识别该进程的设备，在旁路由上无法按 Windows 进程名识别转发流量。
 
