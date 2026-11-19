@@ -43,8 +43,8 @@ Mixed domain/IP/keyword collections remain YAML.
 - `hello_Loon.conf` uses Loon's native `Remote Proxy`, `Remote Filter`,
   `Proxy Group`, and `Remote Rule` sections. Use Loon 3.5.3 build 1008+.
 - `hello_QuantumultX.conf` uses native `server_remote`, `server_local`,
-  `policy`, and `filter_remote` sections. Reality/Vision syntax follows the
-  current official sample (1.5.5+); verify support in the installed build.
+  `policy`, and `filter_remote` sections. Enabled device reflection requires
+  QX 1.9.0 build 952+ or a compatible later release.
 - `*.loon.list` and `*.qx.list` are generated from the YAML sources. Finite
   domain regexes expand into explicit suffixes. The YouTube country pattern
   uses native domain wildcards. Process-name rules are omitted from these
