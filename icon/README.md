@@ -10,11 +10,11 @@ cross-client compatibility, including Stash's documented PNG support.
 | LocalFly | `LocalFly.svg`, `LocalFly.png` | `common/AsiaMap.svg` |
 | ForeignFly | `ForeignFly.svg`, `ForeignFly.png` | `common/Global.svg` |
 | Both hidden Fly-AUTO groups | `Auto.svg`, `Auto.png` | `common/Auto.svg` |
-| Hong Kong | `HongKong.svg`, `HongKong.png` | `flag/Hong_Kong.svg` |
-| Taiwan | `Taiwan.svg`, `Taiwan.png` | `flag/China_Taiwan.svg` |
-| Japan | `Japan.svg`, `Japan.png` | `flag/Japan.svg` |
-| Singapore | `Singapore.svg`, `Singapore.png` | `flag/Singapore.svg` |
-| United States | `UnitedStates.svg`, `UnitedStates.png` | `flag/United_States.svg` |
+| Auto_HK | `HongKong.svg`, `HongKong.png` | `flag/Hong_Kong.svg` |
+| Auto_TW | `Taiwan.svg`, `Taiwan.png` | `flag/China_Taiwan.svg` |
+| Auto_JP | `Japan.svg`, `Japan.png` | `flag/Japan.svg` |
+| Auto_SG | `Singapore.svg`, `Singapore.png` | `flag/Singapore.svg` |
+| Auto_US | `UnitedStates.svg`, `UnitedStates.png` | `flag/United_States.svg` |
 
 Templates reference PNGs from this repository's `test/icon/` raw URLs.
 The client or dashboard renders these images. CLI-only Mihomo does not

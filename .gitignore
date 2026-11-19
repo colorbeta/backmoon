@@ -1,0 +1,31 @@
+# Publish only the public templates and their rule/icon resources.
+/*
+!/.gitignore
+!/.gitattributes
+!/hello_openclash.yaml
+!/hello_FlClash.yaml
+!/hello_Stash.yaml
+!/hello_mihomo.yaml
+!/rule/
+!/mrs/
+!/icon/
+
+/rule/*
+!/rule/*.yaml
+!/rule/SOURCES.md
+/mrs/*
+!/mrs/*.mrs
+!/mrs/README.md
+/icon/*
+!/icon/*.png
+!/icon/*.svg
+!/icon/*.md
+!/icon/geometry-and-qure.txt
+
+# Defense in depth if a private directory is accidentally copied here.
+**/local/
+**/mylocal/
+**/providers/
+**/.env*
+**/*private*
+**/*subscription*

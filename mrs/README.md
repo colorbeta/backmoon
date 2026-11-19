@@ -26,7 +26,7 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
 OpenClash, FlClash, and Ubuntu templates use supported MRS files.
 Stash templates keep YAML providers for older-client compatibility.
-`mylocal/config.yaml` uses MRS for AI and TikTok.
+Private variants use MRS for AI and TikTok where supported.
 MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
 need not equal source entry counts.
 
@@ -34,18 +34,19 @@ need not equal source entry counts.
 两个 Fly 组使用 select，可选自动模式或手动指定地区。香港、台湾、日本、
 新加坡、美国五个地区组可查看节点状态，每 600 秒测速，切换容差为 80 毫秒。
 默认自动模式由隐藏的 LocalFly-AUTO / ForeignFly-AUTO 汇总相应地区组。
+自动地区组命名为 Auto_HK、Auto_TW、Auto_JP、Auto_SG、Auto_US。
 进程规则适用于能识别该进程的设备，在旁路由上无法按 Windows 进程名识别转发流量。
 
-Regenerate from the repository directory with PowerShell:
+Pure domain payloads can be converted with Mihomo:
 
-```powershell
-./tools/convert-rules.ps1 -Mihomo ./local/mihomo-test-bin/mihomo-windows-amd64-compatible.exe
+```text
+mihomo convert-ruleset domain yaml rule/Special.yaml mrs/Special.mrs
 ```
 
-The script validates the repository's flat YAML payload format, normalizes
-classical domain/IP rule syntax, and checks converter errors before publishing
-each binary. `Domestic.yaml` is a mixed classical provider and is maintained
-as YAML.
+Classical DOMAIN / DOMAIN-SUFFIX / IP-CIDR syntax must be normalized to domain
+or IP payloads before conversion. `Domestic.yaml` is a mixed classical
+provider and is maintained as YAML. Local tooling and private configuration
+files are maintained outside the published repository.
 
 ## Rule types and policies
 
