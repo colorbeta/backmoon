@@ -42,7 +42,7 @@ function Convert-Payload([string]$Name, [string]$Behavior, [string[]]$Payload) {
 }
 
 try {
-    $domainSources = @('adblock', 'ai', 'cnbank', 'CNDirect', 'github', 'Private', 'Special', 'steam_cn', 'steam', 'telegram', 'tiktok')
+    $domainSources = @('adblock', 'ai', 'CNDirect', 'Private', 'Special', 'steam_cn', 'steam', 'tiktok')
     foreach ($name in $domainSources) {
         $payload = @(Read-Payload $name | ForEach-Object {
             if ($_ -match '^DOMAIN-SUFFIX,(.+)$') { '+.' + $Matches[1] }
@@ -53,7 +53,7 @@ try {
         Convert-Payload $name 'domain' $payload
     }
 
-    foreach ($name in @('DomesticIP', 'LanCIDR', 'telegram_ip')) {
+    foreach ($name in @('DomesticIP', 'LanCIDR')) {
         $payload = @(Read-Payload $name | ForEach-Object {
             if ($_ -match '^IP-CIDR6?,([^,]+)(?:,no-resolve)?$') { $Matches[1] }
             elseif ($_ -match ',') { throw "Non-IP rule: $name" }

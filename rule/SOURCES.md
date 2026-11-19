@@ -16,11 +16,12 @@
   Youku, Quark, and AliPan rules.
 - `google.yaml`: merged MetaCubeX Google domains/IPs and blackmatrix7 FCM
   rules. One classical YAML provider and the `GOOGLE` policy handle them all.
-- `github.yaml`, `telegram.yaml`,
-  `telegram_ip.yaml`, `steam.yaml`, and `steam_cn.yaml`: MetaCubeX service
-  rules used by dedicated policy groups.
-- `cnbank.yaml`: MetaCubeX `category-bank-cn` domains, routed through the
-  direct-first `CNBANK` policy.
+- `github.yaml`, `steam.yaml`, and `steam_cn.yaml`: MetaCubeX service rules.
+- `telegram.yaml`: merged Telegram domains and IP ranges, using one YAML
+  provider and the `TELEGRAM` policy.
+- `cnbank.yaml`: MetaCubeX `category-bank-cn` domains routed directly.
+- Repeated country suffixes in the Google, GitHub, Telegram, bank, domestic
+  media, and technology lists use anchored regexes with explicit suffixes.
 - `Technology.yaml`: merged technology rules retained as a fallback for
   Microsoft, OneDrive, PayPal, and dependencies not caught earlier.
 - `Domestic.yaml` and `DomesticIP.yaml`: mainland China domain and IP rules.

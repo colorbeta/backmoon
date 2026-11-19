@@ -74,6 +74,7 @@ proxy-groups:
   type: select
   proxies:
   - AUTO
+  - TW-FALLBACK
   - HK-FALLBACK
   - JP-FALLBACK
   - SG-FALLBACK
@@ -84,21 +85,11 @@ proxy-groups:
   - US-AUTO
   - MANUAL
   - DIRECT
-- name: SPECIAL
-  type: select
-  proxies:
-  - DIRECT
-  - PROXY
 - name: ADBLOCK
   type: select
   proxies:
   - REJECT
   - DIRECT
-- name: CNBANK
-  type: select
-  proxies:
-  - DIRECT
-  - PROXY
 - name: AI
   type: select
   proxies: [SG-JP-US, SG-FALLBACK, JP-FALLBACK, US-FALLBACK]
@@ -112,13 +103,18 @@ proxy-groups:
   interval: 600
 - name: GITHUB
   type: select
-  proxies: [JP-FALLBACK, HK-FALLBACK, SG-FALLBACK, AUTO, MANUAL]
+  proxies: [TW-HK-JP-SG, TW-FALLBACK, HK-FALLBACK, JP-FALLBACK, SG-FALLBACK]
+- name: TW-HK-JP-SG
+  type: fallback
+  proxies: [TW-FALLBACK, HK-FALLBACK, JP-FALLBACK, SG-FALLBACK]
+  url: https://www.gstatic.com/generate_204
+  interval: 600
 - name: TELEGRAM
   type: select
-  proxies: [SG-FALLBACK, HK-FALLBACK, JP-FALLBACK, AUTO, MANUAL]
+  proxies: [TW-HK-JP-SG, TW-FALLBACK, HK-FALLBACK, JP-FALLBACK, SG-FALLBACK]
 - name: STEAM
   type: select
-  proxies: [HK-FALLBACK, JP-FALLBACK, SG-FALLBACK, AUTO, MANUAL, DIRECT]
+  proxies: [TW-HK-JP-SG, TW-FALLBACK, HK-FALLBACK, JP-FALLBACK, SG-FALLBACK]
 - name: FOREIGN-MEDIA
   type: select
   proxies:
@@ -155,12 +151,7 @@ proxy-groups:
   interval: 600
 - name: TIKTOK
   type: select
-  proxies:
-  - SG-FALLBACK
-  - JP-FALLBACK
-  - US-FALLBACK
-  - AUTO
-  - MANUAL
+  proxies: [TW-HK-JP-SG, TW-FALLBACK, HK-FALLBACK, JP-FALLBACK, SG-FALLBACK]
 - name: DOMESTIC
   type: select
   proxies:
@@ -171,8 +162,17 @@ proxy-groups:
   proxies:
   - PROXY
   - AUTO
+- name: TW-FALLBACK
+  type: fallback
+  proxies: [REJECT]
+  use: [Airport]
+  filter: '(?i)台湾|台灣|台北|臺灣|臺北|🇹🇼|\b(?:TW|TWN|Taiwan|Taipei)\b'
+  url: https://www.gstatic.com/generate_204
+  interval: 600
+  lazy: true
 - name: HK-FALLBACK
   type: fallback
+  proxies: [REJECT]
   use: [Airport]
   filter: (?i)港|香港|HK|Hong Kong
   url: https://www.gstatic.com/generate_204
@@ -247,20 +247,19 @@ proxy-groups:
   - Airport
 rules:
 - RULE-SET,CNDirect,DIRECT
-- RULE-SET,Special,SPECIAL
-- RULE-SET,Applications,SPECIAL
-- IP-CIDR,192.168.50.0/24,SPECIAL,no-resolve
-- RULE-SET,Private,SPECIAL
-- RULE-SET,LanCIDR,SPECIAL,no-resolve
-- RULE-SET,CNBank,CNBANK
+- RULE-SET,Special,DIRECT
+- RULE-SET,Applications,DIRECT
+- IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
+- RULE-SET,Private,DIRECT
+- RULE-SET,LanCIDR,DIRECT,no-resolve
+- RULE-SET,CNBank,DIRECT
 - RULE-SET,adblock,ADBLOCK
 - RULE-SET,ai,AI
 - RULE-SET,ForeignMedia,FOREIGN-MEDIA
 - RULE-SET,Google,GOOGLE
 - RULE-SET,GitHub,GITHUB
 - RULE-SET,Telegram,TELEGRAM
-- RULE-SET,TelegramIP,TELEGRAM,no-resolve
-- RULE-SET,SteamCN,SPECIAL
+- RULE-SET,SteamCN,DIRECT
 - RULE-SET,Steam,STEAM
 - RULE-SET,DomesticMedia,DOMESTIC-MEDIA
 - RULE-SET,Technology,TECHNOLOGY
@@ -303,7 +302,7 @@ rule-providers:
     interval: 86400
   CNBank:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/cnbank.yaml
     path: ./rule/cnbank.yaml
     interval: 86400
@@ -333,21 +332,15 @@ rule-providers:
     interval: 86400
   GitHub:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/github.yaml
     path: ./rule/github.yaml
     interval: 86400
   Telegram:
     type: http
-    behavior: domain
+    behavior: classical
     url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram.yaml
     path: ./rule/telegram.yaml
-    interval: 86400
-  TelegramIP:
-    type: http
-    behavior: ipcidr
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram_ip.yaml
-    path: ./rule/telegram_ip.yaml
     interval: 86400
   SteamCN:
     type: http

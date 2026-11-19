@@ -38,11 +38,7 @@ payload:
 - DOMAIN-SUFFIX,jiangbing.cn
 - DOMAIN-SUFFIX,pps.tv
 - DOMAIN-SUFFIX,ppsimg.com
-- DOMAIN-SUFFIX,ppstream.cn
-- DOMAIN-SUFFIX,ppstream.com
-- DOMAIN-SUFFIX,ppstream.com.cn
-- DOMAIN-SUFFIX,ppstream.net
-- DOMAIN-SUFFIX,ppstream.net.cn
+- DOMAIN-REGEX,(^|\.)ppstream\.(?:cn|com|net|com\.(?:cn)|net\.(?:cn))$
 - DOMAIN-SUFFIX,ppsurl.com
 - DOMAIN-SUFFIX,qiyi.cn
 - DOMAIN-SUFFIX,qiyi.com

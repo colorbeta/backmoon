@@ -19,12 +19,16 @@ See `PLATFORMS.md` for DNS-hijack and client setup notes.
 
 Rules are organized by purpose:
 
-- `Special`: direct-first domains, private networks, LAN CIDRs, and common
+- `Special`: direct domains, private networks, LAN CIDRs, and common
   applications/download clients.
 - `adblock`: advertising domains, blocked with `REJECT` by default.
 - `CNBank`, `AI`, `Google` (including FCM), `GitHub`, `Telegram`, `Steam`,
   media, `Technology`, and `tiktok`.
 - `Domestic`, `GEOIP,CN`, and proxy-only `FINAL`.
+
+CNBank and Special-related rules use `DIRECT` without selectable groups.
+GitHub, Telegram, Steam, and TikTok default to Taiwan, Hong Kong, Japan, then
+Singapore failover. Telegram domains and IPs share a single YAML provider.
 
 Mihomo-compatible binary versions of supported domain/IP rules are available
 under `mrs/`.
