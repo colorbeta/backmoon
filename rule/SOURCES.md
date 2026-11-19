@@ -50,7 +50,15 @@ Mixed domain/IP/keyword collections remain YAML.
   uses native domain wildcards. Process-name rules are omitted from these
   mobile exports. QX uses its native IP-filter semantics rather than
   copying Mihomo's no-resolve option.
-- Node resources must use the selected client's native node-list format.
+- Loon node resources must use its native node-list format. QX enables
+  KOP-XIAO's resource parser for node subscriptions. Its #cert=1 resource
+  fragment forces TLS certificate verification during node conversion;
+  do not use cert=-1 to work around certificate errors. The parser is
+  third-party code read from a mutable upstream URL and can access the
+  subscription contents. Review or pin a verified version for tighter
+  supply-chain control. This is separate from the empty rewrite/task sections.
+  The private Edge QX resource follows the working attachment's base URL,
+  without target=quanx; conversion occurs in the client.
   Replace the example URLs and enable the resources before connecting.
   For an existing Airport/edgetunnel resource, retain its tag to preserve
   group references. With a third Loon resource, also add its alias to the
