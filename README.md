@@ -31,3 +31,7 @@ nodes are included explicitly in the private variants.
 
 See `PLATFORMS.md` for client setup and `mrs/README.md` for the rule mapping.
 Supported binary domain/IP rule sets are stored under `mrs/`.
+
+Policy-group icons are mirrored under `icon/` with SVG sources, compatible
+PNG copies, and upstream attribution. All platform and private templates
+reference the PNG versions from this repository.

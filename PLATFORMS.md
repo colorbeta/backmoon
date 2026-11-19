@@ -54,6 +54,7 @@ on the same 600-second schedule.
 - Grant VPN/TUN permission.
 - Disable browser Secure DNS and Android Private DNS when checking for leaks.
 - The template hijacks TCP and UDP port 53 through Mihomo TUN.
+- Local DNS listens on loopback, rather than exposing port 1053 to the LAN.
 
 ## Stash
 
@@ -61,6 +62,13 @@ on the same 600-second schedule.
 - Uses YAML rule providers for compatibility with older Stash releases;
   current Stash versions can also read domain/IP MRS providers.
 - The template enables `follow-rule` so DNS queries follow routing rules.
+- Proxy-server DNS uses an independent IP-addressed DoH resolver. Private
+  variants explicitly direct subscription hostnames and their DNS lookups.
+- Uses native `benchmark-url` / `benchmark-timeout` provider fields and the
+  numbered-node filters used by the other templates.
+- Retains REJECT candidates as compatibility guards against Stash's
+  documented DIRECT behavior for empty groups. Mihomo templates instead use
+  `empty-fallback: REJECT`. Native iOS behavior still requires device testing.
 - DNS policies use domestic resolvers for mainland/private domains and
   encrypted foreign resolvers for AI and overseas technology services.
 - Enable **Concurrent Connections** in Stash Network Settings; Mihomo's
@@ -90,3 +98,10 @@ The `Applications` provider comes from Loyalsoldier and sends common download
 clients, proxy clients, and network tools through `DIRECT`. This reduces proxy
 traffic but exposes the direct public IP for those
 applications.
+
+## Icons
+
+All templates use mirrored Qure-style PNG icons for the two Fly selectors,
+the automatic selectors, and five regions. SVG originals and attribution
+are stored under `icon/`. PNGs are used because Stash documents JPG/PNG
+support. The selected client or OpenClash dashboard must render group icons.

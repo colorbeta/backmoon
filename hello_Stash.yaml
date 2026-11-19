@@ -13,12 +13,14 @@ profile:
   store-selected: true
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  listen: 127.0.0.1:1053
   ipv6: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
   default-nameserver:
+  - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
   - https://223.5.5.5/dns-query
   nameserver:
   - https://223.5.5.5/dns-query
@@ -71,6 +73,8 @@ dns:
 proxy-providers:
   Airport:
     type: http
+    benchmark-url: https://www.gstatic.com/generate_204
+    benchmark-timeout: 5
     url: https://example.com/replace-with-your-subscription
     interval: 3600
     path: ./providers/airport.yaml
@@ -80,12 +84,15 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
 proxy-groups:
 - name: LocalFly
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/LocalFly.png
   type: select
   proxies: [LocalFly-AUTO, 台湾, 香港, 日本, 新加坡]
 - name: ForeignFly
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/ForeignFly.png
   type: select
   proxies: [ForeignFly-AUTO, 新加坡, 日本, 美国]
 - name: LocalFly-AUTO
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Auto.png
   type: url-test
   hidden: true
   proxies: [台湾, 香港, 日本, 新加坡]
@@ -93,6 +100,7 @@ proxy-groups:
   interval: 600
   tolerance: 80
 - name: ForeignFly-AUTO
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Auto.png
   type: url-test
   hidden: true
   proxies: [新加坡, 日本, 美国]
@@ -100,56 +108,61 @@ proxy-groups:
   interval: 600
   tolerance: 80
 - name: 香港
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/HongKong.png
   type: url-test
   proxies:
   - REJECT
   use:
   - Airport
-  filter: '(?i)香港|🇭🇰|\b(?:HK|HKG|Hong\s*Kong)\b'
+  filter: '(?i)香港|港[ _-]*[0-9]|🇭🇰|(^|[^a-z])(HK|HKG|Hong[ _-]*Kong)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
   lazy: false
 - name: 台湾
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Taiwan.png
   type: url-test
   proxies:
   - REJECT
   use:
   - Airport
-  filter: '(?i)台湾|台灣|臺灣|台北|臺北|🇹🇼|\b(?:TW|TWN|Taiwan|Taipei)\b'
+  filter: '(?i)台湾|台灣|臺灣|台北|臺北|台[ _-]*[0-9]|🇹🇼|(^|[^a-z])(TW|TWN|Taiwan|Taipei)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
   lazy: false
 - name: 日本
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Japan.png
   type: url-test
   proxies:
   - REJECT
   use:
   - Airport
-  filter: '(?i)日本|东京|東京|大阪|🇯🇵|\b(?:JP|JPN|Japan|Tokyo|Osaka)\b'
+  filter: '(?i)日本|东京|東京|大阪|日[ _-]*[0-9]|🇯🇵|(^|[^a-z])(JP|JPN|Japan|Tokyo|Osaka)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
   lazy: false
 - name: 新加坡
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Singapore.png
   type: url-test
   proxies:
   - REJECT
   use:
   - Airport
-  filter: '(?i)新加坡|狮城|獅城|🇸🇬|\b(?:SG|SGP|Singapore)\b'
+  filter: '(?i)新加坡|狮城|獅城|🇸🇬|(^|[^a-z])(SG|SGP|Singapore)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
   lazy: false
 - name: 美国
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/UnitedStates.png
   type: url-test
   proxies:
   - REJECT
   use:
   - Airport
-  filter: '(?i)美国|美國|🇺🇸|\b(?:US|USA|United States|America)\b'
+  filter: '(?i)美国|美國|美[ _-]*[0-9]|🇺🇸|(^|[^a-z])(US|USA|United[ _-]*States|America)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
@@ -159,6 +172,8 @@ rules:
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,Private,DIRECT
 - RULE-SET,LanCIDR,DIRECT,no-resolve
+  # Encrypted bootstrap DNS must work before subscription proxies are loaded.
+- IP-CIDR,223.5.5.5/32,DIRECT,no-resolve
 - RULE-SET,Special,DIRECT
 - RULE-SET,Applications,DIRECT
 - RULE-SET,adblock,REJECT

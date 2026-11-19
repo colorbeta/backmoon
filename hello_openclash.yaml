@@ -82,12 +82,15 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
 proxy-groups:
 - name: LocalFly
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/LocalFly.png
   type: select
   proxies: [LocalFly-AUTO, 台湾, 香港, 日本, 新加坡]
 - name: ForeignFly
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/ForeignFly.png
   type: select
   proxies: [ForeignFly-AUTO, 新加坡, 日本, 美国]
 - name: LocalFly-AUTO
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Auto.png
   type: url-test
   hidden: true
   proxies: [台湾, 香港, 日本, 新加坡]
@@ -95,6 +98,7 @@ proxy-groups:
   interval: 600
   tolerance: 80
 - name: ForeignFly-AUTO
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Auto.png
   type: url-test
   hidden: true
   proxies: [新加坡, 日本, 美国]
@@ -102,6 +106,7 @@ proxy-groups:
   interval: 600
   tolerance: 80
 - name: 香港
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/HongKong.png
   type: url-test
   empty-fallback: REJECT
   use:
@@ -112,6 +117,7 @@ proxy-groups:
   tolerance: 80
   lazy: false
 - name: 台湾
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Taiwan.png
   type: url-test
   empty-fallback: REJECT
   use:
@@ -122,6 +128,7 @@ proxy-groups:
   tolerance: 80
   lazy: false
 - name: 日本
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Japan.png
   type: url-test
   empty-fallback: REJECT
   use:
@@ -132,6 +139,7 @@ proxy-groups:
   tolerance: 80
   lazy: false
 - name: 新加坡
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/Singapore.png
   type: url-test
   empty-fallback: REJECT
   use:
@@ -142,6 +150,7 @@ proxy-groups:
   tolerance: 80
   lazy: false
 - name: 美国
+  icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/UnitedStates.png
   type: url-test
   empty-fallback: REJECT
   use:
