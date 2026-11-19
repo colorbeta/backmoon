@@ -4,6 +4,19 @@ All templates use encrypted bootstrap DNS. Mihomo TUN templates keep
 `strict-route` enabled and do not bypass mainland IP ranges outside the rule
 engine, so DNS and routing decisions remain enforceable.
 
+## Rule order
+
+LAN rules run first, followed by explicit direct exceptions and advertising
+rules. Domestic media and Steam CN precede overseas service rules. AI keeps
+priority over shared dependencies, and dedicated overseas media, GitHub,
+Telegram, Steam, Apple, and TikTok precede broad Google and technology rules.
+Mainland domain/IP rules and the LocalFly catch-all run last.
+
+Mihomo DNS rule-set policies follow the same service precedence. Broad
+mainland DNS matching runs last so it cannot capture Google Play's
+`googleapis.cn`. Stash uses explicit foreign DNS policies for the Google Play
+China-domain exceptions.
+
 ## OpenClash
 
 - Use `hello_openclash.yaml`.

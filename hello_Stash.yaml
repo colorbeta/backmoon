@@ -37,6 +37,8 @@ dns:
     "+.claude.ai": *foreign_dns
     "+.google.com": *foreign_dns
     "+.googleapis.com": *foreign_dns
+    "+.googleapis.cn": *foreign_dns
+    "+.xn--ngstr-lra8j.com": *foreign_dns
     "+.gstatic.com": *foreign_dns
     "+.googleusercontent.com": *foreign_dns
     "+.youtube.com": *foreign_dns
@@ -91,25 +93,29 @@ proxy-groups:
   interval: 600
   tolerance: 80
 rules:
-- RULE-SET,CNDirect,DIRECT
-- RULE-SET,Special,DIRECT
-- RULE-SET,Applications,DIRECT
+# LAN matches do not trigger public DNS resolution.
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,Private,DIRECT
 - RULE-SET,LanCIDR,DIRECT,no-resolve
+# Explicit direct exceptions take precedence over blocking and broad rules.
+- RULE-SET,CNDirect,DIRECT
+- RULE-SET,Special,DIRECT
+- RULE-SET,Applications,DIRECT
 - RULE-SET,CNBank,DIRECT
 - RULE-SET,adblock,REJECT
+# Service-specific decisions precede Google and technology-wide matches.
+- RULE-SET,SteamCN,DIRECT
+- RULE-SET,DomesticMedia,DIRECT
 - RULE-SET,ai,ForeignFly
 - RULE-SET,ForeignMedia,LocalFly
-- RULE-SET,Google,ForeignFly
 - RULE-SET,GitHub,LocalFly
 - RULE-SET,Telegram,LocalFly
-- RULE-SET,SteamCN,DIRECT
 - RULE-SET,Steam,LocalFly
-- RULE-SET,DomesticMedia,DIRECT
-- RULE-SET,Technology,LocalFly
 - RULE-SET,apple,LocalFly
 - RULE-SET,tiktok,LocalFly
+- RULE-SET,Google,ForeignFly
+- RULE-SET,Technology,LocalFly
+# Broad mainland domains and IPs are evaluated after explicit overseas services.
 - RULE-SET,Domestic,DIRECT
 - RULE-SET,DomesticIP,DIRECT,no-resolve
 - GEOIP,CN,DIRECT,no-resolve
