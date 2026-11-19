@@ -30,6 +30,10 @@ Loon device loopback lives in module/Loopback.loon.lpx and only reflects
 10.7.0.1. It can make on-device developer services reachable through that
 virtual address; enable developer services only while needed. No remote
 script, certificate, or listener is installed by this plugin.
-No equivalent packet-reflection setting was verified for Quantumult X.
-Loon include-tun/IP Rewrite must not be copied into a QX profile. DIRECT
-rules and DNS loopback rejection are not substitutes for packet reflection.
+Quantumult X 1.9.0 beta build 952 introduced reflected_routes in [general].
+Source: the official channel https://t.me/s/QuanXNews, build 952 announcement.
+Profiles include a commented reflected_routes = 10.7.0.1/32 example, disabled
+until the installed client build is confirmed compatible. Loon include-tun/
+IP Rewrite must not be copied into QX. DIRECT rules and DNS loopback rejection
+are not substitutes for packet reflection. Actual sideloaded-tool compatibility
+still requires testing on the device.
