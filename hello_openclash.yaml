@@ -71,11 +71,13 @@ dns:
 proxy-providers:
   Airport:
     type: http
+    proxy: DIRECT
     url: https://example.com/replace-with-your-subscription
     interval: 3600
     path: ./providers/airport.yaml
     health-check:
       enable: true
+      lazy: false
       interval: 600
       url: https://www.gstatic.com/generate_204
 proxy-groups:
@@ -102,11 +104,9 @@ proxy-groups:
 - name: 香港
   type: url-test
   empty-fallback: REJECT
-  proxies:
-  - REJECT
   use:
   - Airport
-  filter: '(?i)香港|🇭🇰|\b(?:HK|HKG|Hong\s*Kong)\b'
+  filter: '(?i)香港|港[ _-]*[0-9]|🇭🇰|(^|[^a-z])(HK|HKG|Hong[ _-]*Kong)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
@@ -114,11 +114,9 @@ proxy-groups:
 - name: 台湾
   type: url-test
   empty-fallback: REJECT
-  proxies:
-  - REJECT
   use:
   - Airport
-  filter: '(?i)台湾|台灣|臺灣|台北|臺北|🇹🇼|\b(?:TW|TWN|Taiwan|Taipei)\b'
+  filter: '(?i)台湾|台灣|臺灣|台北|臺北|台[ _-]*[0-9]|🇹🇼|(^|[^a-z])(TW|TWN|Taiwan|Taipei)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
@@ -126,11 +124,9 @@ proxy-groups:
 - name: 日本
   type: url-test
   empty-fallback: REJECT
-  proxies:
-  - REJECT
   use:
   - Airport
-  filter: '(?i)日本|东京|東京|大阪|🇯🇵|\b(?:JP|JPN|Japan|Tokyo|Osaka)\b'
+  filter: '(?i)日本|东京|東京|大阪|日[ _-]*[0-9]|🇯🇵|(^|[^a-z])(JP|JPN|Japan|Tokyo|Osaka)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
@@ -138,11 +134,9 @@ proxy-groups:
 - name: 新加坡
   type: url-test
   empty-fallback: REJECT
-  proxies:
-  - REJECT
   use:
   - Airport
-  filter: '(?i)新加坡|狮城|獅城|🇸🇬|\b(?:SG|SGP|Singapore)\b'
+  filter: '(?i)新加坡|狮城|獅城|🇸🇬|(^|[^a-z])(SG|SGP|Singapore)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80
@@ -150,11 +144,9 @@ proxy-groups:
 - name: 美国
   type: url-test
   empty-fallback: REJECT
-  proxies:
-  - REJECT
   use:
   - Airport
-  filter: '(?i)美国|美國|🇺🇸|\b(?:US|USA|United States|America)\b'
+  filter: '(?i)美国|美國|美[ _-]*[0-9]|🇺🇸|(^|[^a-z])(US|USA|United[ _-]*States|America)([^a-z]|$)'
   url: https://www.gstatic.com/generate_204
   interval: 600
   tolerance: 80

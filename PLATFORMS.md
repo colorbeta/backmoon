@@ -27,6 +27,13 @@ region is not currently selected. Hidden Fly-AUTO groups provide automatic
 selection across the allowed regions. Users can pin a region in either Fly
 selector; the chosen region then selects its lowest-latency node.
 
+Mihomo templates use `empty-fallback: REJECT` only for empty groups, rather
+than listing REJECT as a normal regional candidate. Subscription refreshes
+explicitly use DIRECT so they do not depend on already-populated Fly groups.
+Regional filters accept numbered names such as HK01, TW01, and HongKong01.
+Provider health checks disable lazy mode so inactive regions are refreshed
+on the same 600-second schedule.
+
 ## OpenClash
 
 - Use `hello_openclash.yaml`.
