@@ -95,3 +95,5 @@ payload:
   - PROCESS-NAME,xdm.exe
   - PROCESS-NAME,xdman
   - PROCESS-NAME,xdman.exe
+  - PROCESS-NAME,GameViewer.exe
+  - PROCESS-NAME,GameViewerServer.exe

@@ -7,10 +7,11 @@
 
 - `Special.yaml`: locally maintained direct-first domains, including system
   and application-store update services.
-- `Applications.yaml`: Loyalsoldier `applications.txt`; common download
-  clients, proxy clients, and network tools that should connect directly.
+- `Applications.yaml`: Loyalsoldier `applications.txt` plus locally maintained
+  GameViewer process names; these applications use direct connections.
 - `Private.yaml` and `LanCIDR.yaml`: Loyalsoldier private-network rules.
-- `ForeignMedia.yaml`: merged YouTube, Netflix, and Spotify rules.
+- `ForeignMedia.yaml`: merged YouTube, Netflix, and Spotify rules. An anchored
+  domain regex groups YouTube country suffixes while preserving CDN rules.
 - `DomesticMedia.yaml`: merged Bilibili, iQIYI, NetEase Music, Tencent Video,
   Youku, Quark, and AliPan rules.
 - `google.yaml`: merged MetaCubeX Google domains/IPs and blackmatrix7 FCM
@@ -26,7 +27,10 @@
 - `ai.yaml`: merged locally maintained AI rules and MetaCubeX
   `category-ai-!cn`; `apple.yaml` and `tiktok.yaml` retain
   independent routing policies.
-- `adblock.yaml`: 217heidai full advertising-domain list.
+- `adblock.yaml`: snapshot of 217heidai Lite advertising-domain list.
+  Active configurations fetch `adblockmihomolite.yaml` or
+  `adblockmihomolite.mrs` directly from the upstream repository every 28800
+  seconds. The committed snapshot supports local verification and manual use.
 
 Compatible binary versions are stored under `mrs/`.
 See `mrs/README.md` for the complete YAML/MRS mapping and conversion command.

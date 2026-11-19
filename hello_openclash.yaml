@@ -311,7 +311,7 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/adblock.mrs
+    url: https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomolite.mrs
     path: ./mrs/adblock.mrs
     interval: 28800
   ai:

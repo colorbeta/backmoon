@@ -310,7 +310,7 @@ rule-providers:
   adblock:
     type: http
     behavior: domain
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/adblock.yaml
+    url: https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomolite.yaml
     path: ./rule/adblock.yaml
     interval: 28800
   ai:
