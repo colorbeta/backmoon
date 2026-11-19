@@ -63,6 +63,9 @@ Mixed domain/IP/keyword collections remain YAML.
 - QX ForeignFly defaults to Auto_SG with Auto_JP/Auto_US available manually.
   Cross-region priority automation is not implemented by this native
   template. This avoids assuming nested automatic-policy behavior.
+- QX server_check_url uses HTTP, matching the official sample and avoiding
+  the malformed-server-check-URL import error seen with HTTPS probes.
+  This probe setting does not change HTTPS DNS or application traffic.
 - Both clients configure native encrypted DNS and their VPN interfaces.
   Loon uses IPv4-only mode; QX disables AAAA answers with no-ipv6 and uses
   no-system and remote resolution for proxy traffic.
