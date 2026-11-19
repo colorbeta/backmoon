@@ -11,6 +11,13 @@
 !/rule/
 !/mrs/
 !/icon/
+!/script/
+!/module/
+/script/*
+!/script/resource-parser.js
+!/script/README.md
+/module/*
+!/module/Loopback.loon.lpx
 
 /rule/*
 !/rule/*.yaml

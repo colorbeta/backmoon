@@ -54,9 +54,10 @@ Mixed domain/IP/keyword collections remain YAML.
   KOP-XIAO's resource parser for node subscriptions. Its #cert=1 resource
   fragment forces TLS certificate verification during node conversion;
   do not use cert=-1 to work around certificate errors. The parser is
-  third-party code read from a mutable upstream URL and can access the
-  subscription contents. Review or pin a verified version for tighter
-  supply-chain control. This is separate from the empty rewrite/task sections.
+  third-party code that can access subscription contents. Profiles now use
+  the manually maintained, hardened snapshot in script/resource-parser.js;
+  dynamic sfilter/srename execution is disabled. See script/README.md.
+  This is separate from the empty rewrite/task sections.
   The private Edge QX resource follows the working attachment's base URL,
   without target=quanx; conversion occurs in the client.
   Replace the example URLs and enable the resources before connecting.
