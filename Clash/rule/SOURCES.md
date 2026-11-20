@@ -35,8 +35,24 @@
   seconds. The committed snapshot supports local verification and manual use.
 
 Compatible binary versions are stored under `mrs/`.
-See `mrs/README.md` for the complete YAML/MRS mapping and conversion command.
+See `Clash/mrs/README.md` for the complete YAML/MRS mapping and conversion command.
 Mixed domain/IP/keyword collections remain YAML.
+
+## Platform Layout And Priority
+
+Root hello_* profiles reference Clash/rule (canonical YAML, also for Stash),
+Clash/mrs (binary exports), Loon/rule and QuanX/rule (native lists).
+Loon/module contains the loopback plugin, QuanX/script the fixed parser;
+icon remains shared. Private profiles and experimental modules stay outside
+the Git repository in mylocal and are never published.
+
+Local exceptions precede ads, followed by dedicated services and finally
+Domestic, Technology, domestic IPs and Final. GitHub including Copilot now
+uses LocalFly before AI. Overseas media precedes Google to preserve YouTube
+on LocalFly. snssdk.com was removed from TikTok; pstatp.com, snssdk.com and
+maintained mainland ByteDance domains use Domestic/DIRECT. Ads still block
+before generic domestic domains. Global TikTok/CDNs such as byteoversea.com,
+ipstatp.com and sgpstatp.com remain separate overseas rules.
 
 ## Loon and Quantumult X
 
@@ -45,7 +61,7 @@ Mixed domain/IP/keyword collections remain YAML.
 - `hello_QuantumultX.conf` uses native `server_remote`, `server_local`,
   `policy`, and `filter_remote` sections. Enabled device reflection requires
   QX 1.9.0 build 952+ or a compatible later release.
-- `*.loon.list` and `*.qx.list` are generated from the YAML sources. Finite
+- `Loon/rule/*.list` and `QuanX/rule/*.list` are generated from the YAML sources. Finite
   domain regexes expand into explicit suffixes. The YouTube country pattern
   uses native domain wildcards. Process-name rules are omitted from these
   mobile exports. QX uses its native IP-filter semantics rather than

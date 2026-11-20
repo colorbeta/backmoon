@@ -39,13 +39,11 @@ DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,claude.com
 DOMAIN-SUFFIX,claudeusercontent.com
 DOMAIN,gateway.ai.cloudflare.com
-DOMAIN-SUFFIX,githubcopilot.com
 DOMAIN-SUFFIX,microsoftonline.com
 DOMAIN,copilot.microsoft.com
 DOMAIN-SUFFIX,cursor.sh
 DOMAIN-SUFFIX,diabrowser.engineering
 DOMAIN-SUFFIX,dify.ai
-DOMAIN,api.github.com
 DOMAIN-SUFFIX,aistudio.google.com
 DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN-SUFFIX,generativeai.google
@@ -97,11 +95,6 @@ DOMAIN,antigravity-pa.googleapis.com
 DOMAIN,browser-intake-datadoghq.com
 DOMAIN,cloudaicompanion.googleapis.com
 DOMAIN,cloudcode-pa.googleapis.com
-DOMAIN,copilotprodattachments.blob.core.windows.net
-DOMAIN,copilot-proxy.githubusercontent.com
-DOMAIN,copilot-telemetry.githubusercontent.com
-DOMAIN,copilot-telemetry-service.githubusercontent.com
-DOMAIN,copilot-workspace.githubnext.com
 DOMAIN,daily-cloudcode-pa.googleapis.com
 DOMAIN,notebooklm.googleapis.com
 DOMAIN,notebooklm-pa.googleapis.com

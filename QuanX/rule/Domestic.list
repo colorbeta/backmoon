@@ -474,6 +474,8 @@ host,p-aweme-im-img-sign.bytedance.net,direct
 host,v5-dy-o-abtest.zjcdn.com,direct
 host-suffix,amemv.com,direct
 host-suffix,byted-static.com,direct
+host-suffix,bytedance.com,direct
+host-suffix,bytedance.net,direct
 host-suffix,bytednsdoc.com,direct
 host-suffix,bytegecko.com,direct
 host-suffix,bytegoofy.com,direct
@@ -512,6 +514,10 @@ host-suffix,snssdk.com,direct
 host-suffix,supercachenet.com,direct
 host-suffix,supercachenode.com,direct
 host-suffix,toutiao.com,direct
+host-suffix,toutiaoapi.com,direct
+host-suffix,toutiaoimg.com,direct
+host-suffix,toutiaostatic.com,direct
+host-suffix,feishu.cn,direct
 host-suffix,ultracachenode.com,direct
 host-suffix,yhgfb-cn-static.com,direct
 host-suffix,zijieapi.com,direct

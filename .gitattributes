@@ -5,4 +5,4 @@
 *.js text eol=lf
 *.lpx text eol=lf
 # Preserve vendor formatting to keep the reviewed snapshot easy to compare.
-script/resource-parser.js -whitespace
+QuanX/script/resource-parser.js -whitespace

@@ -160,7 +160,7 @@ proxy-groups:
   tolerance: 80
   lazy: false
 rules:
-# LAN and explicit local application/update exceptions.
+# Local exceptions, advertising, dedicated services, domestic and broad fallback.
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,Private,DIRECT
 - RULE-SET,LanCIDR,DIRECT,no-resolve
@@ -169,16 +169,14 @@ rules:
 - RULE-SET,adblock,REJECT
 - RULE-SET,SteamCN,DIRECT
 - RULE-SET,DomesticMedia,DIRECT
-# Domestic AI has priority over the overlapping overseas AI collection.
-- AND,((RULE-SET,ai),(NOT,((RULE-SET,Domestic)))),ForeignFly
-# Specific overseas services precede broad mainland suffixes such as .cn.
-- RULE-SET,ForeignMedia,LocalFly
 - RULE-SET,GitHub,LocalFly
+- RULE-SET,ForeignMedia,LocalFly
+- RULE-SET,Google,ForeignFly
+- AND,((RULE-SET,ai),(NOT,((RULE-SET,Domestic)))),ForeignFly
 - RULE-SET,Telegram,LocalFly
 - RULE-SET,Steam,LocalFly
 - RULE-SET,apple,LocalFly
 - RULE-SET,tiktok,LocalFly
-- RULE-SET,Google,ForeignFly
 - RULE-SET,Domestic,DIRECT
 - RULE-SET,Technology,LocalFly
 - RULE-SET,DomesticIP,DIRECT,no-resolve
@@ -189,116 +187,116 @@ rule-providers:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Special.mrs
-    path: ./mrs/Special.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/Special.mrs
+    path: ./Clash/mrs/Special.mrs
     interval: 86400
   Applications:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Applications.yaml
-    path: ./rule/Applications.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/Applications.yaml
+    path: ./Clash/rule/Applications.yaml
     interval: 86400
   Private:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/Private.mrs
-    path: ./mrs/Private.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/Private.mrs
+    path: ./Clash/mrs/Private.mrs
     interval: 86400
   LanCIDR:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/LanCIDR.mrs
-    path: ./mrs/LanCIDR.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/LanCIDR.mrs
+    path: ./Clash/mrs/LanCIDR.mrs
     interval: 86400
   adblock:
     type: http
     behavior: domain
     format: mrs
     url: https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomolite.mrs
-    path: ./mrs/adblock.mrs
+    path: ./Clash/mrs/adblock.mrs
     interval: 28800
   ai:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/ai.mrs
-    path: ./mrs/ai.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/ai.mrs
+    path: ./Clash/mrs/ai.mrs
     interval: 86400
   ForeignMedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/ForeignMedia.yaml
-    path: ./rule/ForeignMedia.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/ForeignMedia.yaml
+    path: ./Clash/rule/ForeignMedia.yaml
     interval: 86400
   Google:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/google.yaml
-    path: ./rule/google.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/google.yaml
+    path: ./Clash/rule/google.yaml
     interval: 86400
   GitHub:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/github.yaml
-    path: ./rule/github.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/github.yaml
+    path: ./Clash/rule/github.yaml
     interval: 86400
   Telegram:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/telegram.yaml
-    path: ./rule/telegram.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/telegram.yaml
+    path: ./Clash/rule/telegram.yaml
     interval: 86400
   SteamCN:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/steam_cn.mrs
-    path: ./mrs/steam_cn.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/steam_cn.mrs
+    path: ./Clash/mrs/steam_cn.mrs
     interval: 86400
   Steam:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/steam.mrs
-    path: ./mrs/steam.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/steam.mrs
+    path: ./Clash/mrs/steam.mrs
     interval: 86400
   DomesticMedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/DomesticMedia.yaml
-    path: ./rule/DomesticMedia.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/DomesticMedia.yaml
+    path: ./Clash/rule/DomesticMedia.yaml
     interval: 86400
   Technology:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Technology.yaml
-    path: ./rule/Technology.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/Technology.yaml
+    path: ./Clash/rule/Technology.yaml
     interval: 86400
   apple:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/apple.yaml
-    path: ./rule/apple.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/apple.yaml
+    path: ./Clash/rule/apple.yaml
     interval: 86400
   tiktok:
     type: http
     behavior: domain
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/tiktok.mrs
-    path: ./mrs/tiktok.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/tiktok.mrs
+    path: ./Clash/mrs/tiktok.mrs
     interval: 86400
   Domestic:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/rule/Domestic.yaml
-    path: ./rule/Domestic.yaml
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/Domestic.yaml
+    path: ./Clash/rule/Domestic.yaml
     interval: 86400
   DomesticIP:
     type: http
     behavior: ipcidr
     format: mrs
-    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/mrs/DomesticIP.mrs
-    path: ./mrs/DomesticIP.mrs
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/DomesticIP.mrs
+    path: ./Clash/mrs/DomesticIP.mrs
     interval: 86400

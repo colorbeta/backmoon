@@ -474,6 +474,8 @@ DOMAIN,p-aweme-im-img-sign.bytedance.net
 DOMAIN,v5-dy-o-abtest.zjcdn.com
 DOMAIN-SUFFIX,amemv.com
 DOMAIN-SUFFIX,byted-static.com
+DOMAIN-SUFFIX,bytedance.com
+DOMAIN-SUFFIX,bytedance.net
 DOMAIN-SUFFIX,bytednsdoc.com
 DOMAIN-SUFFIX,bytegecko.com
 DOMAIN-SUFFIX,bytegoofy.com
@@ -512,6 +514,10 @@ DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,supercachenet.com
 DOMAIN-SUFFIX,supercachenode.com
 DOMAIN-SUFFIX,toutiao.com
+DOMAIN-SUFFIX,toutiaoapi.com
+DOMAIN-SUFFIX,toutiaoimg.com
+DOMAIN-SUFFIX,toutiaostatic.com
+DOMAIN-SUFFIX,feishu.cn
 DOMAIN-SUFFIX,ultracachenode.com
 DOMAIN-SUFFIX,yhgfb-cn-static.com
 DOMAIN-SUFFIX,zijieapi.com

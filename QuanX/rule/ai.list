@@ -39,13 +39,11 @@ host-suffix,claude.ai,ForeignFly
 host-suffix,claude.com,ForeignFly
 host-suffix,claudeusercontent.com,ForeignFly
 host,gateway.ai.cloudflare.com,ForeignFly
-host-suffix,githubcopilot.com,ForeignFly
 host-suffix,microsoftonline.com,ForeignFly
 host,copilot.microsoft.com,ForeignFly
 host-suffix,cursor.sh,ForeignFly
 host-suffix,diabrowser.engineering,ForeignFly
 host-suffix,dify.ai,ForeignFly
-host,api.github.com,ForeignFly
 host-suffix,aistudio.google.com,ForeignFly
 host-suffix,makersuite.google.com,ForeignFly
 host-suffix,generativeai.google,ForeignFly
@@ -97,11 +95,6 @@ host,antigravity-pa.googleapis.com,ForeignFly
 host,browser-intake-datadoghq.com,ForeignFly
 host,cloudaicompanion.googleapis.com,ForeignFly
 host,cloudcode-pa.googleapis.com,ForeignFly
-host,copilotprodattachments.blob.core.windows.net,ForeignFly
-host,copilot-proxy.githubusercontent.com,ForeignFly
-host,copilot-telemetry.githubusercontent.com,ForeignFly
-host,copilot-telemetry-service.githubusercontent.com,ForeignFly
-host,copilot-workspace.githubnext.com,ForeignFly
 host,daily-cloudcode-pa.googleapis.com,ForeignFly
 host,notebooklm.googleapis.com,ForeignFly
 host,notebooklm-pa.googleapis.com,ForeignFly

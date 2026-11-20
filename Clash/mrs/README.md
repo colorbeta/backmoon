@@ -1,9 +1,9 @@
 # MRS rule mapping
 
-`rule/` contains editable YAML sources. `mrs/` contains supported binary
+`Clash/rule/` contains editable YAML sources. `Clash/mrs/` contains supported binary
 domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
-| YAML source in `rule/` | Binary files in `mrs/` | Notes | 策略 |
+| YAML source in `Clash/rule/` | Binary files in `Clash/mrs/` | Notes | 策略 |
 | --- | --- | --- | --- |
 | `adblock.yaml` | `adblock.mrs` | Lite snapshot; clients fetch upstream directly | REJECT，Lite 每 8 小时更新 |
 | `ai.yaml` | `ai.mrs` | Exact domains and suffixes | ForeignFly（新加坡 / 日本 / 美国） |
@@ -26,8 +26,8 @@ domain and IP rule sets. MRS only supports `domain` and `ipcidr` behavior.
 
 OpenClash, FlClash, and Ubuntu templates use supported MRS files.
 Stash templates keep YAML providers for older-client compatibility.
-Loon and Quantumult X templates use native `.loon.list` / `.qx.list` text
-exports rather than MRS; see `rule/SOURCES.md` for usage and platform limits.
+Loon and Quantumult X templates use `Loon/rule/*.list` / `QuanX/rule/*.list` text
+exports rather than MRS; see `Clash/rule/SOURCES.md` for usage and platform limits.
 Private variants use MRS for AI and TikTok where supported.
 MRS compacts duplicate suffixes and merges IP ranges, so decoded entry counts
 need not equal source entry counts.

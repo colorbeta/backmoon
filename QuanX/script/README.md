@@ -26,7 +26,7 @@ Notification hyperlinks/media and optional URL transformations remain upstream
 features; clicking a subscription hyperlink or sending logs can disclose it.
 Use trusted subscriptions and protect resource URLs and diagnostic logs.
 
-Loon device loopback lives in module/Loopback.loon.lpx and only reflects
+Loon device loopback lives in Loon/module/Loopback.loon.lpx and only reflects
 10.7.0.1. It can make on-device developer services reachable through that
 virtual address; enable developer services only while needed. No remote
 script, certificate, or listener is installed by this plugin.
