@@ -40,6 +40,18 @@ Mixed domain/IP/keyword collections remain YAML.
 
 ## Platform Layout And Priority
 
+Special remains the shared DIRECT exception set before adblocking. It is
+grouped into exact compatibility allowlist, Apple update/content download,
+Microsoft update/download, and user exceptions without adding policy groups.
+Connectivity and certificate checks use exact hosts; ordinary Apple/Microsoft
+services keep their existing routes. No blanket akamaized.net/edgesuite.net
+exception, analytics allowlist, public CA private key, or TLS interception
+was added. Direct reachability still depends on the user's network.
+Endpoint references:
+- https://support.apple.com/en-us/101555
+- https://learn.microsoft.com/en-us/windows/privacy/manage-windows-11-endpoints
+- https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/internet-explorer-edge-open-connect-corporate-public-network
+
 FlClash keeps its internal DNS resolver and TUN DNS hijacking enabled but
 does not bind a standalone dns.listen port. This avoids Windows refusing
 TCP/UDP 1053 while preserving encrypted DNS policies. Keep TUN enabled

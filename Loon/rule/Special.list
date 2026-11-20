@@ -1,5 +1,14 @@
 # Generated from Special.yaml. Policy is assigned by the profile.
 # iOS exports omit process-name matching.
+DOMAIN,captive.apple.com
+DOMAIN,www.msftconnecttest.com
+DOMAIN,dns.msftncsi.com
+DOMAIN,www.msftncsi.com
+DOMAIN,certs.apple.com
+DOMAIN,crl.apple.com
+DOMAIN,ocsp.apple.com
+DOMAIN,ocsp2.apple.com
+DOMAIN,valid.apple.com
 DOMAIN,appldnld.apple.com
 DOMAIN,configuration.apple.com
 DOMAIN,gdmf.apple.com
@@ -19,6 +28,12 @@ DOMAIN,swscan.apple.com
 DOMAIN,updates-http.cdn-apple.com
 DOMAIN,updates.cdn-apple.com
 DOMAIN,wkms-public.apple.com
+DOMAIN,fcs-keys-pub-prod.cdn-apple.com
+DOMAIN,appldnld.apple.com.edgesuite.net
+DOMAIN,audiocontentdownload.apple.com
+DOMAIN,devimages-cdn.apple.com
+DOMAIN,download.developer.apple.com
+DOMAIN-SUFFIX,apps.apple.com
 DOMAIN-SUFFIX,itunes.apple.com
 DOMAIN-SUFFIX,mzstatic.com
 DOMAIN,adl.windows.com
@@ -36,4 +51,6 @@ DOMAIN-SUFFIX,officecdn.microsoft.com
 DOMAIN-SUFFIX,prod.do.dsp.mp.microsoft.com
 DOMAIN-SUFFIX,update.microsoft.com
 DOMAIN-SUFFIX,windowsupdate.com
+DOMAIN,definitionupdates.microsoft.com
+DOMAIN-SUFFIX,api.cdp.microsoft.com
 DOMAIN-SUFFIX,oracle.com

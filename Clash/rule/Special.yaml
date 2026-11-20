@@ -1,4 +1,16 @@
 payload:
+# Exact compatibility allowlist. This set is evaluated before advertising.
+# Never add broad analytics exceptions or shared CDN roots here.
+- captive.apple.com
+- www.msftconnecttest.com
+- dns.msftncsi.com
+- www.msftncsi.com
+- certs.apple.com
+- crl.apple.com
+- ocsp.apple.com
+- ocsp2.apple.com
+- valid.apple.com
+# Apple software updates and content downloads, not all Apple services.
 - appldnld.apple.com
 - configuration.apple.com
 - gdmf.apple.com
@@ -18,8 +30,15 @@ payload:
 - updates-http.cdn-apple.com
 - updates.cdn-apple.com
 - wkms-public.apple.com
+- fcs-keys-pub-prod.cdn-apple.com
+- appldnld.apple.com.edgesuite.net
+- audiocontentdownload.apple.com
+- devimages-cdn.apple.com
+- download.developer.apple.com
+- +.apps.apple.com
 - +.itunes.apple.com
 - +.mzstatic.com
+# Microsoft Windows/Store/Office/Edge downloads, not account/cloud services.
 - adl.windows.com
 - ctldl.windowsupdate.com
 - download.windowsupdate.com
@@ -35,4 +54,7 @@ payload:
 - +.prod.do.dsp.mp.microsoft.com
 - +.update.microsoft.com
 - +.windowsupdate.com
+- definitionupdates.microsoft.com
+- +.api.cdp.microsoft.com
+# User-maintained direct exceptions.
 - +.oracle.com
