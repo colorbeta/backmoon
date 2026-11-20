@@ -22,6 +22,7 @@
 !/Clash/mrs/*.mrs
 !/Clash/mrs/README.md
 /QuanX/*
+!/QuanX/README.md
 !/QuanX/rule/
 !/QuanX/script/
 /QuanX/rule/*
