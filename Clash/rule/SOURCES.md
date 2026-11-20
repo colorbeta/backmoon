@@ -40,6 +40,12 @@ Mixed domain/IP/keyword collections remain YAML.
 
 ## Platform Layout And Priority
 
+FlClash keeps its internal DNS resolver and TUN DNS hijacking enabled but
+does not bind a standalone dns.listen port. This avoids Windows refusing
+TCP/UDP 1053 while preserving encrypted DNS policies. Keep TUN enabled
+for system DNS capture; programs explicitly querying 127.0.0.1:1053 must
+not rely on that removed listener. OpenClash/server listeners are unchanged.
+
 Root hello_* profiles reference Clash/rule (canonical YAML, also for Stash),
 Clash/mrs (binary exports), Loon/rule and QuanX/rule (native lists).
 Loon/module contains the loopback plugin, QuanX/script the fixed parser;
