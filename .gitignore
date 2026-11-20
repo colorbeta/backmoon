@@ -40,6 +40,9 @@
 !/Loon/rule/*.list
 /Loon/module/*
 !/Loon/module/Loopback.loon.lpx
+!/Loon/module/*.lpx
+!/Loon/module/README.md
+!/Loon/module/REVIEW.json
 /Stash/*
 !/Stash/README.md
 !/Stash/module/

@@ -100,9 +100,9 @@ ipstatp.com and sgpstatp.com remain separate overseas rules.
   Remote Filter definitions. QX regional groups filter all node tags.
 - Region names must contain recognizable HK/TW/JP/SG/US or country names.
   Regional checks use 600 seconds and an 80 ms latency tolerance.
-- Loon ForeignFly-AUTO uses a flattened SG, JP, US node/filter list. It
-  chooses the first available node within each priority region. Selecting
-  Auto_SG/Auto_JP/Auto_US manually uses latency selection inside that region.
+- Loon ForeignFly-AUTO uses Auto_SG, Auto_JP, Auto_US in fallback order.
+  Regions use latency selection with switching tolerance; the outer group
+  controls country priority. Native behavior still requires device testing.
 - QX ForeignFly defaults to Auto_SG with Auto_JP/Auto_US available manually.
   Cross-region priority automation is not implemented by this native
   template. This avoids assuming nested automatic-policy behavior.

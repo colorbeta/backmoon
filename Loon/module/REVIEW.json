@@ -1,0 +1,115 @@
+{
+  "reviewDate": "2026-11-20",
+  "scope": "Static plugin review only; unreviewed external code remains disabled. No account data used. Not a security certification or native-device test.",
+  "records": [
+    {
+      "file": "BlockAdvertisers.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/BlockAdvertisers.lpx",
+      "originalSha256": "3974936ec21be3675db2496bdcbf05fa20af8f0be8c105e61bbada9b86e01c3e",
+      "publishedSha256": "3974936ec21be3675db2496bdcbf05fa20af8f0be8c105e61bbada9b86e01c3e",
+      "enabled": true,
+      "dependencies": [],
+      "risk": "Inline ad-platform rules; may overlap Lite and require narrow MITM. Compatibility testing required."
+    },
+    {
+      "file": "Block_HTTPDNS.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/Block_HTTPDNS.lpx",
+      "originalSha256": "08429c4f1c677d79e87eb3cd41e880868f7a71381dc1d6c81b393734fd5df21a",
+      "publishedSha256": "2106f1b7e6f566b87b40d7fa7c348e94ba4a1454c9dbbeacc13113e7d0e91263",
+      "enabled": false,
+      "dependencies": [],
+      "risk": "Aggressive DNS/IP blocking and MITM; shared addresses may break apps. Manual testing required."
+    },
+    {
+      "file": "Amap_remove_ads.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/Amap_remove_ads.lpx",
+      "originalSha256": "126112b7a07e03cd18c12df4c88cca282babbf3504163cb1a16a4fbc6f80b5b2",
+      "publishedSha256": "126112b7a07e03cd18c12df4c88cca282babbf3504163cb1a16a4fbc6f80b5b2",
+      "enabled": false,
+      "dependencies": [
+        "https://kelee.one/Resource/JavaScript/Amap/Amap_remove_ads.js"
+      ],
+      "risk": "Unreviewed remote script; navigation/location traffic can be sensitive."
+    },
+    {
+      "file": "AppleWeatherEnhancer.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/AppleWeatherEnhancer.lpx",
+      "originalSha256": "c2da0c599fabb93100ca9ef834569118f2a8c05b40212e46b22d5830684ee65e",
+      "publishedSha256": "ae0881ed2798c46ebfa688e1ad42794184ffac743da0f3f8b10e201017f88276",
+      "enabled": false,
+      "dependencies": [
+        "https://github.com/NSRingo/WeatherKit/releases/download/v2.0.6/response.bundle.js",
+        "https://github.com/NSRingo/WeatherKit/releases/download/v2.0.6/request.bundle.js"
+      ],
+      "risk": "Unreviewed WeatherKit bundles, optional third-party providers and API tokens; broad Apple QUIC restriction."
+    },
+    {
+      "file": "JD_Price.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/JD_Price.lpx",
+      "originalSha256": "6e055412d738450ca0008cbaa673d97fbdcbca18a10d1e5140a1d21b7d2c31e5",
+      "publishedSha256": "ac966108d577ebc231a6a7ce597d2a6b098c345e5e41f3798a259105f12ac2ff",
+      "enabled": true,
+      "dependencies": [
+        "https://raw.githubusercontent.com/colorbeta/backmoon/test/Stash/script/JD_Price.js"
+      ],
+      "risk": "Uses the reviewed local price script; device/session parameters are sent to Manmanbuy. Native device testing pending."
+    },
+    {
+      "file": "JD_remove_ads.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/JD_remove_ads.lpx",
+      "originalSha256": "82f755ddab66449be241fa098ebb31f6e619377f5bcd95d87a2bd68512bfd4ed",
+      "publishedSha256": "82f755ddab66449be241fa098ebb31f6e619377f5bcd95d87a2bd68512bfd4ed",
+      "enabled": false,
+      "dependencies": [
+        "https://kelee.one/Resource/JavaScript/JD/JD_remove_ads.js"
+      ],
+      "risk": "Unreviewed remote script processing JD account/order responses."
+    },
+    {
+      "file": "Bilibili_remove_ads.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/Bilibili_remove_ads.lpx",
+      "originalSha256": "436120340578f2db6a125407943cfc22cddcfab45871b4672336af8a1a79b026",
+      "publishedSha256": "6594d3949a54b62f774ac097324df1cb17863d7577d14bb1ef8cbbaa6d658c59",
+      "enabled": false,
+      "dependencies": [
+        "https://kelee.one/Resource/JQLang/Bilibili/tab_Bilibili_remove_ads.jq",
+        "https://kelee.one/Resource/JQLang/Bilibili/mine_Bilibili_remove_ads.jq",
+        "https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_request_kokoryh.js",
+        "https://kelee.one/Resource/JavaScript/Bilibili/Bilibili_proto_response_kokoryh.js",
+        "https://kelee.one/Resource/JavaScript/Bilibili/webpage_Bilibili_remove_ads_kokoryh.js"
+      ],
+      "risk": "Unreviewed remote JS/JQ and binary rewrites; explicit VIP/teen-mode modifications removed."
+    },
+    {
+      "file": "Weibo_intl_remove_ads.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/Weibo_intl_remove_ads.lpx",
+      "originalSha256": "ef4ed11257a00f544776262aff72c202577280d8f2367b759136090d771895c0",
+      "publishedSha256": "ef4ed11257a00f544776262aff72c202577280d8f2367b759136090d771895c0",
+      "enabled": true,
+      "dependencies": [],
+      "risk": "Inline rewrites only; account/timeline compatibility still requires testing."
+    },
+    {
+      "file": "Weibo_remove_ads.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/Weibo_remove_ads.lpx",
+      "originalSha256": "23faa74741178516ed32d0f259ee1232098bd0b191c9dbf8f84a3b17f9a53ea6",
+      "publishedSha256": "23faa74741178516ed32d0f259ee1232098bd0b191c9dbf8f84a3b17f9a53ea6",
+      "enabled": false,
+      "dependencies": [
+        "https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js"
+      ],
+      "risk": "Unreviewed remote script can access account, message and timeline responses."
+    },
+    {
+      "file": "smzdm_remove_ads.lpx",
+      "source": "https://raw.githubusercontent.com/mihoyo-typ/KeleeOne/Loon/Plugin/smzdm_remove_ads.lpx",
+      "originalSha256": "434b6fca7b41887b50826f9d5a231686f51a4dfaccb6642f36c46bb1b265cf06",
+      "publishedSha256": "434b6fca7b41887b50826f9d5a231686f51a4dfaccb6642f36c46bb1b265cf06",
+      "enabled": false,
+      "dependencies": [
+        "https://kelee.one/Resource/JQLang/smzdm/home_smzdm_remove_ads.jq"
+      ],
+      "risk": "Unreviewed external JQ dependency; includes coupon-page blocking."
+    }
+  ]
+}

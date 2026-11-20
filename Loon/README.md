@@ -5,12 +5,12 @@ Use [hello_Loon.conf](../hello_Loon.conf) with Loon 3.5.3 build 1008+ or a compa
 ## Layout And Policies
 
 - [rule](rule/): native lists exported from [shared YAML](../Clash/rule/).
-- [module](module/): [device-loopback plugin](module/Loopback.loon.lpx).
+- [module](module/): loopback and selected application plugins; see the [review and activation table](module/README.md).
 - [Shared icons and attribution](../icon/README.md).
 
 Business destinations are REJECT, DIRECT, LocalFly and ForeignFly. Five Auto region groups test every 600 seconds. LocalFly combines TW/HK/JP/SG; ForeignFly allows SG/JP/US.
 
-ForeignFly-AUTO is a flattened fallback list ordered SG, JP, US. It selects the first available candidate, not necessarily the lowest-latency node within the preferred region. Selecting an Auto region explicitly uses regional latency selection.
+ForeignFly-AUTO selects Auto_SG, Auto_JP, Auto_US in fallback order. Each region uses url-test with 600-second checks and 80 ms switching tolerance. Singapore's regional latency choice is preferred, then Japan and the US. Tolerance can retain a current node when another is only slightly faster. Native nested-policy behavior still needs device validation.
 
 Keep Airport/edgetunnel aliases when replacing subscriptions. Add new subscription aliases to Remote Filter definitions. Local nodes need explicit group membership; regional names must match the filters.
 
@@ -31,16 +31,15 @@ Encrypted DNS and IPv4-only mode are configured. Disable ordinary-DNS fallback i
 
 ## iKeLee Reference Review
 
-The reference provides exclusion filters for metadata and special-purpose nodes,
-a separate direct-network test URL, and nested region selectors with latency,
-fallback and load-balancing options. Useful future improvements are stricter
-node filtering, a separate connectivity probe, and region-level foreign fallback.
-Official Loon documentation permits group nesting; this profile's flattened
-fallback is a conservative implementation choice, not a claim that Loon cannot
-nest groups. A nested automatic-policy replacement still needs device testing.
+The reference provides exclusion filters, a separate direct-network test URL,
+and nested region selectors. The connectivity probe and regional foreign
+fallback are now adopted. Node filters remain unchanged pending a clear naming
+policy; excluding candidates does not require a DIRECT traffic fallback.
+All requested plugin snapshots are listed, with unreviewed dependencies and
+aggressive HTTPDNS rules disabled. See module/README.md for review details.
 
 The 60-second probing schedule, system DNS baseline, hard-coded SSID, broad
-TUN bypasses, fake-IP DIRECT entries and default plugin bundle were not adopted.
+TUN bypasses and fake-IP DIRECT entries were not adopted.
 Plugin names alone do not establish DNS-leak protection. Current 600-second
 checks, encrypted DNS, shared rule priorities and limited device-loopback
 plugin remain unchanged. Additional parsers and plugins should only be added
