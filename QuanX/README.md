@@ -2,6 +2,8 @@
 
 The native profile is [hello_QuantumultX.conf](../hello_QuantumultX.conf).
 
+See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md) for default differences, profile-managed values and manual checks.
+
 ## Current Design
 
 - Business destinations are REJECT, DIRECT, LocalFly, and ForeignFly. Five Auto groups expose regional status.

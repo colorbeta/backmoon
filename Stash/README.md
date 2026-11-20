@@ -2,6 +2,8 @@
 
 Use [hello_Stash.yaml](../hello_Stash.yaml) for routing and [Clash/rule](../Clash/rule/) for shared sources. This directory contains optional Stash resources, not private nodes or account data.
 
+See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md) for default labels, concurrent connections, loopback and optional MITM settings.
+
 ## JD Price Prototype
 
 - [JD_Price.stoverride](module/JD_Price.stoverride): standalone override with an embedded script; no remote script download required.

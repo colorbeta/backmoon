@@ -2,6 +2,7 @@
 /*
 !/.gitignore
 !/.gitattributes
+!/RECOMMENDED_SETTINGS.md
 !/hello_openclash.yaml
 !/hello_FlClash.yaml
 !/hello_Stash.yaml

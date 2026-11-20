@@ -2,6 +2,8 @@
 
 Shared rules for [OpenClash](../hello_openclash.yaml), [FlClash](../hello_FlClash.yaml), [Ubuntu Mihomo](../hello_mihomo.yaml), and [Stash](../hello_Stash.yaml). Complete profiles remain at the repository root.
 
+See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md) for engine-default differences, app overrides and manual settings.
+
 ## Resources And Behavior
 
 - [rule](rule/): canonical YAML providers and [source records](rule/SOURCES.md).

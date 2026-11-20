@@ -2,6 +2,8 @@
 
 Use [hello_Loon.conf](../hello_Loon.conf) with Loon 3.5.3 build 1008+ or a compatible later release.
 
+See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md), especially marked default differences and manual app-setting checks.
+
 ## Layout And Policies
 
 - [rule](rule/): native lists exported from [shared YAML](../Clash/rule/).
