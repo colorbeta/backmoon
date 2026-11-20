@@ -27,5 +27,23 @@ Encrypted DNS and IPv4-only mode are configured. Disable ordinary-DNS fallback i
 - [Shared rule provenance](../Clash/rule/SOURCES.md): classification and rule origins.
 - [217heidai/adblockfilters](https://github.com/217heidai/adblockfilters): native Loon Lite adblock list.
 - [aaANDkk/Qure_Style_SVG](https://github.com/aaANDkk/Qure_Style_SVG): icon references, with retained notices in icon.
+- [mihoyo-typ/KeleeOne reference profile](https://github.com/mihoyo-typ/KeleeOne/blob/Loon/Config/Loon_Sample_Configuration_By_iKeLee.lcf): reviewed the retrieved profile dated 2025-09-08 and credited to iKeLee; comparison only, not a complete import.
+
+## iKeLee Reference Review
+
+The reference provides exclusion filters for metadata and special-purpose nodes,
+a separate direct-network test URL, and nested region selectors with latency,
+fallback and load-balancing options. Useful future improvements are stricter
+node filtering, a separate connectivity probe, and region-level foreign fallback.
+Official Loon documentation permits group nesting; this profile's flattened
+fallback is a conservative implementation choice, not a claim that Loon cannot
+nest groups. A nested automatic-policy replacement still needs device testing.
+
+The 60-second probing schedule, system DNS baseline, hard-coded SSID, broad
+TUN bypasses, fake-IP DIRECT entries and default plugin bundle were not adopted.
+Plugin names alone do not establish DNS-leak protection. Current 600-second
+checks, encrypted DNS, shared rule priorities and limited device-loopback
+plugin remain unchanged. Additional parsers and plugins should only be added
+for a demonstrated need after reviewing their scripts and network access.
 
 Public subscriptions are disabled placeholders. Private profiles remain outside Git. Preserve upstream attribution; references are not security endorsements or licenses for unrelated code.
