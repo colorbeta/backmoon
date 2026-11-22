@@ -5,6 +5,7 @@ Editable sources are in Clash/rule; supported binary exports are in Clash/mrs. M
 | YAML Source | Binary Export | Purpose | Policy |
 | --- | --- | --- | --- |
 | adblock.yaml | adblock.mrs | Lite snapshot; active clients fetch upstream every 8 hours | REJECT |
+| Forbid.yaml | YAML only | Editable manual deny rules; native exports are generated | REJECT |
 | ai.yaml | ai.mrs | Overseas AI domains | ForeignFly |
 | Domestic.yaml | YAML only | Mainland AI, banks, domains, keywords, direct IP exceptions | DIRECT |
 | DomesticIP.yaml | DomesticIP.mrs | Mainland IP prefixes | DIRECT |

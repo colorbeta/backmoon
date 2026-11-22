@@ -83,9 +83,6 @@ proxy-providers:
       interval: 600
       url: https://www.gstatic.com/generate_204
 proxy-groups:
-- name: forbid
-  type: select
-  proxies: [REJECT]
 - name: LocalFly
   icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/LocalFly.png
   type: select
@@ -170,8 +167,6 @@ proxy-groups:
   tolerance: 80
   lazy: false
 rules:
-# Exact manual deny; equivalent to DOMAIN,play.googleapis.com,REJECT.
-- DOMAIN,play.googleapis.com,forbid
 # Local exceptions, advertising, dedicated services, domestic and broad fallback.
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - IP-CIDR,223.5.5.5/32,DIRECT,no-resolve
@@ -179,6 +174,7 @@ rules:
 - RULE-SET,LanCIDR,DIRECT,no-resolve
 - RULE-SET,Special,DIRECT
 - RULE-SET,Applications,DIRECT
+- RULE-SET,Forbid,REJECT
 - RULE-SET,adblock,REJECT
 - RULE-SET,SteamCN,DIRECT
 - RULE-SET,DomesticMedia,DIRECT
@@ -196,6 +192,12 @@ rules:
 - GEOIP,CN,DIRECT,no-resolve
 - MATCH,LocalFly
 rule-providers:
+  Forbid:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/Forbid.yaml
+    path: ./Clash/rule/Forbid.yaml
+    interval: 86400
   Special:
     type: http
     behavior: domain

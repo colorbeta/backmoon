@@ -1,0 +1,3 @@
+payload:
+  # User-maintained deny rules. Referenced before advertising providers.
+  - DOMAIN,play.googleapis.com

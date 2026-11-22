@@ -1,0 +1,3 @@
+# Generated from Forbid.yaml. Policy is assigned by the profile.
+# iOS exports omit process-name matching.
+DOMAIN,play.googleapis.com

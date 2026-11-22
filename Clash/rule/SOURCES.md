@@ -40,11 +40,17 @@ Mixed domain/IP/keyword collections remain YAML.
 
 ## Platform Layout And Priority
 
-An explicit exact-domain deny for play.googleapis.com precedes advertising
-in all platform profiles. It targets the forbid selector, whose only member
-is REJECT; this is a named wrapper, not a new network exit. Other Google
-domains and subdomains are not covered by this exact match. QX places the
-local host rule before remote resources; Loon uses its first local rule.
+Forbid.yaml is a user-maintained classical deny ruleset before advertising.
+YAML profiles use RULE-SET,Forbid,REJECT; native Loon/QuanX lists are exported
+with the same REJECT policy. No forbid proxy group or hard-coded inline deny
+is needed. Its first entry exactly matches play.googleapis.com, not other
+Google domains or subdomains. Add future entries to Clash/rule/Forbid.yaml
+and regenerate native exports. Refresh the Forbid resource in each client;
+profile imports are needed only when adding the provider for the first time.
+Keep this set as classical YAML rather than domain-only MRS to allow future
+supported keyword/IP rules. Existing local whitelist/plugin precedence still
+applies; placing it before advertising is not a promise to override every
+local exception or plugin rule on every platform.
 The requested X post could not be retrieved, so its claims were not verified.
 Google documents this host for Chrome logs and a connectivity-test alternative:
 https://support.google.com/chrome/a/answer/6350036?hl=en
