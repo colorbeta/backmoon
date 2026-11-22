@@ -1,5 +1,6 @@
 # Generated from ai.yaml. Policy is assigned by the profile.
 # iOS exports omit process-name matching.
+DOMAIN-SUFFIX,t3.codes
 DOMAIN-SUFFIX,augment.com
 DOMAIN-SUFFIX,augmentcode.com
 DOMAIN-SUFFIX,ai.com

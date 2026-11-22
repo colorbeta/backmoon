@@ -1,5 +1,6 @@
 payload:
   # Merged local AI rules and MetaCubeX category-ai-!cn.
+  - DOMAIN-SUFFIX,t3.codes
   - DOMAIN-SUFFIX,augment.com
   - DOMAIN-SUFFIX,augmentcode.com
   - DOMAIN-SUFFIX,ai.com

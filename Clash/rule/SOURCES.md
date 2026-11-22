@@ -29,6 +29,14 @@
 - `ai.yaml`: merged locally maintained AI rules and MetaCubeX
   `category-ai-!cn`; `apple.yaml` and `tiktok.yaml` retain
   independent routing policies.
+- T3 Code: t3.codes and its subdomains use the AI policy (ForeignFly).
+  This covers the official website and app.t3.codes web surface, not an
+  exhaustive runtime allowlist. The coding agents use their own provider
+  endpoints; GitHub downloads retain the GitHub policy. Local/private
+  environment connections remain local. Custom API bases and remote
+  environments may need separate classification based on their actual hosts.
+  References: https://github.com/pingdotgg/t3code and
+  https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md
 - `adblock.yaml`: snapshot of 217heidai Lite advertising-domain list.
   Active configurations fetch `adblockmihomolite.yaml` or
   `adblockmihomolite.mrs` directly from the upstream repository every 28800

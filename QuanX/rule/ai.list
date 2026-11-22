@@ -1,5 +1,6 @@
 # Generated from ai.yaml. Policy is assigned by the profile.
 # iOS exports omit process-name matching.
+host-suffix,t3.codes,ForeignFly
 host-suffix,augment.com,ForeignFly
 host-suffix,augmentcode.com,ForeignFly
 host-suffix,ai.com,ForeignFly
