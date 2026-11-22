@@ -48,7 +48,7 @@ Google domains or subdomains. Add future entries to Clash/rule/Forbid.yaml
 and regenerate native exports. Refresh the Forbid resource in each client;
 profile imports are needed only when adding the provider for the first time.
 Keep this set as classical YAML rather than domain-only MRS to allow future
-supported keyword/IP rules. Existing local whitelist/plugin precedence still
+supported keyword/IP rules. Existing local/plugin precedence still
 applies; placing it before advertising is not a promise to override every
 local exception or plugin rule on every platform.
 The requested X post could not be retrieved, so its claims were not verified.
@@ -58,7 +58,7 @@ https://support.google.com/chrome/a/answer/6334001?hl=en
 Blocking the entire hostname also affects those uses; this is not a claim
 that the hostname is exclusively a tracker or that all DNS leakage is solved.
 
-Special remains the shared DIRECT exception set before adblocking. It is
+Special remains the shared DIRECT service set after adblocking. It is
 grouped into exact compatibility allowlist, Apple update/content download,
 Microsoft update/download, and user exceptions without adding policy groups.
 Connectivity and certificate checks use exact hosts; ordinary Apple/Microsoft
@@ -82,7 +82,8 @@ Loon/module contains the loopback plugin, QuanX/script the fixed parser;
 icon remains shared. Private profiles and experimental modules stay outside
 the Git repository in mylocal and are never published.
 
-Local exceptions precede ads, followed by dedicated services and finally
+Forbid precedes LAN, then ads, Special and application-direct rules, followed
+by dedicated services and finally
 Domestic, Technology, domestic IPs and Final. GitHub including Copilot now
 uses LocalFly before AI. Overseas media precedes Google to preserve YouTube
 on LocalFly. snssdk.com was removed from TikTok; pstatp.com, snssdk.com and
@@ -180,4 +181,5 @@ ipstatp.com and sgpstatp.com remain separate overseas rules.
 - Google and other explicit overseas services precede Domestic, preserving
   Google Play's googleapis.cn exception. Overseas AI only matches when its
   destination is absent from Domestic. Advertising rules precede the merged
-  Domestic list, while local application/update exceptions remain first.
+  Domestic list. Current ordering places Special/application-direct rules
+  after advertising; only explicit native local exceptions retain local priority.

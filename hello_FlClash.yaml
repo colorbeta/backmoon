@@ -167,14 +167,14 @@ proxy-groups:
   tolerance: 80
   lazy: false
 rules:
-# Local exceptions, advertising, dedicated services, domestic and broad fallback.
+# Manual deny, LAN, ads, Special/application direct, services and final fallback.
+- RULE-SET,Forbid,REJECT
 - IP-CIDR,192.168.50.0/24,DIRECT,no-resolve
 - RULE-SET,Private,DIRECT
 - RULE-SET,LanCIDR,DIRECT,no-resolve
+- RULE-SET,adblock,REJECT
 - RULE-SET,Special,DIRECT
 - RULE-SET,Applications,DIRECT
-- RULE-SET,Forbid,REJECT
-- RULE-SET,adblock,REJECT
 - RULE-SET,SteamCN,DIRECT
 - RULE-SET,DomesticMedia,DIRECT
 - RULE-SET,GitHub,LocalFly

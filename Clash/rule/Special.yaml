@@ -1,5 +1,5 @@
 payload:
-# Exact compatibility allowlist. This set is evaluated before advertising.
+# Exact compatibility direct list. Forbid and advertising are evaluated first.
 # Never add broad analytics exceptions or shared CDN roots here.
 - captive.apple.com
 - www.msftconnecttest.com

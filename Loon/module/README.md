@@ -29,7 +29,7 @@ This is a static review, not a security certification. The retrieved plugins mos
 
 All plugins are listed in both public and private Loon profiles. Generate, install and trust your own CA in Loon to use HTTPS rewriting. No CA material is included and upstream server certificate verification is not disabled. Targeted decrypted requests/responses can contain account, message, purchase or location data. Never publish tokens, CA keys, captures or persistent storage. Public weather API token placeholders are empty.
 
-BlockAdvertisers is the first plugin, then the loopback plugin. Main-profile Special DIRECT entries are repeated locally so they take precedence over plugin rules as well as remote advertising lists. Avoid overlapping ad/script plugins when diagnosing failures. Blocking HTTPDNS is not a guarantee that every app obeys the configured DNS service.
+BlockAdvertisers is the first plugin, then the loopback plugin. Special is no longer copied into local DIRECT rules: remote adblocking now precedes Special, and plugin adblocks can also reject overlapping Special domains. Forbid is the first remote resource, followed by LAN, Lite ads and Special. Native local and plugin rule precedence still applies. Avoid overlapping ad/script plugins when diagnosing failures. Blocking HTTPDNS is not a guarantee that every app obeys the configured DNS service.
 
 The final traffic policy remains LocalFly, not DIRECT. No node-name exclusion filter was added in this change. Excluding metadata or special-purpose nodes changes candidate membership, not the fallback traffic policy.
 

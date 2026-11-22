@@ -8,7 +8,7 @@ See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md) for default 
 
 - Business destinations are REJECT, DIRECT, LocalFly, and ForeignFly. Five Auto groups expose regional status.
 - Regional latency checks run every 600 seconds. ForeignFly defaults to Auto_SG; Auto_JP and Auto_US are manual alternatives, not an automatic cross-region priority chain.
-- LAN and Special direct exceptions precede advertising. Dedicated services precede Domestic, Technology, and the final fallback.
+- Remote resource order is Forbid, LAN, advertising, Special, then dedicated services and broad fallback. An adblock match wins over Special; native local exceptions retain their own platform precedence.
 - GitHub, including Copilot, uses LocalFly. Google and overseas AI use ForeignFly; mainland AI uses DIRECT.
 - Special routes selected Apple/Microsoft downloads and updates directly without bypassing all shared CDNs.
 - Encrypted DNS, no-system, and no-ipv6 are enabled. Device-level DNS verification is still required.

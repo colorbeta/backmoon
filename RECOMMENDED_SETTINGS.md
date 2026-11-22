@@ -29,6 +29,11 @@ there is no additional proxy group. Maintain Clash/rule/Forbid.yaml and its
 native exports. The first rule blocks exactly play.googleapis.com, including
 legitimate uses, not other googleapis.com hosts. See [rule notes](Clash/rule/SOURCES.md).
 
+The configured order is Forbid, LAN, adblock, Special, application-direct,
+dedicated services and broad fallback. Special does not bypass advertising.
+Loon's former local Special copy was removed; native local/plugin priority
+still needs to be considered when adding future exceptions.
+
 | Item | Loon | Stash | QuanX | FlClash |
 | --- | --- | --- | --- | --- |
 | Normal routing | Rule mode | Rule mode | Rule/filter mode | Rule mode |
