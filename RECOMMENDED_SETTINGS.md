@@ -24,6 +24,11 @@ Engine defaults above are not claims about a fresh FlClash installation's UI. Fl
 
 ## Cross-Client Checklist
 
+An exact manual rule for play.googleapis.com now precedes adblocking and uses
+the forbid selector with REJECT as its only candidate. This wrapper is not a
+fifth network exit. The block is hostname-wide, including legitimate uses;
+it does not match other googleapis.com hosts. See [rule notes](Clash/rule/SOURCES.md).
+
 | Item | Loon | Stash | QuanX | FlClash |
 | --- | --- | --- | --- | --- |
 | Normal routing | Rule mode | Rule mode | Rule/filter mode | Rule mode |

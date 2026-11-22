@@ -40,6 +40,18 @@ Mixed domain/IP/keyword collections remain YAML.
 
 ## Platform Layout And Priority
 
+An explicit exact-domain deny for play.googleapis.com precedes advertising
+in all platform profiles. It targets the forbid selector, whose only member
+is REJECT; this is a named wrapper, not a new network exit. Other Google
+domains and subdomains are not covered by this exact match. QX places the
+local host rule before remote resources; Loon uses its first local rule.
+The requested X post could not be retrieved, so its claims were not verified.
+Google documents this host for Chrome logs and a connectivity-test alternative:
+https://support.google.com/chrome/a/answer/6350036?hl=en
+https://support.google.com/chrome/a/answer/6334001?hl=en
+Blocking the entire hostname also affects those uses; this is not a claim
+that the hostname is exclusively a tracker or that all DNS leakage is solved.
+
 Special remains the shared DIRECT exception set before adblocking. It is
 grouped into exact compatibility allowlist, Apple update/content download,
 Microsoft update/download, and user exceptions without adding policy groups.
