@@ -110,6 +110,16 @@ The profile enables strict TUN routing, DNS interception, encrypted split DNS an
 
 ## Verification After Applying Settings
 
+For T3 Connect/cloudflared troubleshooting, Special directs argotunnel.com,
+cfargotunnel.com and t3coderelay.com, with matching real-address/Fake-IP
+exceptions in each profile. Import the updated profile as well as refreshing
+Special: a ruleset refresh alone does not add DNS exceptions. Do not disable
+Fake IP globally or proxy all traffic on a tunnel port. If the local network
+blocks outgoing 7844, DIRECT rules alone cannot make that tunnel reachable.
+This follows a [community report](https://linux.do/t/topic/3206018) with the
+[Cloudflare port requirements](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-with-firewall/)
+checked separately; no live tunnel test was performed.
+
 1. Confirm the active profile and rule mode. Avoid another VPN or DNS-interception tool competing for the same traffic.
 2. Confirm private subscription resources load and each expected region has usable candidates. Do not enable public placeholders.
 3. Check a mainland domain uses DIRECT, ChatGPT/Google use ForeignFly, GitHub uses LocalFly, and specified update hosts use Special/DIRECT.

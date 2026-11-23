@@ -4,6 +4,18 @@
 
 - `Special.yaml`: locally maintained direct-first domains, including system
   and application-store update services.
+- T3 Connect tunnel compatibility: argotunnel.com, cfargotunnel.com and
+  t3coderelay.com use Special/DIRECT. The profiles also exclude their root
+  names and/or subdomains from Fake IP using each client's supported form:
+  YAML fake-ip-filter, Loon real-ip, QuanX dns_exclusion_list. No global
+  Fake-IP disable, process-wide bypass or broad Cloudflare DIRECT rule was added.
+  Reference: https://linux.do/t/topic/3206018 (community troubleshooting report,
+  not a guarantee that Fake IP is always incompatible with cloudflared).
+  Cloudflare documents outgoing TCP/UDP 7844 for tunnel transport:
+  https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/configure-tunnels/tunnel-with-firewall/
+  Direct reachability and native DNS behavior still require device testing.
+  Forbid and advertising keep their earlier positions. T3 Code's t3.codes
+  domain remains in AI/ForeignFly; it is distinct from the relay domain.
 - `Applications.yaml`: Loyalsoldier `applications.txt` plus locally maintained
   GameViewer process names; these applications use direct connections.
 - `Private.yaml` and `LanCIDR.yaml`: Loyalsoldier private-network rules.

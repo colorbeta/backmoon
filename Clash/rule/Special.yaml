@@ -57,4 +57,7 @@ payload:
 - definitionupdates.microsoft.com
 - +.api.cdp.microsoft.com
 # User-maintained direct exceptions.
+- +.argotunnel.com
+- +.cfargotunnel.com
+- +.t3coderelay.com
 - +.oracle.com

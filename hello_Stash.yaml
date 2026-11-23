@@ -62,6 +62,10 @@ dns:
     "+.steamcommunity.com": *foreign_dns
     "+.steamstatic.com": *foreign_dns
   fake-ip-filter:
+  # T3 Connect / Cloudflare Tunnel need real destination addresses.
+  - +.argotunnel.com
+  - +.cfargotunnel.com
+  - +.t3coderelay.com
   - '*.lan'
   - '*.local'
   - localhost.ptlogin2.qq.com

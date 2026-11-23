@@ -53,4 +53,7 @@ DOMAIN-SUFFIX,update.microsoft.com
 DOMAIN-SUFFIX,windowsupdate.com
 DOMAIN,definitionupdates.microsoft.com
 DOMAIN-SUFFIX,api.cdp.microsoft.com
+DOMAIN-SUFFIX,argotunnel.com
+DOMAIN-SUFFIX,cfargotunnel.com
+DOMAIN-SUFFIX,t3coderelay.com
 DOMAIN-SUFFIX,oracle.com
