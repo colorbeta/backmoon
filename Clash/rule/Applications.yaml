@@ -1,4 +1,6 @@
 payload:
+  - PROCESS-NAME,easytier-core
+  - PROCESS-NAME,easytier-core.exe
   - PROCESS-NAME,frpc
   - PROCESS-NAME,frpc.exe
   - PROCESS-NAME,frps
