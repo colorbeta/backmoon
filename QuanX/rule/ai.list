@@ -40,8 +40,6 @@ host-suffix,claude.ai,ForeignFly
 host-suffix,claude.com,ForeignFly
 host-suffix,claudeusercontent.com,ForeignFly
 host,gateway.ai.cloudflare.com,ForeignFly
-host-suffix,microsoftonline.com,ForeignFly
-host,copilot.microsoft.com,ForeignFly
 host-suffix,cursor.sh,ForeignFly
 host-suffix,diabrowser.engineering,ForeignFly
 host-suffix,dify.ai,ForeignFly
@@ -129,7 +127,6 @@ host-suffix,cohere.com,ForeignFly
 host-suffix,comfy.org,ForeignFly
 host-suffix,comfyci.org,ForeignFly
 host-suffix,comfyregistry.org,ForeignFly
-host-suffix,copilot.microsoft.com,ForeignFly
 host-suffix,coze.com,ForeignFly
 host-suffix,crewai.com,ForeignFly
 host-suffix,crixet.com,ForeignFly

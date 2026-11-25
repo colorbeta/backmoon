@@ -6,11 +6,11 @@ See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md) for default 
 
 ## Current Design
 
-- Business destinations are REJECT, DIRECT, LocalFly, and ForeignFly. Five Auto groups expose regional status.
+- Business destinations are REJECT, DIRECT, LocalFly, ForeignFly and MicroSoft. MicroSoft is a static selector defaulting to direct, with either Fly policy and individual regions as alternatives. Five Auto groups expose regional status.
 - Regional latency checks run every 600 seconds. ForeignFly defaults to Auto_SG; Auto_JP and Auto_US are manual alternatives, not an automatic cross-region priority chain.
 - Remote resource order is Forbid, LAN, advertising, Special, then dedicated services and broad fallback. An adblock match wins over Special; native local exceptions retain their own platform precedence.
 - GitHub, including Copilot, uses LocalFly. Google and overseas AI use ForeignFly; mainland AI uses DIRECT.
-- Special routes selected Apple/Microsoft downloads and updates directly without bypassing all shared CDNs.
+- Special routes selected Apple downloads and updates directly without bypassing all shared CDNs. Microsoft, Live, Windows, Outlook, Office, OneDrive, Bing and Microsoft Copilot use MicroSoft, including Microsoft updates. GitHub Copilot and precise OpenAI/GitHub cloud-tenant matches keep their earlier policies.
 - Encrypted DNS, no-system, and no-ipv6 are enabled. Device-level DNS verification is still required.
 - Device reflection requires Quantumult X 1.9.0 build 952+ or a compatible later release.
 - Rewrite, task, and HTTP backend sections are empty. Third-party tasks and MITM are not enabled by default.

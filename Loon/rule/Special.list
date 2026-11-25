@@ -1,9 +1,6 @@
 # Generated from Special.yaml. Policy is assigned by the profile.
 # iOS exports omit process-name matching.
 DOMAIN,captive.apple.com
-DOMAIN,www.msftconnecttest.com
-DOMAIN,dns.msftncsi.com
-DOMAIN,www.msftncsi.com
 DOMAIN,certs.apple.com
 DOMAIN,crl.apple.com
 DOMAIN,ocsp.apple.com
@@ -36,23 +33,6 @@ DOMAIN,download.developer.apple.com
 DOMAIN-SUFFIX,apps.apple.com
 DOMAIN-SUFFIX,itunes.apple.com
 DOMAIN-SUFFIX,mzstatic.com
-DOMAIN,adl.windows.com
-DOMAIN,ctldl.windowsupdate.com
-DOMAIN,download.windowsupdate.com
-DOMAIN,emdl.ws.microsoft.com
-DOMAIN,tsfe.trafficshaping.dsp.mp.microsoft.com
-DOMAIN-SUFFIX,b1.download.windowsupdate.com
-DOMAIN-SUFFIX,cdn.office.net
-DOMAIN-SUFFIX,delivery.mp.microsoft.com
-DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com
-DOMAIN-SUFFIX,download.microsoft.com
-DOMAIN-SUFFIX,download.windowsupdate.com
-DOMAIN-SUFFIX,officecdn.microsoft.com
-DOMAIN-SUFFIX,prod.do.dsp.mp.microsoft.com
-DOMAIN-SUFFIX,update.microsoft.com
-DOMAIN-SUFFIX,windowsupdate.com
-DOMAIN,definitionupdates.microsoft.com
-DOMAIN-SUFFIX,api.cdp.microsoft.com
 DOMAIN-SUFFIX,argotunnel.com
 DOMAIN-SUFFIX,cfargotunnel.com
 DOMAIN-SUFFIX,t3coderelay.com

@@ -87,6 +87,9 @@ proxy-providers:
       interval: 600
       url: https://www.gstatic.com/generate_204
 proxy-groups:
+- name: MicroSoft
+  type: select
+  proxies: [DIRECT, LocalFly, ForeignFly, Auto_HK, Auto_TW, Auto_JP, Auto_SG, Auto_US]
 - name: LocalFly
   icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/LocalFly.png
   type: select
@@ -186,6 +189,7 @@ rules:
 - RULE-SET,ForeignMedia,LocalFly
 - RULE-SET,Google,ForeignFly
 - AND,((RULE-SET,ai),(NOT,((RULE-SET,Domestic)))),ForeignFly
+- RULE-SET,MicroSoft,MicroSoft
 - RULE-SET,Telegram,LocalFly
 - RULE-SET,Steam,LocalFly
 - RULE-SET,apple,LocalFly
@@ -196,6 +200,12 @@ rules:
 - GEOIP,CN,DIRECT,no-resolve
 - MATCH,LocalFly
 rule-providers:
+  MicroSoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/rule/MicroSoft.yaml
+    path: ./Clash/rule/MicroSoft.yaml
+    interval: 86400
   Forbid:
     type: http
     behavior: classical

@@ -1,9 +1,6 @@
 # Generated from Special.yaml. Policy is assigned by the profile.
 # iOS exports omit process-name matching.
 host,captive.apple.com,direct
-host,www.msftconnecttest.com,direct
-host,dns.msftncsi.com,direct
-host,www.msftncsi.com,direct
 host,certs.apple.com,direct
 host,crl.apple.com,direct
 host,ocsp.apple.com,direct
@@ -36,23 +33,6 @@ host,download.developer.apple.com,direct
 host-suffix,apps.apple.com,direct
 host-suffix,itunes.apple.com,direct
 host-suffix,mzstatic.com,direct
-host,adl.windows.com,direct
-host,ctldl.windowsupdate.com,direct
-host,download.windowsupdate.com,direct
-host,emdl.ws.microsoft.com,direct
-host,tsfe.trafficshaping.dsp.mp.microsoft.com,direct
-host-suffix,b1.download.windowsupdate.com,direct
-host-suffix,cdn.office.net,direct
-host-suffix,delivery.mp.microsoft.com,direct
-host-suffix,dl.delivery.mp.microsoft.com,direct
-host-suffix,download.microsoft.com,direct
-host-suffix,download.windowsupdate.com,direct
-host-suffix,officecdn.microsoft.com,direct
-host-suffix,prod.do.dsp.mp.microsoft.com,direct
-host-suffix,update.microsoft.com,direct
-host-suffix,windowsupdate.com,direct
-host,definitionupdates.microsoft.com,direct
-host-suffix,api.cdp.microsoft.com,direct
 host-suffix,argotunnel.com,direct
 host-suffix,cfargotunnel.com,direct
 host-suffix,t3coderelay.com,direct

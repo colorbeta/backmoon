@@ -122,7 +122,7 @@ checked separately; no live tunnel test was performed.
 
 1. Confirm the active profile and rule mode. Avoid another VPN or DNS-interception tool competing for the same traffic.
 2. Confirm private subscription resources load and each expected region has usable candidates. Do not enable public placeholders.
-3. Check a mainland domain uses DIRECT, ChatGPT/Google use ForeignFly, GitHub uses LocalFly, and specified update hosts use Special/DIRECT.
+3. Check a mainland domain uses DIRECT, ChatGPT/Google use ForeignFly, GitHub uses LocalFly, Apple update hosts use Special/DIRECT, and Microsoft/Live/Windows/Outlook hosts use MicroSoft with DIRECT selected by default. Microsoft updates and Microsoft Copilot follow that same selector; GitHub Copilot remains on the GitHub policy.
 4. Reconnect after tunnel changes. During DNS diagnostics, account for browser Secure DNS, Android Private DNS and app-owned DoH; disabling them temporarily for a controlled test is not a universal security recommendation.
 5. Inspect actual DNS requests and connection exits on Wi-Fi and cellular. One leak-test webpage cannot establish all-app behavior.
 6. Test any sideloaded tool independently. Reflection is not the same as DIRECT routing or DNS loopback rejection.

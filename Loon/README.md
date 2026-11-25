@@ -10,7 +10,7 @@ See [cross-client recommended settings](../RECOMMENDED_SETTINGS.md), especially 
 - [module](module/): loopback and selected application plugins; see the [review and activation table](module/README.md).
 - [Shared icons and attribution](../icon/README.md).
 
-Business destinations are REJECT, DIRECT, LocalFly and ForeignFly. Five Auto region groups test every 600 seconds. LocalFly combines TW/HK/JP/SG; ForeignFly allows SG/JP/US.
+Business destinations are REJECT, DIRECT, LocalFly, ForeignFly and MicroSoft. MicroSoft defaults to DIRECT and can select either Fly policy or an individual region. Its native list includes Microsoft, Live, Windows, Outlook, Office, OneDrive, Bing and Microsoft Copilot; Microsoft updates are no longer in Special. Five Auto region groups test every 600 seconds. LocalFly combines TW/HK/JP/SG; ForeignFly allows SG/JP/US.
 
 ForeignFly-AUTO selects Auto_SG, Auto_JP, Auto_US in fallback order. Each region uses url-test with 600-second checks and 80 ms switching tolerance. Singapore's regional latency choice is preferred, then Japan and the US. Tolerance can retain a current node when another is only slightly faster. Native nested-policy behavior still needs device validation.
 

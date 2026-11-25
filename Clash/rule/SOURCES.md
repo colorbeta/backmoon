@@ -2,8 +2,17 @@
 
 ## Organized rules
 
-- `Special.yaml`: locally maintained direct-first domains, including system
-  and application-store update services.
+- `Special.yaml`: locally maintained direct-first exceptions and Apple
+  system/application-store update services. Microsoft updates are in MicroSoft.
+- `MicroSoft.yaml`: Microsoft/OneDrive domain rules extracted from Technology,
+  Microsoft update/connectivity domains moved from Special, and Microsoft login
+  and Copilot domains moved from AI. The MicroSoft selector defaults to DIRECT
+  and permits LocalFly, ForeignFly or an individual regional group. It includes
+  Live, Windows, Outlook, Office, Bing and Phone Link's dcg.microsoft.com.
+  Shared CDN/hosting roots and separately owned services are not reclassified
+  as Microsoft merely because they occurred in the legacy Microsoft block.
+  GitHub Copilot and precise OpenAI/GitHub cloud-tenant rules retain priority.
+  Finite domain regexes expand in native lists and the domain-only MRS export.
 - T3 Connect tunnel compatibility: argotunnel.com, cfargotunnel.com and
   t3coderelay.com use Special/DIRECT. The profiles also exclude their root
   names and/or subdomains from Fake IP using each client's supported form:
@@ -30,8 +39,8 @@
   provider and the `LocalFly` policy.
 - Repeated country suffixes in the Google, GitHub, Telegram, bank, domestic
   media, and technology lists use anchored regexes with explicit suffixes.
-- `Technology.yaml`: merged technology rules retained as a fallback for
-  Microsoft, OneDrive, PayPal, and dependencies not caught earlier.
+- `Technology.yaml`: remaining technology rules retained as a fallback for
+  PayPal, shared cloud/CDN infrastructure and dependencies not caught earlier.
 - `Domestic.yaml`: unified local direct exceptions, domestic AI and banks,
   the complete dler Domestic rules, and the former DomesticExtra remainder.
   Exact duplicate rules are removed. Updated against dler Domestic,
@@ -80,9 +89,9 @@ that the hostname is exclusively a tracker or that all DNS leakage is solved.
 
 Special remains the shared DIRECT service set after adblocking. It is
 grouped into exact compatibility allowlist, Apple update/content download,
-Microsoft update/download, and user exceptions without adding policy groups.
-Connectivity and certificate checks use exact hosts; ordinary Apple/Microsoft
-services keep their existing routes. No blanket akamaized.net/edgesuite.net
+and user exceptions. Microsoft update/download and Windows connectivity
+domains now use the separate MicroSoft policy, defaulting to DIRECT.
+Apple connectivity and certificate checks use exact hosts. No blanket akamaized.net/edgesuite.net
 exception, analytics allowlist, public CA private key, or TLS interception
 was added. Direct reachability still depends on the user's network.
 Endpoint references:

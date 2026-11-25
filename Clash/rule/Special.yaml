@@ -2,9 +2,6 @@ payload:
 # Exact compatibility direct list. Forbid and advertising are evaluated first.
 # Never add broad analytics exceptions or shared CDN roots here.
 - captive.apple.com
-- www.msftconnecttest.com
-- dns.msftncsi.com
-- www.msftncsi.com
 - certs.apple.com
 - crl.apple.com
 - ocsp.apple.com
@@ -38,24 +35,6 @@ payload:
 - +.apps.apple.com
 - +.itunes.apple.com
 - +.mzstatic.com
-# Microsoft Windows/Store/Office/Edge downloads, not account/cloud services.
-- adl.windows.com
-- ctldl.windowsupdate.com
-- download.windowsupdate.com
-- emdl.ws.microsoft.com
-- tsfe.trafficshaping.dsp.mp.microsoft.com
-- +.b1.download.windowsupdate.com
-- +.cdn.office.net
-- +.delivery.mp.microsoft.com
-- +.dl.delivery.mp.microsoft.com
-- +.download.microsoft.com
-- +.download.windowsupdate.com
-- +.officecdn.microsoft.com
-- +.prod.do.dsp.mp.microsoft.com
-- +.update.microsoft.com
-- +.windowsupdate.com
-- definitionupdates.microsoft.com
-- +.api.cdp.microsoft.com
 # User-maintained direct exceptions.
 - +.argotunnel.com
 - +.cfargotunnel.com

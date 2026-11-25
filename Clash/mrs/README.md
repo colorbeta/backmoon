@@ -12,6 +12,7 @@ Editable sources are in Clash/rule; supported binary exports are in Clash/mrs. M
 | github.yaml | YAML only | GitHub, Copilot, related dependencies and anchored regex | LocalFly |
 | google.yaml | YAML only | Google domains, IPs and FCM | ForeignFly |
 | LanCIDR.yaml | LanCIDR.mrs | Private IP ranges | DIRECT |
+| MicroSoft.yaml | MicroSoft.mrs | Microsoft, Live, Windows, Outlook and related services; finite regexes expand for binary export | MicroSoft (DIRECT by default) |
 | Private.yaml | Private.mrs | Private-network domains | DIRECT |
 | Special.yaml | Special.mrs | Precise exceptions and update/download services | DIRECT |
 | steam.yaml | steam.mrs | Steam services | LocalFly |
@@ -30,7 +31,7 @@ MRS can compact duplicate suffixes and merge IP ranges, so decoded counts need n
 
 ## Groups
 
-Business destinations are REJECT, DIRECT, LocalFly and ForeignFly. LocalFly allows TW/HK/JP/SG; ForeignFly allows SG/JP/US. Visible groups are Auto_HK, Auto_TW, Auto_JP, Auto_SG and Auto_US, with 600-second checks and 80 ms switching tolerance.
+Business destinations are REJECT, DIRECT, LocalFly, ForeignFly and MicroSoft. MicroSoft defaults to DIRECT and can select LocalFly, ForeignFly or an individual region. LocalFly allows TW/HK/JP/SG; ForeignFly allows SG/JP/US. Visible groups are Auto_HK, Auto_TW, Auto_JP, Auto_SG and Auto_US, with 600-second checks and 80 ms switching tolerance.
 
 In Mihomo profiles, ForeignFly-AUTO uses ordered SG-to-JP-to-US fallback; each region uses latency selection. Loon and QuanX have different native behavior documented in their READMEs. Process rules only work where the client can identify the originating process, not on a bypass router observing Windows traffic.
 
@@ -43,6 +44,8 @@ mihomo convert-ruleset domain yaml Clash/rule/Special.yaml Clash/mrs/Special.mrs
 ~~~
 
 Classical DOMAIN, DOMAIN-SUFFIX and IP-CIDR entries must first be normalized to plain domain/IP payloads. Local conversion tooling is maintained outside the public Git repository.
+
+MicroSoft keeps compact, finite country-suffix regexes in its editable classical YAML. The conversion tool reads its generated native domain list, expands those finite alternatives, and builds a domain-only MRS with equivalent matches. Regenerate native exports before this binary conversion. Stash uses the original classical YAML.
 
 ## Match Data And Policies
 

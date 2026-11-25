@@ -76,6 +76,9 @@ dns:
     "rule-set:Domestic":
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    "rule-set:MicroSoft":
+    - https://dns.alidns.com/dns-query#MicroSoft
+    - https://doh.pub/dns-query#MicroSoft
     "rule-set:Technology":
     - https://1.1.1.1/dns-query#LocalFly
     - https://8.8.8.8/dns-query#LocalFly
@@ -92,6 +95,9 @@ proxy-providers:
       interval: 600
       url: https://www.gstatic.com/generate_204
 proxy-groups:
+- name: MicroSoft
+  type: select
+  proxies: [DIRECT, LocalFly, ForeignFly, Auto_HK, Auto_TW, Auto_JP, Auto_SG, Auto_US]
 - name: LocalFly
   icon: https://raw.githubusercontent.com/colorbeta/backmoon/test/icon/LocalFly.png
   type: select
@@ -185,6 +191,7 @@ rules:
 - RULE-SET,ForeignMedia,LocalFly
 - RULE-SET,Google,ForeignFly
 - AND,((RULE-SET,ai),(NOT,((RULE-SET,Domestic)))),ForeignFly
+- RULE-SET,MicroSoft,MicroSoft
 - RULE-SET,Telegram,LocalFly
 - RULE-SET,Steam,LocalFly
 - RULE-SET,apple,LocalFly
@@ -195,6 +202,13 @@ rules:
 - GEOIP,CN,DIRECT,no-resolve
 - MATCH,LocalFly
 rule-providers:
+  MicroSoft:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/colorbeta/backmoon/test/Clash/mrs/MicroSoft.mrs
+    path: ./Clash/mrs/MicroSoft.mrs
+    interval: 86400
+    format: mrs
   Forbid:
     type: http
     behavior: classical
